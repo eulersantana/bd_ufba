@@ -19,6 +19,46 @@ class Academico {
 		$this->codigoDepartamento = null;
 	}
 	
+	public function createTable() {
+		$sql = "create table ".__CLASS__." (
+		codigo char(15) not null,
+		nome varchar(50),
+		endereco varchar(100),
+		nascimento date,
+		telefone varchar(10),
+		DPTO char(10),
+		primary key(codigo)
+		)";
+	
+		return $sql;
+	}
+	
+	public function inserir() {
+		$sql = "insert into ".__CLASS__." (codigo, nome, endereco, nascimento,
+		telefone, DPTO)
+		values ('".$this->codigo."','".$this->nome."',
+		'".$this->endereco."','".$this->nascimento."',
+		'".$this->telefone."','".$this->codigoDepartamento."')";
+	
+		return $sql;
+	}
+	
+	public function delete() {
+		$sql = "delete from ".__CLASS__." where codigo = '".$this->codigo."'";
+		return $sql;
+	}
+	
+	public function atualizar() {
+	
+	}
+	
+	public selecionar() {
+	
+	}
+	
+	//*******************************************************************
+	//*******************************************************************
+	
 	public function setCodigo($newCodigo) {
 		$this->codigo = $newCodigo;
 	}
@@ -65,31 +105,5 @@ class Academico {
 	
 	public function getCodigoDepartamento() {
 		return $this->codigoDepartamento;
-	}
-	
-	//*******************************************************************
-	//*******************************************************************
-	
-	public function inserir() {
-		$sql = "insert into academico (codigo, nome, endereco, nascimento,
-					telefone, DPTO)
-				values ('".$this->codigo."','".$this->nome."',
-					'".$this->endereco."','".$this->nascimento."',
-					'".$this->telefone."','".$this->codigoDepartamento."')";
-		
-		return $sql;
-	}
-	
-	public function delete() {
-		$sql = "delete from academico where codigo = '".$this->codigo."'";	
-		return $sql;
-	}
-	
-	public function atualizar() {
-		
-	}
-	
-	public selecionar() {
-		
 	}
 }

@@ -39,4 +39,13 @@ class MySQL extends Banco {
     public function isConectado() {
         return (self::$_instancia && $this->conectado && $this->baseSelecionada);
     }
+    
+    //***************************************************************************
+    //***************************************************************************
+    
+    public function execute($sql) {
+    	if ($this->isConectado()) {
+    		return mysql_query($sql, $this->conectado);
+    	}
+    }
 }
