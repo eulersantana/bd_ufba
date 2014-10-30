@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script src='js/formulario.js' charset='utf-8'></script>
+
+<title>Cadastro de Evento</title>
+</head>
+
+<body>
+<form id='formum 'action="cadastrophp.php" method="post" class='form-evento'>
+  <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Cadastro de Evento</legend>
+    
+    <!-- Text input-->
+    <div class='control-group'>
+      <label class='control-label' for='nomeEvento'>Nome do Evento</label>
+      <div class='controls'>
+        <input id='nomeEvento' name='nomeEvento' type='text' autofocus >
+      </div>
+    </div>
+    
+    <!-- File Button -->
+    <div class='control-group'>
+      <label class='control-label' for='filebutton'>Cartaz do Evento</label>
+      <div class='controls'>
+        <input id='filebutton' name='filebutton' class='input-file' type='file' accept="image/*">
+      </div>
+    </div>
+    
+    <!--Data--> 
+    <!--Inicio-->
+    <div class='control-group'>
+      <label class='control-label' for='dataInicioEvento'>Inicio</label>
+      <!--<input id='dataInicioEvento' type='date'>-->
+      <input type='date' name='inicio' >
+    </div>
+    
+    <!--Data--> 
+    <!--Fim-->
+    <div class='control-group'>
+      <label class='control-label' for='dataFimEvento'>Fim</label>
+      <input type='date' name='fim'>
+    </div>
+    
+    <!-- Textarea -->
+    <div class='control-group'>
+      <label class='control-label' for='descricaoEvento'>Descrição</label>
+      <div class='controls'>
+        <textarea id='descricaoEvento' name='descricaoEvento'></textarea>
+      </div>
+    </div>
+    
+    <!-- Academico --> 
+    <!-- Nome do Responsável -->
+    <div class='control-group'>
+      <label class='control-label' for='nomeResponsavel'>Nome do Responsável</label>
+      <div class='controls'>
+        <input id='nomeResponsavel' name='nomeResponsavel' type='text'   >
+      </div>
+    </div>
+    
+    <!-- Academico --> 
+    <!-- Endereço do Responsável -->
+    <div class='control-group'>
+      <label class='control-label' for='enderecoResponsavel'>Enedereço do Responsável</label>
+      <div class='controls'>
+        <input id='enderecoresponsavel' name='enderecoResponsavel' type='text'  >
+      </div>
+    </div>
+    
+    <!-- Academico --> 
+    <!-- Data Nascimento Responsável-->
+    <div class='control-group'>
+      <label class='control-label' for='dataNascResponsavel'>Data de Nascimento</label>
+      <div class='controls'>
+        <input type='date' name='bday'>
+      </div>
+    </div>
+    
+    <!-- Academico --> 
+    <!-- Telefone Responsável-->
+    <div class='control-group'>
+      <label class='control-label' for='telefoneResponsavel'>Telefone do Responsável</label>
+      <div class='controls'>
+        <input type='number' name='telefoneResponsavel'>
+      </div>
+    </div>
+    
+    <!-- Academico --> 
+    <!-- Matríciula Responsável-->
+    <div class='control-group'>
+      <label class='control-label' for='matriculaResponsavel'>Matrícula do Responsável</label>
+      <div class='controls'>
+        <input type='number' name='matriculaResponsavel' >
+      </div>
+    </div>
+    
+    <!-- Academico --> 
+    <!-- Curso do Responsável -->
+    <div class='control-group'>
+      <label class='control-label' for='cursoResponsavel'>Curso do Responsável</label>
+      <div class='controls'>
+        <input id='cursoResponsavel' name='cursoResponsavel' type='text'   >
+      </div>
+    </div>
+    
+    <!-- Academico --> 
+    <!-- Siape Responsável-->
+    <div class='control-group'>
+      <label class='control-label' for='siapeResponsavel'>Siape do Responsável</label>
+      <div class='controls'>
+        <input type='number' name='siapeResponsavel' min='0' max='9' >
+      </div>
+    </div>
+  </fieldset>
+  <input type="submit" />
+</form>
+
+<!--Fim Formulário de Informações Gerais-->
+<p> Defina suas atividades abaixo: </p>
+
+<!--------------------------------Cronograma-------------------------------------------->
+<form id='activ'>
+  <fieldset>
+    <div class='cronograma' style='width 194px; padding:12px; border: 1px solid black;text-align:left'> 
+      <!-- Text input-->
+      <div class='control-group'>
+        <label class='control-label' for='nomeAtividade'>Nome da Atividade</label>
+        <div class='controls'>
+          <input id='nomeAtividade' name='nomeAtividade' type='text'  >
+        </div>
+      </div>
+      
+      <!--Data--> 
+      <!--Inicio-->
+      <div class='control-group'>
+        <label class='control-label' for='dataAtividade'>Data </label>
+        <input id='dataAtividade' type='date'>
+        <!--  <input type='date' name='inicio' >--> 
+      </div>
+      
+      <!-- Descrição -->
+      <div class='control-group'>
+        <label class='control-label' for='descricaoAtividade'>Descrição</label>
+        <div class='controls'>
+          <textarea id='descricaoAtividade' name='descricaoAtividade'></textarea>
+        </div>
+      </div>
+      
+      <!-- Localidade - Endereço -->
+      <div class='control-group'>
+        <label class='control-label' for='enderecoLocalidade'>Localidade</label>
+        <div class='controls'>
+          <input id='enderecoLocalidade' name='enderecoLocalidade' type='text'    >
+        </div>
+      </div>
+      
+      <!-- Button Drop Down -->
+      <div class='control-group'>
+        <label class='control-label' for='buttonDepartamento'>Campus</label>
+        <div class='controls'>
+          <div class='input-append'>
+            <ul class='dropdown-menu'>
+              <select name='campus'>
+                <option value='volvo'>Volvo</option>
+                <option value='saab'>Saab</option>
+                <option value='mercedes'>Mercedes</option>
+                <option value='audi'>Audi</option>
+              </select>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Button Drop Down -->
+      <div class='control-group'>
+        <label class='control-label' for='buttonDepartamento'>Instalação</label>
+        <div class='controls'>
+          <div class='input-append'>
+            <ul class='dropdown-menu'>
+              <select name='instalacao'>
+                <option value='volvo'>Volvo</option>
+                <option value='saab'>Saab</option>
+                <option value='mercedes'>Mercedes</option>
+                <option value='audi'>Audi</option>
+              </select>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Button Drop Down -->
+      <div class='control-group'>
+        <label class='control-label' for='buttonDepartamento'>Departamento</label>
+        <div class='controls'>
+          <div class='input-append'>
+            <ul class='dropdown-menu'>
+              <select name='departamento'>
+                <option value='volvo'>Volvo</option>
+                <option value='saab'>Saab</option>
+                <option value='mercedes'>Mercedes</option>
+                <option value='audi'>Audi</option>
+              </select>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+<button type='button' id='add_button'>Adicionar uma Nova Atividade</button>
+
+<!--Fim Formulário de Atividade-->
+
+</body>
+</html>
