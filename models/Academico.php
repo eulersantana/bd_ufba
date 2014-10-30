@@ -10,14 +10,13 @@ class Academico {
 	private $telefone;
 	private $codigoDepartamento;
 	
-	public function Academico($codigo, $nome, $endereco, $dataNascimento,
-							  $telefone, $codigoDepartamento) {
-		$this->codigo 			  = $codigo;
-		$this->nome   			  = $nome;
-		$this->endereco 		  = $endereco;
-		$this->dataNascimento 	  = $dataNascimento;
-		$this->telefone 		  = $telefone;
-		$this->codigoDepartamento = $dataDepartamento;
+	public function Academico() {
+		$this->codigo 			  = null;
+		$this->nome   			  = null;
+		$this->endereco 		  = null;
+		$this->dataNascimento 	  = null;
+		$this->telefone 		  = null;
+		$this->codigoDepartamento = null;
 	}
 	
 	public function setCodigo($newCodigo) {
@@ -66,5 +65,31 @@ class Academico {
 	
 	public function getCodigoDepartamento() {
 		return $this->codigoDepartamento;
+	}
+	
+	//*******************************************************************
+	//*******************************************************************
+	
+	public function inserir() {
+		$sql = "insert into academico (codigo, nome, endereco, nascimento,
+					telefone, DPTO)
+				values ('".$this->codigo."','".$this->nome."',
+					'".$this->endereco."','".$this->nascimento."',
+					'".$this->telefone."','".$this->codigoDepartamento."')";
+		
+		return $sql;
+	}
+	
+	public function delete() {
+		$sql = "delete from academico where codigo = '".$this->codigo."'";	
+		return $sql;
+	}
+	
+	public function atualizar() {
+		
+	}
+	
+	public selecionar() {
+		
 	}
 }
