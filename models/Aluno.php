@@ -15,11 +15,11 @@ class Aluno {
 	
 	public function createTable() {
 		$sql = "create table ".__CLASS__." (
-		codigo char(10),
-		matricula char(15),
-		curso varchar(30)
-		primary key(matricula)
-		)";
+					codigo char(10),
+					matricula char(15),
+					curso varchar(30)
+					primary key(matricula)
+				)";
 	
 		return $sql;
 	}

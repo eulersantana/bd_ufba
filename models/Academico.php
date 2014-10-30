@@ -48,13 +48,9 @@ class Academico {
 		return $sql;
 	}
 	
-	public function atualizar() {
+	public function atualizar() { }
 	
-	}
-	
-	public selecionar() {
-	
-	}
+	public selecionar() { }
 	
 	//*******************************************************************
 	//*******************************************************************
