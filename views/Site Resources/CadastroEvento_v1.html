@@ -39,11 +39,14 @@
 											<input id="inputPassword" type="password" placeholder="Digite a sua senha..." />
 										</div>
 									</div>
-									<div class="control-group">
-										<div class="controls">
-											<label class="checkbox"><input type="checkbox" /> Lembrar senha</label>
-											<button class="btn btn-danger " type="submit" data-dismiss="modal">Acessar</button>
-										</div>
+									<div >
+										<label  for='buttonConta'>Conta</label>
+											<div class='controls'>
+												<select>
+													<option value='aluno'>Aluno</option>
+													<option value='aluno'>Professor</option>
+												</select>
+											</div>
 									</div>
 								</form>
 							</ul>
@@ -53,7 +56,28 @@
 				</div>
 			</div>
 		</div>
-		<!--FOrmulario-->
+		<!--Barra lateral de Pesquisa Especializada-->
+		<div class="btn-group-vertical">
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Campus<span class="caret"></span></button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Federação</a></li>
+				</ul>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Instalação<span class="caret"></span></button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">PAF-I</a></li>
+				</ul>
+			</div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Departamento<span class="caret"></span></button>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#">Matemática</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--Formulario-->
 		<ul>
 			<div class ="cadastro">
 				<form class="form-horizontal">
@@ -69,34 +93,11 @@
 							<input id="inputBanner" type='file' accept="image/*" placeholder="Selecione o Banner..." />
 						</div>
 					</div>
+					
 					<div class="control-group">
-						<label class="control-label" for="inputEmail">Data Inicio </label>
-						<div class="controls">
-							<input id="inputInicio" type="date" placeholder="Data de inicio do evento..."  />
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputEmail">Data Fim </label>
-						<div class="controls">
-							<input id="inputFim" type="date" placeholder="Data de fim do evento..." />
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputEmail">Data Descrição </label>
+						<label class="control-label" for="inputEmail">Descrição </label>
 						<div class="controls">
 							<textarea id='descricaoEvento' name='descricaoEvento'></textarea>
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputEmail">Nome do Responsavel </label>
-						<div class="controls">
-							<input id='nomeResonsavel' name='nomeResponsavel' type='text'   >
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="inputEmail">Matricula </label>
-						<div class="controls">
-							<input id="inputMatricula" type="date" placeholder="Insira seu numero de matricula ou SIAPE..."  />
 						</div>
 					</div>
 				</form>
@@ -113,8 +114,16 @@
 									 </div>
 								</div>
 								<div class='control-group'>
-									  <label class='control-label' for='dataAtividade'>Data </label>
-									  <input id='dataAtividade' type='date'>
+									<label class='control-label' for='dataAtividade'>Data </label>
+									<div class='controls'>
+										<input id='dataAtividade' type='date'>
+									</div>
+								</div>
+								<div class='control-group'>
+									<label class='control-label' for='horaAtividade'>Hora </label>
+									<div class='controls'>
+										<input type='time' id='horaAtividade' >
+									<div>
 								</div>
 								<div class='control-group'>
 									<label class='control-label' for='descricaoAtividade'>Descrição</label>
@@ -123,33 +132,29 @@
 									</div>
 								</div>
 								<div >
-									<label  for='buttonDepartamento'>Departamento</label>
+									<label  for='buttonLocalidade'>Localidade</label>
 									<div class='controls'>
 										<select>
 											<option value='volvo'>Volvo</option>
-											<option value='saab'>Saab</option>
-											<option value='mercedes'>Mercedes</option>
-											<option value='audi'>Audi</option>
 										</select>
+										<div >
+											<label  for='buttonLocalidade'>Departamento</label>
+											<div class='controls'>
+												<select>
+													<option value='volvo'>Volvo</option>
+												</select>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div >
-									<label  for='buttonDepartamento'>Instalação</label>
-									<div>
-										<select>
-											<option value='volvo'>Volvo</option>
-											<option value='saab'>Saab</option>
-											<option value='mercedes'>Mercedes</option>
-											<option value='audi'>Audi</option>
-										</select>
-									</div>
-								</div>
+								
 						</fieldset>
 					</form>
 				</ul>
-				<button type='button' id='add_button'>Adicionar uma Nova Atividade</button>
+				<p></p>
+				<p><button type='button' id='add_button'>Adicionar uma Nova Atividade</button></p>
 				<button id="enviarCadastroEvento" name="enviarCadastroEvento">Concluir Cadastro</button>
 			</div>	
 		</ul>
-	</body>
+		</body>
 </html>
