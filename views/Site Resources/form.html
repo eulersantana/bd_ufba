@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Cadastro de Evento - Feito com Bootstrap</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="js/jquery.js"></script>
 		<script src="js/formulario.js"></script>
 	</head>
 	<body>  
@@ -12,7 +12,7 @@
 		<!--Formulario-->
 		<ul>
 			<div class ="cadastro">
-				<form class="form-horizontal">
+				<form class="form-horizontal" id="activ">
 					<div class="control-group">
 						<label class="control-label" for="inputEmail">Nome do Evento</label>
 						<div class="controls">
@@ -32,11 +32,9 @@
 							<textarea id='descricaoEvento' name='descricaoEvento'></textarea>
 						</div>
 					</div>
-				</form>
-				<!--Atividades-->
-				<p> Defina suas atividades abaixo: </p>
-				<ul>
-					<form id='activ'>
+					<!--Atividades-->
+					<p> Defina suas atividades abaixo: </p>
+					<ul>
 						<fieldset>
 							<div class='cronograma' style='width 194px; padding:12px; border: 1px solid black;text-align:left'> 
 								<div class='control-group'>
@@ -54,8 +52,8 @@
 								<div class='control-group'>
 									<label class='control-label' for='horaAtividade'>Hora </label>
 									<div class='controls'>
-										<input type='time' id='horaAtividade' >
-									<div>
+										<input id='horaAtividade' type='time'>
+									</div>
 								</div>
 								<div class='control-group'>
 									<label class='control-label' for='descricaoAtividade'>Descrição</label>
@@ -79,11 +77,11 @@
 										</div>
 									</div>
 								</div>
-								
+							</div>	
 						</fieldset>
-					</form>
-				</ul>
-				<p></p>
+					</ul>
+					<p></p>
+				</form>
 				<p><button type='button' id='add_button'>Adicionar uma Nova Atividade</button></p>
 				<button id="enviarCadastroEvento" name="enviarCadastroEvento">Concluir Cadastro</button>
 			</div>	

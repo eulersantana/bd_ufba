@@ -3,8 +3,8 @@ $(document).ready(function(){
  var botao = $('#add_button');
  var formulario = $('#activ');
  var campo = ["<p></p>",
-				"<form id='activ'>",
-					"<fieldset>",
+				"<ul>",
+					"<fieldset >",
 						"<div class='cronograma' style='width 194px; padding:12px; border: 1px solid black;text-align:left'>", 
 							"<div class='control-group'>",
 								"<label class='control-label' for='nomeAtividade'>Nome da Atividade</label>",
@@ -49,9 +49,8 @@ $(document).ready(function(){
 								"</div>",
 							"</div>",
 					"</fieldset>",
-				"</form>",
-
-		"<p></p>"].join('\n'); 
+				"</u>",
+			"<p></p>"].join('\n'); 
   
  var x =0;
 

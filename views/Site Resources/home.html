@@ -4,7 +4,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Cadastro de Evento - Feito com Bootstrap</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<link href="css/datepicker.css" rel="stylesheet">
+		<script src="js/jquery.js"></script>
 	</head>
 	<body>  
 		<script src="js/bootstrap.min.js"></script>
@@ -58,24 +59,31 @@
 		<!--Barra lateral de Pesquisa Especializada-->
 		<div class="btn-group-vertical">
 			<div class="btn-group">
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Campus<span class="caret"></span></button>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Campus  <span class="caret"></span></button>
 				<ul class="dropdown-menu" role="menu">
-					<li><a href="#">Federação</a></li>
+					<li><a href="#">Federação  <input type="checkbox" id="localidade"></a></li>
 				</ul>
 			</div>
 			<div class="btn-group">
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Instalação<span class="caret"></span></button>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Instalação  <span class="caret"></span></button>
 				<ul class="dropdown-menu" role="menu">
-					<li><a href="#">PAF-I</a></li>
+					<li><a href="#">PAF-I  <input type="checkbox" id="campus"></a></li>
 				</ul>
 			</div>
 			<div class="btn-group">
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Departamento<span class="caret"></span></button>
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Departamento  <span class="caret"></span></button>
 				<ul class="dropdown-menu" role="menu">
-					<li><a href="#">Matemática</a></li>
+					<li><a href="#">Matemática  <input type="checkbox" id="departamento	"></a></li>
 				</ul>
 			</div>
+			<div class="input-append date" id="dpYears" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+				<input class="span2" size="16" type="text" value="12-02-2012" readonly>
+				<span class="add-on"><button type="button" >icon</button><i class="icon-calendar"></i></span>
+			  </div>
 		</div>
 		
-		</body>
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/datepicker-source.js"></script>
+	</body>
 </html>
