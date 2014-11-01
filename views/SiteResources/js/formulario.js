@@ -5,7 +5,7 @@ $(document).ready(function(){
  var campo = ["<p></p>",
 				"<ul>",
 					"<fieldset >",
-						"<div class='cronograma' style='width:350px; height:400px ;padding:12px; border: 1px solid black;text-align:center'>", 
+						"<div class='cronograma' style='width 194px; padding:12px; border: 1px solid black;text-align:left'>", 
 							"<div class='control-group'>",
 								"<label class='control-label' for='nomeAtividade'>Nome da Atividade</label>",
 								"<div class='controls'>",

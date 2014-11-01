@@ -9,8 +9,8 @@ $(document).ready(function(){
 	acaoProfessor.hide();
 
 	userProfessor.click(function() {
-		//$("#userAluno").checked = false;
-		document.getElementById("userAluno").checked = false;
+		userAluno.attr("checked",false);
+		//document.getElementById("userAluno").checked = false;
 		if(this.checked) {
 			acaoProfessor.show();
 			acaoAluno.hide();
@@ -20,8 +20,8 @@ $(document).ready(function(){
 	});
 
 	userAluno.click(function() {
-		//$("#userProfessor").checked = false;
-		document.getElementById("userProfessor").checked = false;
+		userProfessor.attr("checked",false);
+		//document.getElementById("userProfessor").checked = false;
 		if(this.checked) {
 			acaoAluno.show();
 			acaoProfessor.hide();
