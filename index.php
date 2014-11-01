@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>UFBA - Convida</title>
+<!--php-->
+<?php require_once "controllers/controller.php" ?>
 <!-- CSS -->
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -45,6 +47,10 @@
       <div class="starter-template">
         <h1>UFBA - ConVida</h1>
         <p class="lead">Pagina incial do projeto</p>
+        <?php  
+          $contr = new Controller();
+          $contr->conectarBD();
+        ?>
       </div>
  	</div><!-- /.container -->
 </body>

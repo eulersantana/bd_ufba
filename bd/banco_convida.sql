@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema ufbaconvida
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema ufbaconvida
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `ufbaconvida` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `ufbaconvida` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`localidade`
+-- Table `ufbaconvida`.`localidade`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`localidade` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`localidade` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `endereco` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`departamento`
+-- Table `ufbaconvida`.`departamento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`departamento` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`departamento` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `localidade_id` INT NOT NULL,
@@ -38,16 +38,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`departamento` (
   INDEX `fk_departamento_localidade1_idx` (`localidade_id` ASC),
   CONSTRAINT `fk_departamento_localidade1`
     FOREIGN KEY (`localidade_id`)
-    REFERENCES `mydb`.`localidade` (`id`)
+    REFERENCES `ufbaconvida`.`localidade` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`academico`
+-- Table `ufbaconvida`.`academico`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`academico` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`academico` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `endereco` VARCHAR(100) NOT NULL,
@@ -59,16 +59,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`academico` (
   INDEX `fk_academico_departamento1_idx` (`departamento_id` ASC),
   CONSTRAINT `fk_academico_departamento1`
     FOREIGN KEY (`departamento_id`)
-    REFERENCES `mydb`.`departamento` (`id`)
+    REFERENCES `ufbaconvida`.`departamento` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`evento`
+-- Table `ufbaconvida`.`evento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`evento` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`evento` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(45) NOT NULL,
   `cartaz` VARCHAR(45) NOT NULL,
@@ -80,16 +80,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`evento` (
   INDEX `fk_evento_academico1_idx` (`academico_id` ASC),
   CONSTRAINT `fk_evento_academico1`
     FOREIGN KEY (`academico_id`)
-    REFERENCES `mydb`.`academico` (`id`)
+    REFERENCES `ufbaconvida`.`academico` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`cronograma`
+-- Table `ufbaconvida`.`cronograma`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`cronograma` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`cronograma` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `data` DATETIME NOT NULL,
   `evento_id` INT NOT NULL,
@@ -97,16 +97,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`cronograma` (
   INDEX `fk_cronograma_evento_idx` (`evento_id` ASC),
   CONSTRAINT `fk_cronograma_evento`
     FOREIGN KEY (`evento_id`)
-    REFERENCES `mydb`.`evento` (`id`)
+    REFERENCES `ufbaconvida`.`evento` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`apoio`
+-- Table `ufbaconvida`.`apoio`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`apoio` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`apoio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `img` VARCHAR(45) NULL,
@@ -115,16 +115,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`apoio` (
   INDEX `fk_apoio_evento1_idx` (`evento_id` ASC),
   CONSTRAINT `fk_apoio_evento1`
     FOREIGN KEY (`evento_id`)
-    REFERENCES `mydb`.`evento` (`id`)
+    REFERENCES `ufbaconvida`.`evento` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`atividade`
+-- Table `ufbaconvida`.`atividade`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`atividade` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`atividade` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(45) NOT NULL,
   `horario` TIME NOT NULL,
@@ -134,16 +134,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`atividade` (
   INDEX `fk_atividade_cronograma1_idx` (`cronograma_id` ASC),
   CONSTRAINT `fk_atividade_cronograma1`
     FOREIGN KEY (`cronograma_id`)
-    REFERENCES `mydb`.`cronograma` (`id`)
+    REFERENCES `ufbaconvida`.`cronograma` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`aluno`
+-- Table `ufbaconvida`.`aluno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`aluno` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`aluno` (
   `academico_id` INT NOT NULL,
   `matricula` VARCHAR(20) NOT NULL,
   `curso` VARCHAR(45) NOT NULL,
@@ -152,32 +152,32 @@ CREATE TABLE IF NOT EXISTS `mydb`.`aluno` (
   PRIMARY KEY (`academico_id`),
   CONSTRAINT `fk_aluno_academico1`
     FOREIGN KEY (`academico_id`)
-    REFERENCES `mydb`.`academico` (`id`)
+    REFERENCES `ufbaconvida`.`academico` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`professor`
+-- Table `ufbaconvida`.`professor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`professor` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`professor` (
   `academico_id` INT NOT NULL,
   `siape` INT UNSIGNED NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`academico_id`),
   CONSTRAINT `fk_professor_academico1`
     FOREIGN KEY (`academico_id`)
-    REFERENCES `mydb`.`academico` (`id`)
+    REFERENCES `ufbaconvida`.`academico` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`departamento_has_evento`
+-- Table `ufbaconvida`.`departamento_has_evento`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`departamento_has_evento` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`departamento_has_evento` (
   `departamento_id` INT NOT NULL,
   `evento_id` INT NOT NULL,
   PRIMARY KEY (`departamento_id`, `evento_id`),
@@ -185,21 +185,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`departamento_has_evento` (
   INDEX `fk_departamento_has_evento_departamento1_idx` (`departamento_id` ASC),
   CONSTRAINT `fk_departamento_has_evento_departamento1`
     FOREIGN KEY (`departamento_id`)
-    REFERENCES `mydb`.`departamento` (`id`)
+    REFERENCES `ufbaconvida`.`departamento` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_departamento_has_evento_evento1`
     FOREIGN KEY (`evento_id`)
-    REFERENCES `mydb`.`evento` (`id`)
+    REFERENCES `ufbaconvida`.`evento` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`campus`
+-- Table `ufbaconvida`.`campus`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`campus` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`campus` (
   `nome` VARCHAR(45) NOT NULL,
   `localidade_id` INT NOT NULL,
   `codigo` VARCHAR(5) NOT NULL,
@@ -207,16 +207,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`campus` (
   PRIMARY KEY (`codigo`),
   CONSTRAINT `fk_campus_localidade1`
     FOREIGN KEY (`localidade_id`)
-    REFERENCES `mydb`.`localidade` (`id`)
+    REFERENCES `ufbaconvida`.`localidade` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`instalacao`
+-- Table `ufbaconvida`.`instalacao`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`instalacao` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`instalacao` (
   `predio` VARCHAR(45) NOT NULL,
   `localidade_id` INT NOT NULL,
   `campus_codigo` VARCHAR(5) NOT NULL,
@@ -224,21 +224,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`instalacao` (
   INDEX `fk_instalacao_campus1_idx` (`campus_codigo` ASC),
   CONSTRAINT `fk_instalacao_localidade1`
     FOREIGN KEY (`localidade_id`)
-    REFERENCES `mydb`.`localidade` (`id`)
+    REFERENCES `ufbaconvida`.`localidade` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_instalacao_campus1`
     FOREIGN KEY (`campus_codigo`)
-    REFERENCES `mydb`.`campus` (`codigo`)
+    REFERENCES `ufbaconvida`.`campus` (`codigo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`evento_has_localidade`
+-- Table `ufbaconvida`.`evento_has_localidade`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`evento_has_localidade` (
+CREATE TABLE IF NOT EXISTS `ufbaconvida`.`evento_has_localidade` (
   `evento_id` INT NOT NULL,
   `localidade_id` INT NOT NULL,
   PRIMARY KEY (`evento_id`, `localidade_id`),
@@ -246,12 +246,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`evento_has_localidade` (
   INDEX `fk_evento_has_localidade_evento1_idx` (`evento_id` ASC),
   CONSTRAINT `fk_evento_has_localidade_evento1`
     FOREIGN KEY (`evento_id`)
-    REFERENCES `mydb`.`evento` (`id`)
+    REFERENCES `ufbaconvida`.`evento` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_evento_has_localidade_localidade1`
     FOREIGN KEY (`localidade_id`)
-    REFERENCES `mydb`.`localidade` (`id`)
+    REFERENCES `ufbaconvida`.`localidade` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
