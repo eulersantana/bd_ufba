@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Home - Feito com Bootstrap</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="css/datepicker.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!-- Tema padrao-->
+		<link rel="stylesheet" href="css/bootstrap-theme.css">
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>  
+		<script src="js/bootstrap.min.js"></script>
+		<!--Menu Horizontal -->
+		<div class="btn-group btn-group-horizontal">
+			<div class="container">
+	<div class="starter-template">
+		<!-- Inserir slideshow aqui-->
+	</div>
+</div>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			<a class="navbar-brand" href="#">UFBA - ConVida</a> </div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="#">Quem Somos</a></li>
+					<li class="active"><a href="FormEvento.html">Publique Seu Evento</a></li>
+					<li class="active"><a href="FormUsuario.html">Cadastra-se</a></li>
+					<li class="active"><a type="button" class="btn " data-toggle="modal" data-target="#myModal">Entrar<span class="caret"></span></a></li>
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+									<h4 class="modal-title" id="myModalLabel">Logon</h4>
+								</div>
+								<div class="modal-body">
+									<!--Entrar-->
+									<ul>
+										<form  class="form-vertical">
+											<div class="control-group">
+												<label class="control-label" for="inputEmail">Login</label>
+												<div class="controls">
+													<input id="inputEmail" type="text" placeholder="Digite o seu e-mail..." autofocus />
+												</div>
+											</div>
+											<div class="control-group">
+												<label class="control-label" for="inputPassword">Senha</label>
+												<div class="controls">
+													<input id="inputPassword" type="password" placeholder="Digite a sua senha..." />
+												</div>
+											</div>
+											<div >
+												<label  for='buttonConta'>Conta</label>
+													<div class='controls'>
+														<select>
+															<option value='aluno'>Aluno</option>
+															<option value='aluno'>Professor</option>
+														</select>
+													</div>
+											</div>
+										</form>
+									</ul>
+									<!---->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>                   
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!--Barra lateral de Pesquisa Especializada-->
+	<div class="btn-group-vertical">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Campus  <span class="caret"></span></button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">Federação  <input type="checkbox" id="localidade"></a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Instalação  <span class="caret"></span></button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">PAF-I  <input type="checkbox" id="campus"></a></li>
+			</ul>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Departamento  <span class="caret"></span></button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">Matemática  <input type="checkbox" id="departamento	"></a></li>
+			</ul>
+		</div>
+		<div class="input-append date" id="dpYears" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+			<input class="span2" size="16" type="text" value="12-02-2012" readonly>
+			<span class="add-on"><button><i class="glyphicon glyphicon-calendar"></i></button></span>
+		</div>
+	</div>
+	<!--Tabela -->
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Resultado da Busca</div>
+
+		<!-- Table -->
+		<table class="table">
+			<tr>
+				<th>Evento</th>
+				<th>Descrição</th>
+				<th>Data</th>
+				<th>Pagina</th>
+			</tr>
+			<tr>
+				<td><a href="detalhes">Seminario</a></td>
+				<td>Seminario bem legal</td>
+				<td>12 de Dezembro</td>
+				<td><a href="http://www.pudin.com.br">pudin</a></td>
+			</tr>
+			<tr>
+				<td>Seminario de como ser idiota</td>
+				<td>Se separar do nordeste e votar em Aércio</td>
+				<td>12 de Dezembro</td>
+				<td><a href="http://www.facebook.com">facebug</a></td>
+			</tr>
+		</table>
+	</div>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/datepicker-source.js"></script>
+	</body>
+</html>
