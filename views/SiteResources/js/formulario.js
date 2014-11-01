@@ -69,6 +69,11 @@ $(document).ready(function(){
 	$(this).parents('.cronograma').fadeOut("slow",function(){$(this).parents('.cronograma').remove();}); 
     x--;
  });
+ 
+ $("#enviar_btn").click(function(){
+	$("#enviar").click(); 
+ });
+
 				
  
 });
