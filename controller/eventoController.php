@@ -3,25 +3,16 @@
 Class eventoController Extends baseController {
 
 	public function index() {
-		/*** set a template variable ***/
-	        $this->registry->template->welcome = 'Todos os eventos';
-	        /*** set a template variable ***/
-	        $this->registry->template->vida = 'Todos os eventos';
-		/*** load the index template ***/
-	        $this->registry->template->show('evento');
+		$this->registry->template->titulo = "Cadastrar novo evento";
+		$this->registry->template->show('form_novo_evento');
 	}
 
-	public function nome()
+	public function add()
 	{
-		/*** set a template variable ***/
-		if (isset($_POST['nome'])) {
-			# code...
-	        $this->registry->template->nome= $_POST['nome'];
-		}else{
-	        $this->registry->template->nome= 'Nao tinha nome';
-		}
-		/*** load the index template ***/
-	        $this->registry->template->show('evento');
+		$evento = new Evento;
+		$atividade = new Atividade;
+		
+		$this->registry->template->show('form_novo_evento');
 	}
 }
 

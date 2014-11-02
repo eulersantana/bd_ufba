@@ -5,8 +5,6 @@ Class academicoController Extends baseController {
 	public function index() {
 		$departamento = new Departamento;
 		
-		
-		
 		try {
 			$consulta = Executable::EXECUTE_QUERY_GET_OBJ_PDO(db::getInstance(), 
 										 $departamento->selecionar("id, nome"));
@@ -17,7 +15,7 @@ Class academicoController Extends baseController {
 		}
 		
 		$this->registry->template->titulo = "Registrar novo Academico";
-		$this->registry->template->show('form_novo_usuario');
+		$this->registry->template->show('form_novo_academico');
 	}
 
 	
@@ -31,7 +29,7 @@ Class academicoController Extends baseController {
 			
 			// verifica se eh um professor ou aluno
 			if (stristr($_POST['tipo_usuario'], "professor"))
-				$professor = new Prodessor;
+				$professor = new Professor;
 			if (stristr($_POST['tipo_usuario'], "aluno"))
 				$aluno = new Aluno;
 			
@@ -48,10 +46,10 @@ Class academicoController Extends baseController {
 				
 				$this->registry->template->mensagem = "Ultimo id: ".$id;
 				
-				
 				if(isset($professor)) {
 					$professor->setSiape($_POST['identificador']);
 					$professor->setSenha($_POST['senha']);
+					$professor->setAcademicoId($id);
 					
 					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),
 													$professor->add());
@@ -60,6 +58,7 @@ Class academicoController Extends baseController {
 					$aluno->setMatricula($_POST['identificador']);
 					$aluno->setCurso($_POST['curso']);
 					$aluno->setSenha($_POST['senha']);
+					$aluno->setAcademicoId($id);
 					
 					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),
 														$aluno->add());
@@ -73,7 +72,7 @@ Class academicoController Extends baseController {
 			$this->registry->template->mensagem = "form ERROR 1";
 		}
 		
-		$this->registry->template->show('form_novo_usuario');
+		$this->registry->template->show('form_novo_academico');
 	}
 }
 

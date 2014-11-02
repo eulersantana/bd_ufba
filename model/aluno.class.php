@@ -3,7 +3,7 @@
  * Classe Aluno
  */
 class Aluno {
-	private $academico_id;
+	private $academicoId;
 	private $matricula;
 	private $curso;
 	private $senha;
@@ -17,7 +17,7 @@ class Aluno {
 	}
 	
 	public function delete() {
-		$sql = "delete from ".self::$tabela." where codigo = '".$this->academico_id."'";
+		$sql = "delete from ".self::$tabela." where academico_id = '".$this->academicoId."'";
 	}
 	
 	//*******************************************************************
