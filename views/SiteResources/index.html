@@ -402,7 +402,8 @@
 
 <!-- Cadastro Evento -->
 <section id="cadastroEvento">
-    <div class="container">
+	
+    <div class="container formularioEvento" hidden>
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2>Publique seu Evento</h2>
@@ -539,9 +540,55 @@
         </div>
 
 
-    </div>
-</div>
-</div>
+		</div>
+	</div>
+	</div>
+		 <div class="container logon">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2>Entrar</h2>
+					<hr class="star-primary">
+				</div>
+			</div>
+
+			<div class="row" >
+
+				<div class="col-lg-8 col-lg-offset-2">
+					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+					<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+					
+					<div  align="center" id="logon">
+						<form  class="form-vertical">
+							<div class="control-group">
+								<label class="control-label" for="inputEmail">Login</label>
+								<div class="controls">
+									<input id="inputEmail" type="text" placeholder="Digite o seu e-mail..." />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputPassword">Senha</label>
+								<div class="controls">
+									<input id="inputPassword" type="password" placeholder="Digite a sua senha..." />
+								</div>
+							</div>
+							<div >
+								<label  for='buttonConta'>Conta</label>
+									<div class='controls'>
+										<select>
+											<option value='aluno'>Aluno</option>
+											<option value='aluno'>Professor</option>
+										</select>
+									</div>
+									<div>
+										<p></p><button type="button" id="entrar_btn">Entrar</button>
+									</div>
+							</div>
+						</form>
+					<!---->
+					</div>
+				</div>
+			</div>
+		</div>
 </section>
 
 <!-- About Section -->
@@ -558,7 +605,7 @@
                 <p>Objetivo de Centralizar as informações sobre eventos que ocorrem na UFBA - Salvador.</p>
             </div>
             <div class="col-lg-4">
-                <p>Amanda, Ive, Denis, Eules e Glauber.</p>
+                <p>Amanda, Ive, Denis, Euler e Glauber.</p>
             </div>
             
         </div>

@@ -91,6 +91,10 @@ $(document).ready(function(){
 	$("#enviar").click(); 
  });
 
+ $("#entrar_btn").click(function(){ //IMPLEMENTAR AUTENTICAÇÂO COM BANCO
+	$('.formularioEvento').show();//mostrar formulario após efetuar logon
+	$('.logon').hide();
+ });
 				
  
 });
