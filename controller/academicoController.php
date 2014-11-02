@@ -5,8 +5,6 @@ Class academicoController Extends baseController {
 	public function index() {
 		$departamento = new Departamento;
 		
-		
-		
 		try {
 			$consulta = Executable::EXECUTE_QUERY_GET_OBJ_PDO(db::getInstance(), 
 										 $departamento->selecionar("id, nome"));
