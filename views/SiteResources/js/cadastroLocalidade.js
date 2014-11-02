@@ -20,7 +20,7 @@ $(document).ready(function(){
 	});
 
 	novaInstalacao.click(function() {
-		acaonovoCampus.attr("checked",false);
+		novoCampus.attr("checked",false);
 		//document.getElementById("userProfessor").checked = false;
 		if(this.checked) {
 			acaonovaInstalacao.show();
