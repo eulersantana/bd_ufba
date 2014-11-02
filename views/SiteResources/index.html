@@ -94,52 +94,7 @@
                         <li class="page-scroll">
                             <a href="#contact">Contato</a>
                         </li>
-                            
-                         <li class="active"><a type="button" class="btn " data-toggle="modal" data-target="#myModal">Entrar<span class="caret"></span></a></li>
-
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Logon</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!--Entrar-->
-                                        <ul>
-                                            <form  class="form-vertical">
-                                                <div class="control-group">
-                                                    <label class="control-label" for="inputEmail">Login</label>
-                                                    <div class="controls">
-                                                        <input id="inputEmail" type="text" placeholder="Digite o seu e-mail..." autofocus />
-                                                    </div>
-                                                </div>
-                                                <div class="control-group">
-                                                    <label class="control-label" for="inputPassword">Senha</label>
-                                                    <div class="controls">
-                                                        <input id="inputPassword" type="password" placeholder="Digite a sua senha..." />
-                                                    </div>
-                                                </div>
-                                                <div >
-                                                    <label  for='buttonConta'>Conta</label>
-                                                    <div class='controls'>
-                                                        <select>
-                                                            <option value='aluno'>Aluno</option>
-                                                            <option value='aluno'>Professor</option>
-                                                        </select>
-                                                    </div>
-                                                </div><br/>
-                                                <input type="submit" value="Entrar"/>
-                                            </form>
-                                        </ul>
-                                        <!---->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
+                        
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -167,12 +122,11 @@
                                     </div>
                                 </form>
                             </div>  
-						
-                        <div class="input-append date" id="dpYears" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                <input id="calendarioInput"class="span2" size="16" type="text"  readonly>
-                                <button class="btn btn-default"><span class="add-on"><a class="glyphicon glyphicon-calendar"></a></span></button>
-                            </div>
-                            <p></p>
+							<!--coloquei a data em cima poq em baixo ortava o popup -->
+							<div class="input-append date" id="dpYears" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years"><!-- mude o style desse elemento (div) em especifico poq a cor da letra tá branco -->
+								<input class="span2" size="16" type="text"  readonly>
+								<span class="add-on"><a class="glyphicon glyphicon-calendar"></a></span>
+							</div>
 					
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Campus <span class="caret"></span></button>
