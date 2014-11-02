@@ -10,14 +10,14 @@ class Apoio {
 	static private $tabela = "apoio";
 	
 	public function add() {
-		$sql = "insert into ".__CLASS__." (codigo, nome, urlImg, codigoEvento)
-				values ('".$this->codigo."','".$this->nome."',
-						'".$this->urlImg."','".$this->codigoEvento."')";
+		$sql = "insert into ".self::$tabela." (nome, img, evento_id)
+				values ('".$this->nome."', '".$this->urlImg."', 
+						".$this->codigoEvento.")";
 		return $sql;
 	}
 	
 	public function delete() {
-		$sql = "delete from ".__CLASS__." where codigo = '".$this->codigo."'";
+		$sql = "delete from ".__CLASS__." where id = '".$this->codigo."'";
 	}
 	
 	public function atualizar() { }
@@ -51,7 +51,7 @@ class Apoio {
 		return $this->urlImg;
 	}
 	
-	public function setCodigoEvendo($newcodigoEvento) {
+	public function setCodigoEvento($newCodigoEvento) {
 		$this->codigoEvento = $newCodigoEvento;
 	}
 	

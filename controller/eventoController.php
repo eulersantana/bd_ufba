@@ -11,6 +11,7 @@ Class eventoController Extends baseController {
 	{
 		$evento 	= new Evento;
 		$atividade  = new Atividade;
+		$apoio 		= new Apoio;
 		
 		$data_inicio_evento = explode("/", $_POST['data_inicio_evento']);
 		$data_fim_evento    = explode("/", $_POST['data_fim_evento']);
@@ -34,13 +35,9 @@ Class eventoController Extends baseController {
 			$nome_diretorio = getcwd().'/public/'.md5($id_evento);
 			mkdir($nome_diretorio, 0777, true);
 			
-			if (move_uploaded_file($_FILES['cartaz_evento']['tmp_name'],
-					  $nome_diretorio.'/'.$_FILES['cartaz_evento']['name']))
-				echo ("UPLOAD");
-			else
-				echo ("NÃO UPLOAD");
+			move_uploaded_file($_FILES['cartaz_evento']['tmp_name'],
+					  $nome_diretorio.'/'.$_FILES['cartaz_evento']['name']);
 			
-		
 			for($i = 0; $i < sizeof($_POST['titulo_atividade']); $i++) {
 				$atividade->setTitulo($_POST['titulo_atividade'][$i]);
 				$atividade->setData($_POST['data_data'][$i]);
@@ -51,6 +48,23 @@ Class eventoController Extends baseController {
 				try {
 				// insere as atividades na base
 				Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $atividade->add());
+				} catch(PDOException $e) {
+					print "Erro ".$e->getMessage()."<br/>";
+				}
+			}
+			
+			for($i = 0; $i < sizeof($_POST['nome_apoiador']); $i++) {
+				$url_img_apoiador = $nome_diretorio.'/'.$_FILES['imagem_apoiador']['name'][$i];
+				
+				move_uploaded_file($_FILES['imagem_apoiador']['tmp_name'], $url_img_apoiador);
+				
+				$apoio->setNome($_POST['nome_apoiador'][$i]);
+				$apoio->setUrlImg($url_img_apoiador);
+				$apoio->setCodigoEvento($id_evento);
+				
+				try {
+					// insere os apoiadores na base
+					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $apoio->add());
 				} catch(PDOException $e) {
 					print "Erro ".$e->getMessage()."<br/>";
 				}
