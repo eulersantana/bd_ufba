@@ -1,8 +1,7 @@
 <?php
 /*
  * Classe Academico
- */
-class Academico {
+ */cclass Academico {
 	private $codigo;
 	private $nome;
 	private $endereco;
