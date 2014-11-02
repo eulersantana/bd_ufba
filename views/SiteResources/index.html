@@ -146,10 +146,14 @@
                                 <input type="checkbox" id="departamento " /></a></li>
                             </ul>
                         </div>
-
+						<!--
                         <div class="btn-group" style="width:258px;">
                            <input type="date" class="form-control" id="dataNascimentoUser"/>
-                       </div>
+                       </div>-->
+					   <div class="input-append date" id="dpYears" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years"><!-- mude o style desse elemento (div) em especifico poq a cor da letra tá branco -->
+							<input class="span2" size="16" type="text"  readonly>
+							<span class="add-on"><a class="glyphicon glyphicon-calendar"></a></span>
+						</div>
 
                    </div>
 
@@ -895,6 +899,8 @@
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/datepicker-source.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
