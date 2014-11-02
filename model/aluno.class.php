@@ -6,11 +6,13 @@ class Aluno {
 	private $codigo;
 	private $matricula;
 	private $curso;
+	private $senha;
 	
 	public function Aluno() {
 		$this->codigo 	 = null;
 		$this->matricula = null;
 		$this->curso 	 = null;
+		$this->senha	 = null;
 	}
 	
 	public function createTable() {
@@ -27,7 +29,7 @@ class Aluno {
 	public function inserir() {
 		$sql = "insert into ".__CLASS__." (codigo, matricula, curso)
 		values ('".$this->codigo."', '".$this->matricula."',
-		'".$this->curso."')";
+		'".$this->curso."', '".$this->senha."')";
 		return $sql;
 	}
 	
@@ -60,5 +62,13 @@ class Aluno {
 	
 	public function getCurso() {
 		return $this->curso;
+	}
+	
+	public function setSenha($senha) {
+		$this->senha = $senha;
+	}
+	
+	public function getSenha() {
+		return $this->senha;
 	}
 }
