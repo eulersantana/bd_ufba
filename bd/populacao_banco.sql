@@ -9,7 +9,7 @@ INSERT INTO ufbaconvida.localidade (id, endereco) VALUES
 (5, "Federação");
 
 --
---
+-- População da tabela departamento
 --
 INSERT INTO ufbaconvida.departamento (id, nome, localidade_id) VALUES
 (1, "Computacao", 1),
