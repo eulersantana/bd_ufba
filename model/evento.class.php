@@ -7,16 +7,19 @@ class Evento {
     private $inicio;
     private $fim;
     private $descricao;
-    private $academico_id;
-    private static $tabela;
+    private $academicoId;
+    private static $tabela = "evento";
     
     public function add() {
-        $sql = "insert into ".self::$tabela." (titulo, cartaz, inicio, fim,"
-                . "descricao) values ('".$this->titulo."', '".$this->cartaz."',"
-                . "'".$this->inicio."', '".$this->fim."', '".$this->descricao."',"
-                . "'".$this->academico_id."')";
+        $sql = "insert into ".self::$tabela." (titulo, cartaz, inicio, fim, descricao, academico_id)
+        		values ('".$this->titulo."', '".$this->cartaz."', '".$this->inicio."',
+        		'".$this->fim."', '".$this->descricao."', ".$this->academicoId.")";
         
         return $sql;
+    }
+    
+    public function delete() {
+    	$sql = "delete from ".self::$tabela." where id = ".$this->id;
     }
     
     function getId() {
@@ -43,7 +46,7 @@ class Evento {
         return $this->descricao;
     }
 
-    function getAcademico_id() {
+    function getAcademicoId() {
         return $this->academico_id;
     }
 
@@ -71,7 +74,7 @@ class Evento {
         $this->descricao = $descricao;
     }
 
-    function setAcademico_id($academico_id) {
-        $this->academico_id = $academico_id;
+    function setAcademicoId($academico_id) {
+        $this->academicoId = $academico_id;
     }
 }

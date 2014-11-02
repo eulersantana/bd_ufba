@@ -48,17 +48,17 @@
 				
 				<fieldset>
 					<label>Cartaz</label>
-					<input type="file" name="titulo_evento"/>
+					<input type="file" name="cartaz_evento"/>
 				</fieldset>
 				
 				<fieldset>
 					<label>Data de inicio</label>
-					<input type="date" name="data_inicio"/>
+					<input type="date" name="data_inicio_evento"/>
 				</fieldset>
 				
 				<fieldset>
 					<label>Date de termino</label>
-					<input type="date" name="data_fim"/>
+					<input type="date" name="data_fim_evento"/>
 				</fieldset>
 				
 				<fieldset>
@@ -96,7 +96,7 @@
 						
 						<fieldset>
 							<label>Descrição da atividade</label>
-							<textarea name="descricao_atividade"></textarea>
+							<textarea name="descricao_atividade[]"></textarea>
 						</fieldset>
 					
 						<hr/>
