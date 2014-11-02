@@ -8,8 +8,8 @@ class Localidade {
 	static private $tabela = "localidade";
 	
 	public function inserir() {
-		$sql = "insert into ".self::$tabela." (codigo, endereco)
-				values ('".$this->codigo."','".$this->endereco."')";
+		$sql = "insert into ".self::$tabela." (endereco)
+				values ('".$this->endereco."')";
 		
 		return $sql;
 	}

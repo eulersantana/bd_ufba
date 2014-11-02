@@ -5,11 +5,11 @@
 class Instalacao {
 	private $codigoLocalidade;
 	private $predio;
+	private $codigoCampus;
 	static private $tabela = "instalacao";
 	
-	public function add() {
-		$sql = "insert into ".self::$tabela." (codigoLocalidade, predio)
-				values ('".$this->codigoLocalidade."','".$this->predio."')";
+	public function inserir() {
+		$sql = "insert into ".self::$tabela." (localidade_id, predio,campus_codigo) values ('".$this->codigoLocalidade."','".$this->predio."','".$this->codigoCampus."')";
 		
 		return $sql;
 	}
@@ -43,5 +43,13 @@ class Instalacao {
 	
 	public function getPredio() {
 		return $this->predio;
+	}
+
+	public function setCodigoCampus($newCodigoCampus) {
+		$this->codigoCampus = $newCodigoCampus;
+	}
+	
+	public function getCodigoCampus() {
+		return $this->codigoCampus;
 	}
 }

@@ -5,11 +5,12 @@
 class Campus {
 	private $codigoLocalidade;
 	private $nome;
+	private $codigo;
 	static private $tabela = "campus";
 	
-	public function add() {
-		$sql = "insert into ".self::$tabela."(codigoLocalidade, nome)
-				values ('".$this->codigoLocalidade."','".$this->nome."')";
+	public function inserir() {
+		$sql = "insert into ".self::$tabela."(localidade_id, nome,codigo)
+				values ('".$this->codigoLocalidade."','".$this->nome."','".$this->codigo."')";
 		
 		return $sql;
 	}
@@ -24,7 +25,11 @@ class Campus {
 	
 	public function atualizar() { }
 	
-	public function selecionar() { }
+	public function selecionar($campos) {
+		$sql = "select ".$campos." from ".self::$tabela;
+		
+		return $sql;
+	}
 	
 	//*******************************************************************
 	//*******************************************************************
@@ -43,5 +48,13 @@ class Campus {
 	
 	public function getNome() {
 		return $this->nome;
+	}
+
+	public function setCodigo($newCodigo) {
+		$this->codigo = $newCodigo;
+	}
+	
+	public function getCodigo() {
+		return $this->codigo;
 	}
 }

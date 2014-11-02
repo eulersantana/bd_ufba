@@ -37,11 +37,7 @@ public function add()
 
 		    try {
 		    	$dbh->exec($query);
-		        // $dbh->beginTransaction();
-		        // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-		        // $stmt->execute( array($user->getLogin(), md5($user->getSenha())));
-		        // $dbh->commit();
-		        $this->registry->template->mensagem = "ULtimo id:".$dbh->lastInsertId();
+		        $this->registry->template->mensagem = "Cadastrado com Sucesso!";
 		    } catch(PDOExecption $e) {
 		        $dbh->rollback();
 		        print "Error!: " . $e->getMessage() . "</br>";
