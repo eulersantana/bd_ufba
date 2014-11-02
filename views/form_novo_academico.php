@@ -68,11 +68,7 @@
 			
 			<fieldset id="curso_aluno">
 				<label>Curso</label>
-				<select name="curso">
-					<option value="0">Curso</option>
-					<option value="computacao">Computação</option>
-					<option value="veterinaria">Veterinária</option>
-				</select>
+				<input type="text" placeholder="Digite o nome seu curso" name="curso">
 			</fieldset>
 
 			<fieldset>

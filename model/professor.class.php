@@ -15,7 +15,7 @@ class Professor {
 		return $sql;
 	}
 	
-	public function deletar() {
+	public function delete() {
 		$sql = "delete from ".self::$tabela." where siape = '".$this->siape."'";
 
 		return $sql;
