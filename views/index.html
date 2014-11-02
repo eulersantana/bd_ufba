@@ -47,6 +47,10 @@
         <link rel="stylesheet" href="../css/slideShow.css">
         
         <script src="../js/formulario.js"></script>
+        <script src="../js/cadastroAcademico.js"></script>
+        <link rel="stylesheet" type="text/css" href="../cadastroAcademico.css">
+
+
 
 
     </head>
@@ -377,8 +381,11 @@
                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
 
-
-
+                <h1>
+                    <?php 
+                    echo $titulo;
+                    ?>
+                </h1>
                 <div id="form_novo_usuario">
                     <form method="post" action="?rt=academico/add" >
 
@@ -397,7 +404,7 @@
 
                                     <div class="row control-group">
                                         <fieldset>
-                                            <label id="id_tipo_usuario">Matricula</label> <input class="form-control" type="text" name="identificador" />
+                                            <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
                                         </fieldset>
                                     </div>
 
@@ -470,6 +477,13 @@
                                         </fieldset>
                                     </div>
                        </div>
+
+                       <?php
+                       if(isset($mensagem)) {
+                        echo $mensagem;
+                        }
+                        ?>
+
                      </form>
                 </div> <!--fim div id= formulario novo user-->
             </div>
