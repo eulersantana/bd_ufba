@@ -76,6 +76,7 @@
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
+
                         <li class="page-scroll">
                             <a href="#destaque">Em Destaque</a>
                         </li>
@@ -86,7 +87,7 @@
                             <a href="#cadastroUser">Cadastre-se</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#cadastroEvento">Publique Seu Evento</a>
+                                <a href="#cadastroEvento">Publique seu Evento</a>
                         </li>
                         <li class="page-scroll">
                             <a href="#about">Quem Somos</a>
@@ -94,50 +95,8 @@
                         <li class="page-scroll">
                             <a href="#contact">Contato</a>
                         </li>
-                            
-                         <li class="active"><a type="button" class="btn " data-toggle="modal" data-target="#myModal">Entrar<span class="caret"></span></a></li>
 
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Logon</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!--Entrar-->
-                                        <ul>
-                                            <form  class="form-vertical">
-                                                <div class="control-group">
-                                                    <label class="control-label" for="inputEmail">Login</label>
-                                                    <div class="controls">
-                                                        <input id="inputEmail" type="text" placeholder="Digite o seu e-mail..." autofocus />
-                                                    </div>
-                                                </div>
-                                                <div class="control-group">
-                                                    <label class="control-label" for="inputPassword">Senha</label>
-                                                    <div class="controls">
-                                                        <input id="inputPassword" type="password" placeholder="Digite a sua senha..." />
-                                                    </div>
-                                                </div>
-                                                <div >
-                                                    <label  for='buttonConta'>Conta</label>
-                                                    <div class='controls'>
-                                                        <select>
-                                                            <option value='aluno'>Aluno</option>
-                                                            <option value='aluno'>Professor</option>
-                                                        </select>
-                                                    </div>
-                                                </div><br/>
-                                                <input type="submit" value="Entrar"/>
-                                            </form>
-                                        </ul>
-                                        <!---->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                       
 
 
                     </ul>
@@ -166,14 +125,15 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>  
-						
-                        <div class="input-append date" id="dpYears" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                            </div> 
+
+
+                            <div class="input-append date" id="dpYears" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
                                 <input id="calendarioInput"class="span2" size="16" type="text"  readonly>
                                 <button class="btn btn-default"><span class="add-on"><a class="glyphicon glyphicon-calendar"></a></span></button>
                             </div>
                             <p></p>
-					
+
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Campus <span class="caret"></span></button>
                                 <ul class="dropdown-menu" role="menu">
@@ -448,8 +408,7 @@
 
 <!-- Cadastro Evento -->
 <section id="cadastroEvento">
-	
-    <div class="container formularioEvento" hidden>
+    <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2>Publique seu Evento</h2>
@@ -467,7 +426,7 @@
 
                     <form class="form-horizontal" id="activ">
 
-                     <div class="row control-group">
+                       <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Nome do Evento</label>
                             <input type="text" class="form-control" placeholder="Nome do Evento" id="inputNome" required data-validation-required-message="Por favor, digite um nome para seu evento.">
@@ -559,82 +518,36 @@
 
                                         </label>
                                         <div class='controls'>
-                                           <select>
-                                             <option value='volvo'>Volvo</option>
-                                         </select>
-                                     </div>      
-                                 </div>
-                             </div>
-                             <!--fim div cronograma-->
-                         </div>
-                     </fieldset>
-                 </ul>
-             </form>
-         </div>
-         <!--fim div id=formulario-->
+                                         <select>
+                                           <option value='volvo'>Volvo</option>
+                                       </select>
+                                   </div>      
+                               </div>
+                           </div>
+                           <!--fim div cronograma-->
+                       </div>
+                   </fieldset>
+               </ul>
+           </form>
+       </div>
+       <!--fim div id=formulario-->
 
 
-         <br/>
+       <br/>
 
-         <button type='button' id='add_button'>Adicionar uma Nova Atividade</button> 
-         <br/>
-         
-         <div class="row">
-            <div class="form-group col-xs-12">
-                <button type="button" id='enviar_btn' class="btn btn-success btn-sm">Concluir</button>
-            </div>
+       <button type='button' id='add_button'>Adicionar uma Nova Atividade</button> 
+       <br/>
+
+       <div class="row">
+        <div class="form-group col-xs-12">
+            <button type="button" id='enviar_btn' class="btn btn-success btn-sm">Concluir</button>
         </div>
+    </div>
 
 
-		</div>
-	</div>
-	</div>
-		 <div class="container logon">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2>Entrar</h2>
-					<hr class="star-primary">
-				</div>
-			</div>
-
-			<div class="row" >
-
-				<div class="col-lg-8 col-lg-offset-2">
-					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-					<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-					
-					<div  align="center" id="logon">
-						<form  class="form-vertical">
-							<div class="control-group">
-								<label class="control-label" for="inputEmail">Login</label>
-								<div class="controls">
-									<input id="inputEmail" type="text" placeholder="Digite o seu e-mail..." />
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="inputPassword">Senha</label>
-								<div class="controls">
-									<input id="inputPassword" type="password" placeholder="Digite a sua senha..." />
-								</div>
-							</div>
-							<div >
-								<label  for='buttonConta'>Conta</label>
-									<div class='controls'>
-										<select>
-											<option value='aluno'>Aluno</option>
-											<option value='aluno'>Professor</option>
-										</select>
-									</div>
-									<div>
-										<p></p><button type="button" id="entrar_btn">Entrar</button>
-									</div>
-							</div>
-						</form>
-					<!---->
-					</div>
-				</div>
-			</div>
-		</div>
+</div>
+</div>
+</div>
 </section>
 
 <!-- About Section -->
@@ -651,7 +564,7 @@
                 <p>Objetivo de Centralizar as informações sobre eventos que ocorrem na UFBA - Salvador.</p>
             </div>
             <div class="col-lg-4">
-                <p>Amanda, Ive, Denis, Euler e Glauber.</p>
+                <p>Amanda, Ive, Denis, Eules e Glauber.</p>
             </div>
             
         </div>
