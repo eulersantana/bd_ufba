@@ -89,12 +89,16 @@ $(document).ready(function(){
  
  $("#enviar_btn").click(function(){
 	$("#enviar").click(); 
- });
+ });	
 
- $("#entrar_btn").click(function(){ //IMPLEMENTAR AUTENTICAÇÂO COM BANCO
-	$('.formularioEvento').show();//mostrar formulario após efetuar logon
-	$('.logon').hide();
+$("#entrar_btn").click(function(){
+//IMPLEMENTAR AUTENTICAÇÃO 
+	$(location).attr('href', 'indexUserLogado.html');
  });
-				
+ 
+ $("#sair_btn").click(function(){
+//IMPLEMENTAR AUTENTICAÇÃO 
+	$(location).attr('href', 'index.html');
+ });
  
 });

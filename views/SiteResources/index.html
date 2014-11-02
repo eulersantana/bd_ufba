@@ -86,16 +86,13 @@
                             <a href="#cadastroUser">Cadastre-se</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="#cadastroEvento">Publique Seu Evento</a>
-                        </li>
-                        <li class="page-scroll">
                             <a href="#about">Quem Somos</a>
                         </li>
                         <li class="page-scroll">
                             <a href="#contact">Contato</a>
                         </li>
                             
-                         <li class="active"><a type="button" class="btn " data-toggle="modal" data-target="#myModal">Entrar<span class="caret"></span></a></li>
+                         <li class="active"><a type="button" class="btn "  data-toggle="modal" data-target="#myModal">Entrar  <span class="caret"></span></a></li>
 
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -129,7 +126,8 @@
                                                         </select>
                                                     </div>
                                                 </div><br/>
-                                                <input type="submit" value="Entrar"/>
+                                                <input type="submit"  id="entrar_btn" value="Entrar"/>
+												
                                             </form>
                                         </ul>
                                         <!---->
@@ -197,10 +195,6 @@
                                 <input type="checkbox" id="departamento " /></a></li>
                             </ul>
                         </div>
-						<!--
-                        <div class="btn-group" style="width:258px;">
-                           <input type="date" class="form-control" id="dataNascimentoUser"/>
-                       </div>-->
 
                    </div>
 
@@ -445,197 +439,6 @@
     </div>
 </section>
 
-
-<!-- Cadastro Evento -->
-<section id="cadastroEvento">
-	
-    <div class="container formularioEvento" hidden>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Publique seu Evento</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-
-        <div class="row" >
-
-            <div class="col-lg-8 col-lg-offset-2">
-                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                
-                <div  align="center" id="formulario">
-
-                    <form class="form-horizontal" id="activ">
-
-                     <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Nome do Evento</label>
-                            <input type="text" class="form-control" placeholder="Nome do Evento" id="inputNome" required data-validation-required-message="Por favor, digite um nome para seu evento.">
-                        </div>
-                    </div>
-
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <div align="left">
-                                <label>Cartaz do Evento</label>
-                                <input id="inputBanner" type='file' accept="image/*" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <div align="left">
-                                <label>Descrição do Evento</label>
-                                <textarea rows="3" cols="50" placeholder="Descreva Seu Evento" id='descricaoEvento' name='descricaoEvento'></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p>Insira a(s) Atividade(s) do Evento
-                    </p>
-
-                    <ul>
-                        <fieldset>
-
-                            <div class='cronograma'align="center"> 
-
-                                <div class="row control-group">
-                                    <div class="form-group col-xs-12 floating-label-form-group controls">
-                                        <label>Nome da Atividade</label>
-                                        <input id='nomeAtividade' type="text" class="form-control" placeholder="Nome da Atividade" required data-validation-required-message="Por favor, digite um nome para sua atividade.">
-                                    </div>
-                                </div>
-
-                                <div class="row control-group">
-                                    <div class="form-group col-xs-4 floating-label-form-group controls">
-                                        <label>Data da Atividade</label>
-                                        <input type="date" class="form-control" id="dataAtividade" required data-validation-required-message="Por favor, digite a data da Atividade.">
-                                    </div>
-                                </div>
-
-                                <div class="row control-group">
-                                    <div class="form-group col-xs-4 floating-label-form-group controls">
-                                        <label>Hora da Atividade</label>
-                                        <input id='horaAtividade' type='time'>
-                                    </div>
-                                </div>
-
-                                <div class="row control-group">
-                                    <div class="form-group col-xs-12 floating-label-form-group controls">
-                                        <label>Descrição do Evento</label>
-                                        <textarea rows="3" cols="50" placeholder="Descreva a Atividade do seu Evento" id='descricaoAtividade' name='descricaoAtividade'></textarea>
-                                    </div>
-                                </div>
-
-                                <div align="left">
-
-                                    <div class="row control-group">
-                                        <label  for='btnDepartamento'>Departamento
-                                        </label>
-                                        <div class='controls'>
-                                            <select>
-                                                <option value='volvo'>Volvo</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <br/>
-
-                                    <div class="row control-group">
-                                        <label  for='btnInstalacao'>Instalação
-                                        </label>
-                                        <div class='controls'>
-                                            <select>
-                                                <option value='volvo'>Volvo</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <br/>
-
-                                    <div class="row control-group">
-                                        <label  for='btnCampus'>Campus
-
-                                        </label>
-                                        <div class='controls'>
-                                           <select>
-                                             <option value='volvo'>Volvo</option>
-                                         </select>
-                                     </div>      
-                                 </div>
-                             </div>
-                             <!--fim div cronograma-->
-                         </div>
-                     </fieldset>
-                 </ul>
-             </form>
-         </div>
-         <!--fim div id=formulario-->
-
-
-         <br/>
-
-         <button type='button' id='add_button'>Adicionar uma Nova Atividade</button> 
-         <br/>
-         
-         <div class="row">
-            <div class="form-group col-xs-12">
-                <button type="button" id='enviar_btn' class="btn btn-success btn-sm">Concluir</button>
-            </div>
-        </div>
-
-
-		</div>
-	</div>
-	</div>
-		 <div class="container logon">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2>Entrar</h2>
-					<hr class="star-primary">
-				</div>
-			</div>
-
-			<div class="row" >
-
-				<div class="col-lg-8 col-lg-offset-2">
-					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-					<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-					
-					<div  align="center" id="logon">
-						<form  class="form-vertical">
-							<div class="control-group">
-								<label class="control-label" for="inputEmail">Login</label>
-								<div class="controls">
-									<input id="inputEmail" type="text" placeholder="Digite o seu e-mail..." />
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="inputPassword">Senha</label>
-								<div class="controls">
-									<input id="inputPassword" type="password" placeholder="Digite a sua senha..." />
-								</div>
-							</div>
-							<div >
-								<label  for='buttonConta'>Conta</label>
-									<div class='controls'>
-										<select>
-											<option value='aluno'>Aluno</option>
-											<option value='aluno'>Professor</option>
-										</select>
-									</div>
-									<div>
-										<p></p><button type="button" id="entrar_btn">Entrar</button>
-									</div>
-							</div>
-						</form>
-					<!---->
-					</div>
-				</div>
-			</div>
-		</div>
-</section>
 
 <!-- About Section -->
 <section class="success" id="about">
