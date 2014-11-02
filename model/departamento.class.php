@@ -3,15 +3,13 @@
  * Classe Departamento
  */
 class Departamento {
-	private $codigo;
 	private $nome;
 	private $codigoLocalidade;
 	static private $tabela = "departamento";
 	
-	public function add() {
-		$sql = "insert into ".self::$tabela." (codigo, nome, codigoLocalidade)
-				values ('".$this->codigo."','".$this->nome."',
-					'".$this->codigoLocalidade."')";
+	public function inserir() {
+		$sql = "insert into ".self::$tabela." ( nome, localidade_id)
+				values ('".$this->nome."','".$this->codigoLocalidade."')";
 		
 		return $sql;
 	}

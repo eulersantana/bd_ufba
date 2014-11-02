@@ -1,13 +1,21 @@
 <h1>Adiconar Departamento</h1>
 <form action="?rt=departamento/add" method="post">
-	<label>Endreco: </label></br>
-	<input type="text" name="endereco" id="endereco"/></br>
+	<label>Instalacao </label></br>
+	<select name="instalacao">
+		<?php 
+
+			foreach ($instalacoes as $val) {
+				echo '<option value="'.$val['localidade_id'].'">'.$val['predio'].'</option>';
+			} 
+		?>
+	</select></br>
 	<label>Nome</label></br>
 	<input type="text" name="nome" id="nome"/></br>
-	<label>Codigo</label></br>
-	<input type="text" name="codigo" id="codigo"/></br>
+
 	<input type="submit" value="Cadastra"/>
 </form>
-<?php if (isset($mensagem)) {
+<?php 
+if (isset($mensagem)) {
 	echo $mensagem;
-} ?>
+} 
+?>

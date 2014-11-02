@@ -24,7 +24,11 @@ class Instalacao {
 	
 	public function atualizar() { }
 	
-	public function selecionar() { }
+	public function selecionar($campos) {
+		$sql = "select ".$campos." from ".self::$tabela;
+		
+		return $sql;
+	}
 	
 	//*************************************************************************
 	//*************************************************************************

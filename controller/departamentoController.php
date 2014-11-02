@@ -1,52 +1,48 @@
 <?php
 
-Class departmentoController Extends baseController {
+Class departamentoController Extends baseController {
 
 	public function index() {
 		$campus = new Departamento;
+		$instalacao = new Instalacao;
 
-		$query  = $campus->selecionar("codigo,nome");
+		$query  = $instalacao->selecionar("localidade_id,predio");
 		$val 	= [] ;
 		 foreach (db::getInstance()->query($query) as $row) {
 		 		array_push($val, $row);
 		 }
-		 $this->registry->template-> = $val;
+
+		$this->registry->template->instalacoes = $val;
 	    $this->registry->template->show('departamento');
 	}
 
 	public function add()
 	{	
-		$localidade = new Localidade;
-		$instalacao = new Instalacao;
+		$departamento = new Departamento;
 
 		/*** set a template variable ***/
-		if (isset($_POST['endereco'])) {
+		if (isset($_POST['instalacao'])) {
 			# code...
-			$localidade->setEndereco($_POST['endereco']);
+			$departamento->setCodigoLocalidade($_POST['instalacao']);
+			$departamento->setNome($_POST['nome']);
 
-			$query = $localidade->inserir();
+			$query = $departamento->inserir();
 
-			$id_localidade = Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),$query);
+			var_dump($_POST);
 
-			if (isset($id_localidade)) {
-	        	if (isset($_POST['instalacao'])) {
-	        		$instalacao->setPredio($_POST['instalacao']);
-	        		$instalacao->setCodigoCampus($_POST['campus']);
-	        		$instalacao->setCodigoLocalidade($id_localidade);
-	        		$query = $instalacao->inserir();
+			Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),$query);
 
-	        		Executable::EXECUTE_QUERY_GET_OBJ_PDO(db::getInstance(),$query);
-	        		
-	        	}
-	        	$this->registry->template->mensagem = "Cadastrado com sucesso.";
+			
+	        $this->registry->template->mensagem = "Cadastrado com sucesso.";
 				
-			}else{
-	        	$this->registry->template->mensagem = "Erro no cadastro";
+		}
+		else{
+        	$this->registry->template->mensagem = "Erro no cadastro";
 
-			}
+		}
 		
-	    }
-	    $this->registry->template->show('campus');
+	    
+	    $this->registry->template->show('departamento');
 
 	}
 }
