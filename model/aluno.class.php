@@ -3,32 +3,32 @@
  * Classe Aluno
  */
 class Aluno {
-	private $codigo;
+	private $academico_id;
 	private $matricula;
 	private $curso;
 	private $senha;
 	static private $tabela = "aluno";
 	
 	public function add() {
-		$sql = "insert into ".self::tabela." (codigo, matricula, curso)
-		values ('".$this->codigo."', '".$this->matricula."',
-		'".$this->curso."', '".$this->senha."')";
+		$sql = "insert into ".self::$tabela." (academico_id, matricula, curso, senha)
+		values (".$this->academicoId.", '".$this->matricula."', '".$this->curso."',
+				'".$this->senha."')";
 		return $sql;
 	}
 	
 	public function delete() {
-		$sql = "delete from ".self::$tabela." where codigo = '".$this->codigo."'";
+		$sql = "delete from ".self::$tabela." where codigo = '".$this->academico_id."'";
 	}
 	
 	//*******************************************************************
 	//*******************************************************************
 	
-	public function setCodigo($newCodigo) {
-		$this->codigo = $newCodigo;
+	public function setAcademicoId($academicoId) {
+		$this->academicoId = $academicoId;
 	}
 	
-	public function getCodigo() {
-		return $this->codigo;
+	public function getAcademicoId() {
+		return $this->academicoId;
 	}
 	
 	public function setMatricula($newMatricula) {

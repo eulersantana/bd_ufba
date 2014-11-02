@@ -8,14 +8,14 @@
 	function alteraTipoId() {
 		var tipo_usuario = document.getElementById("tipo_usuario");
 		var tipo_id 	 = document.getElementById("id_tipo_usuario");
-		//var curso	 	 = document.getElementById("curso_aluno");
+		var curso	 	 = document.getElementById("curso_aluno");
 		
 		if(tipo_usuario.value == "professor") {
 			tipo_id.innerHTML = "SIAPE";
-			//curso.style.display = "none";
+			curso.style.display = "none";
 		} else if (tipo_usuario.value == "aluno") {
 			tipo_id.innerHTML = "Matricula";
-			//curso.style.display = "block";
+			curso.style.display = "block";
 		}
 	}
 </script>
@@ -65,7 +65,7 @@
 					<?php } ?>
 				</select>
 			</fieldset>
-			<!--
+			
 			<fieldset id="curso_aluno">
 				<label>Curso</label>
 				<select name="curso">
@@ -74,7 +74,7 @@
 					<option value="veterinaria">Veterinária</option>
 				</select>
 			</fieldset>
-			-->
+
 			<fieldset>
 				<label>Nome completo</label> <input type="text" placeholder="Digite o nome completo" name="nome_completo" />
 			</fieldset>

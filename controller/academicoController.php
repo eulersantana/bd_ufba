@@ -5,17 +5,13 @@ Class academicoController Extends baseController {
 	public function index() {
 		$departamento = new Departamento;
 		
-		$query = $departamento->selecionar("id, nome");
+		
 		
 		try {
-			$instancia = db::getInstance();
+			$consulta = Executable::EXECUTE_QUERY_GET_OBJ_PDO(db::getInstance(), 
+										 $departamento->selecionar("id, nome"));
 			
-			try {
-				$consulta = $instancia->query($query);
-				$this->registry->template->departamentos = $consulta;
-			} catch (PDOException $e) {
-				print "Error! <b>" . $e->getMessage() . "<b/></br>";
-			}
+			$this->registry->template->departamentos = $consulta;
 		} catch (PDOException $e) {
 			print "Error! <b>" . $e->getMessage() . "<b/></br>";
 		}
@@ -24,6 +20,7 @@ Class academicoController Extends baseController {
 		$this->registry->template->show('form_novo_usuario');
 	}
 
+	
 	public function add()
 	{
 		if(isset($_POST['cadastrar_novo_usuario']) && (stristr($_POST['cadastrar_novo_usuario'],"cadastrar"))) {
@@ -45,25 +42,29 @@ Class academicoController Extends baseController {
 			$academico->setCodigoDepartamento($_POST['departamento']);
 			$academico->setEmail($_POST['email']);
 			
-			if(isset($professor)) {
-				$professor->setSiape($_POST['identificador']);
-				$professor->setSenha($_POST['senha']);
-			} else if(isset($aluno)) {
-				$aluno->setMatricula($_POST['identificador']);
-				$aluno->setCurso($_POST['curso']);
-				$aluno->setSenha($_POST['senha']);
-			}
-			
 			try {
-				$query = $academico->add();
-				$instancia = db::getInstance();
+				$id = Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),
+													  $academico->add());
 				
-				try {
-					//$instancia->exec($query);
-					$this->registry->template->mensagem = "Ultimo id:".Executable::EXECUTE_QUERY_GET_ID($instancia, $query);
-				} catch( PDOExecption $e ) {
-				    print "Error!: " . $e->getMessage() . "</br>";
+				$this->registry->template->mensagem = "Ultimo id: ".$id;
+				
+				
+				if(isset($professor)) {
+					$professor->setSiape($_POST['identificador']);
+					$professor->setSenha($_POST['senha']);
+					
+					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),
+													$professor->add());
+					
+				} else if(isset($aluno)) {
+					$aluno->setMatricula($_POST['identificador']);
+					$aluno->setCurso($_POST['curso']);
+					$aluno->setSenha($_POST['senha']);
+					
+					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),
+														$aluno->add());
 				}
+				
 			}catch (PDOException $e) {
 				print "Error!: " . $e->getMessage() . "</br>";
 			}

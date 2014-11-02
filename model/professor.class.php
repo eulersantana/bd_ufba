@@ -3,15 +3,14 @@
  * Classe Professor
  */
 class Professor {
-	private $codigo;
+	private $academicoId;
 	private $siape;
 	private $senha;
 	static private $tabela = "professor";
 	
 	public function add() {
-		$sql = "insert into ".self::$tabela." (codigo, siape, senha)
-				values ('".$this->codigo."','".$this->siape."'
-					,'".$this->senha."')";
+		$sql = "insert into ".self::$tabela." (academico_id, siape, senha)
+				values (".$this->academicoId.",".$this->siape.", '".$this->senha."')";
 		
 		return $sql;
 	}
@@ -29,12 +28,12 @@ class Professor {
 	//*************************************************************************
 	//*************************************************************************
 	
-	public function setCodigo($newCodigo) {
-		$this->codigo = $newCodigo;
+	public function setAcademicoId($academicoId) {
+		$this->academicoId = $academicoId;
 	}
 	
-	public function getCodigo() {
-		return $this->codigo;
+	public function getAcademicoId() {
+		return $this->academicoId;
 	}
 	
 	public function setSiape($newSiape) {
