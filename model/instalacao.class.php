@@ -5,30 +5,17 @@
 class Instalacao {
 	private $codigoLocalidade;
 	private $predio;
+	static private $tabela = "instalacao";
 	
-	public function Instalacao() {
-		$this->codigoLocalidade = null;
-		$this->predio 			= null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__."(
-					codigoLocalidade char(15),
-					predio varchar(50)
-				)";
-		
-		return $sql;
-	}
-	
-	public function inserir() {
-		$sql = "insert into ".__CLASS__." (codigoLocalidade, predio)
+	public function add() {
+		$sql = "insert into ".self::$tabela." (codigoLocalidade, predio)
 				values ('".$this->codigoLocalidade."','".$this->predio."')";
 		
 		return $sql;
 	}
 	
-	public function deletar() {
-		$sql = "delete from ".__CLASS__."
+	public function delete() {
+		$sql = "delete from ".self::$tabela."
 				where codigoLocalidade = '".$this->codigoLocalidade."' and
 					predio = '".$this->predio."'";
 

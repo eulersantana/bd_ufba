@@ -6,34 +6,18 @@ class Cronograma {
 	private $codigo;
 	private $data;
 	private $codigoEvento;
+	static private $tabela = "cronograma";
 	
-	public function Cronograma() {
-		$this->codigo 		= null;
-		$this->data   		= null;
-		$this->codigoEvento = null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__."(
-					codigo char(15),
-					data date,
-					codigoEvento char(15),
-					primary key(codigo)
-				)";
-		
-		return $sql;
-	}
-	
-	public function inserir() {
-		$sql = "insert into ".__CLASS__." (codigo, data, codigoEvento)
+	public function add() {
+		$sql = "insert into ".self::$tabela." (codigo, data, codigoEvento)
 				values ('".$this->codigo."','".$this->data."',
 					'".$this->codigoEvento."')";
 		
 		return $sql;
 	}
 	
-	public function deletar() {
-		$sql = "delete from ".__CLASS__." where codigo = '".$this->codigo."'";
+	public function delete() {
+		$sql = "delete from ".self::$tabela." where codigo = '".$this->codigo."'";
 
 		return $sql;
 	}

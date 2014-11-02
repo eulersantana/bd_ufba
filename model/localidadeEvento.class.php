@@ -5,31 +5,18 @@
 class LocalidadeEvento {
 	private $codigoEvento;
 	private $codigoLocalidade;
+	static private $tabela = "localidade_has_evento";
 	
-	public function LocalidadeEvento() {
-		$this->codigoLocalidade = null;
-		$this->codigoEvento	    = null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__."(
-					codigoLocalidade char(15),
-					codigoEvento char(15),
-				)";
-		
-		return $sql;
-	}
-	
-	public function inserir() {
-		$sql = "insert into ".__CLASS__." (codigoLocalidade, codigoEvento)
+	public function add() {
+		$sql = "insert into ".self::$tabela." (codigoLocalidade, codigoEvento)
 				values ('".$this->codigoLocalidade."',
 					'".$this->codigoEvento."')";
 		
 		return $sql;
 	}
 	
-	public function deletar() {
-		$sql = "delete from ".__CLASS__." 
+	public function delete() {
+		$sql = "delete from ".self::$tabela." 
 				where codigoLocalidade = '".$this->codigoLocalidade."' and
 					codigoEvento = '".$this->codigoEvento."'";
 

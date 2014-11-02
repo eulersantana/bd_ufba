@@ -5,10 +5,9 @@
 	class User
 	{
 		public $id;
-
 		public $login;
-
 		public $senha;
+		static private $tabela = "academico";
 
 		public function setLogin($login)
 		{
@@ -30,7 +29,8 @@
 		}
 		
 		public function add(){
-			return "INSERT INTO user (login,senha) value ('Euler','08098098')";
+			return "INSERT INTO ".self::$tabela." (login,senha) 
+					values ('".$this->login."','".$this->senha."')";
 		}
 	}
 

@@ -6,25 +6,10 @@ class Professor {
 	private $codigo;
 	private $siape;
 	private $senha;
+	static private $tabela = "professor";
 	
-	public function Professor() {
-		$this->codigo = null;
-		$this->siape  = null;
-		$this->senha  = null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__."(
-					codigo char(15),
-					siape char(15),
-					primary key(siape)
-				)";
-		
-		return $sql;
-	}
-	
-	public function inserir() {
-		$sql = "insert into ".__CLASS__." (codigo, siape, senha)
+	public function add() {
+		$sql = "insert into ".self::$tabela." (codigo, siape, senha)
 				values ('".$this->codigo."','".$this->siape."'
 					,'".$this->senha."')";
 		
@@ -32,7 +17,7 @@ class Professor {
 	}
 	
 	public function deletar() {
-		$sql = "delete from ".__CLASS__." where siape = '".$this->siape."'";
+		$sql = "delete from ".self::$tabela." where siape = '".$this->siape."'";
 
 		return $sql;
 	}

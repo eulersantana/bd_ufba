@@ -5,31 +5,17 @@
 class Localidade {
 	private $codigo;
 	private $endereco;
-	
-	public function Localidade() {
-		$this->codigo 	= null;
-		$this->endereco = null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__."(
-					codigo char(15),
-					endereco varchar(50),
-					primary key(codigo)
-				)";
-		
-		return $sql;
-	}
+	static private $tabela = "localidade";
 	
 	public function inserir() {
-		$sql = "insert into ".__CLASS__." (codigo, endereco)
+		$sql = "insert into ".self::$tabela." (codigo, endereco)
 				values ('".$this->codigo."','".$this->endereco."')";
 		
 		return $sql;
 	}
 	
 	public function deletar() {
-		$sql = "delete from ".__CLASS__." where codigo = '".$this->codigo."'";
+		$sql = "delete from ".self::$tabela." where codigo = '".$this->codigo."'";
 
 		return $sql;
 	}
