@@ -8,30 +8,10 @@ class Atividade {
 	private $horario;
 	private $descricao;
 	private $codigoCronograma;
+	static private $tabela = "atividade";
 	
-	public function Atividade() {
-		$this->codigo 			= null;
-		$this->titulo 			= null;
-		$this->horario 			= null;
-		$this->descricao 		= null;
-		$this->codigoCronograma = null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__." (
-					codigo varchar(15),
-					titulo char(30),
-					horario time,
-					descricao longtext,
-					codigoCronograma,
-					primary key(codigo)
-				)";
-		
-		return $sql;
-	}
-	
-	public function inserir() {
-		$sql = "insert into ".__CLASS__."(codigo, titulo, horario,descricao,
+	public function add() {
+		$sql = "insert into ".self::$tabela."(codigo, titulo, horario,descricao,
 					codigoCronograma)
 				values ('".$this->codigo."','".$this->titulo."',
 						'".$this->horario."','".$this->descricao."',
@@ -40,8 +20,8 @@ class Atividade {
 		return $sql;
 	}
 	
-	public function deletar() {
-		$sql = "delete from ".__CLASS__." where codigo = '".$this->codigo."'";
+	public function delete() {
+		$sql = "delete from ".self::$tabela." where codigo = '".$this->codigo."'";
 		
 		return $sql;
 	}

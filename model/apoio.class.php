@@ -7,27 +7,9 @@ class Apoio {
 	private $nome;
 	private $urlImg;
 	private $codigoEvento;
+	static private $tabela = "apoio";
 	
-	public function Apoio() {
-		$this->codigo   	= null;
-		$this->nome     	= null;
-		$this->urlImg   	= null;
-		$this->codigoEvento = null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__." (
-					codigo char(15),
-					nome varchar(50),
-					utlImg longtext,
-					codigoEvento char(15)
-					primary key(codigo)
-				)";
-		
-		return $sql;
-	}
-	
-	public function inserir() {
+	public function add() {
 		$sql = "insert into ".__CLASS__." (codigo, nome, urlImg, codigoEvento)
 				values ('".$this->codigo."','".$this->nome."',
 						'".$this->urlImg."','".$this->codigoEvento."')";

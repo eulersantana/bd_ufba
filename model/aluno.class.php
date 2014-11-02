@@ -7,34 +7,17 @@ class Aluno {
 	private $matricula;
 	private $curso;
 	private $senha;
+	static private $tabela = "aluno";
 	
-	public function Aluno() {
-		$this->codigo 	 = null;
-		$this->matricula = null;
-		$this->curso 	 = null;
-		$this->senha	 = null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__." (
-					codigo char(10),
-					matricula char(15),
-					curso varchar(30)
-					primary key(matricula)
-				)";
-	
-		return $sql;
-	}
-	
-	public function inserir() {
-		$sql = "insert into ".__CLASS__." (codigo, matricula, curso)
+	public function add() {
+		$sql = "insert into ".self::tabela." (codigo, matricula, curso)
 		values ('".$this->codigo."', '".$this->matricula."',
 		'".$this->curso."', '".$this->senha."')";
 		return $sql;
 	}
 	
 	public function delete() {
-		$sql = "delete from ".__CLASS__." where codigo = '".$this->codigo."'";
+		$sql = "delete from ".self::$tabela." where codigo = '".$this->codigo."'";
 	}
 	
 	//*******************************************************************

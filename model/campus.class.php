@@ -5,30 +5,17 @@
 class Campus {
 	private $codigoLocalidade;
 	private $nome;
+	static private $tabela = "campus";
 	
-	public function Instalacao() {
-		$this->codigoLocalidade = null;
-		$this->nome 			= null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__."(
-					nome varchar(50),
-					codigoLocalidade char(15),
-				)";
-		
-		return $sql;
-	}
-	
-	public function inserir() {
-		$sql = "insert into ".__CLASS__."(codigoLocalidade, nome)
+	public function add() {
+		$sql = "insert into ".self::$tabela."(codigoLocalidade, nome)
 				values ('".$this->codigoLocalidade."','".$this->nome."')";
 		
 		return $sql;
 	}
 	
-	public function deletar() {
-		$sql = "delete from ".__CLASS__"
+	public function delete() {
+		$sql = "delete from ".self::$tabela."
 				where codigoLocalidade = '".$this->codigoLocalidade."' and
 					nome = '".$this->nome."'";
 		
