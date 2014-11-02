@@ -1,43 +1,21 @@
 <?php
 /*
  * Classe Academico
- */cclass Academico {
-	private $codigo;
+ */
+ class Academico {
+	private $id;
 	private $nome;
 	private $endereco;
-	private $dataNacimento;
+	private $dataNascimento;
 	private $telefone;
 	private $codigoDepartamento;
+	private $email;
 	
-	public function Academico() {
-		$this->codigo 			  = null;
-		$this->nome   			  = null;
-		$this->endereco 		  = null;
-		$this->dataNascimento 	  = null;
-		$this->telefone 		  = null;
-		$this->codigoDepartamento = null;
-	}
-	
-	public function createTable() {
-		$sql = "create table ".__CLASS__." (
-		codigo char(15) not null,
-		nome varchar(50),
-		endereco varchar(100),
-		nascimento date,
-		telefone varchar(10),
-		DPTO char(10),
-		primary key(codigo)
-		)";
-	
-		return $sql;
-	}
-	
-	public function inserir() {
-		$sql = "insert into ".__CLASS__." (codigo, nome, endereco, nascimento,
-		telefone, DPTO)
-		values ('".$this->codigo."','".$this->nome."',
-		'".$this->endereco."','".$this->nascimento."',
-		'".$this->telefone."','".$this->codigoDepartamento."')";
+	public function add() {
+		$sql = "insert into academico (nome, endereco, data_nascimento,
+				telefone, departamento_id, email) values ('".$this->nome."','".$this->endereco."',
+				'".$this->dataNascimento."','".$this->telefone."','".$this->codigoDepartamento."',
+				'".$this->email."')";
 	
 		return $sql;
 	}
@@ -49,7 +27,7 @@
 	
 	public function atualizar() { }
 	
-	public selecionar() { }
+	public function selecionar() { }
 	
 	//*******************************************************************
 	//*******************************************************************
@@ -62,7 +40,7 @@
 		return $this->codigo;
 	}
 	
-	public function setNome($NewNome) {
+	public function setNome($newNome) {
 		$this->nome = $newNome;
 	}
 	
@@ -95,10 +73,18 @@
 	}
 	
 	public function setCodigoDepartamento($newCodigoDepartamento) {
-		$this->codigoDepartamento = $newCodigoDapartamento;
+		$this->codigoDepartamento = $newCodigoDepartamento;
 	}
 	
 	public function getCodigoDepartamento() {
 		return $this->codigoDepartamento;
+	}
+	
+	public function setEmail($email) {
+		$this->email = $email;
+	}
+	
+	public function getEmail() {
+		return $this->email;
 	}
 }

@@ -5,10 +5,12 @@
 class Professor {
 	private $codigo;
 	private $siape;
+	private $senha;
 	
 	public function Professor() {
 		$this->codigo = null;
 		$this->siape  = null;
+		$this->senha  = null;
 	}
 	
 	public function createTable() {
@@ -22,8 +24,9 @@ class Professor {
 	}
 	
 	public function inserir() {
-		$sql = "insert into ".__CLASS__." (codigo, siape)
-				values ('".$this->codigo."','".$this->siape."')";
+		$sql = "insert into ".__CLASS__." (codigo, siape, senha)
+				values ('".$this->codigo."','".$this->siape."'
+					,'".$this->senha."')";
 		
 		return $sql;
 	}
@@ -55,5 +58,13 @@ class Professor {
 	
 	public function getSiape() {
 		return $this->siape;
+	}
+	
+	public function setSenha($senha) {
+		$this->senha = $senha;
+	}
+	
+	public function getSenha() {
+		return $this->senha;
 	}
 }
