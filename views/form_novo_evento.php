@@ -52,6 +52,11 @@
 				</fieldset>
 				
 				<fieldset>
+					<label>Link</label>
+					<input type="text" name="link_evento"/>
+				</fieldset>
+				
+				<fieldset>
 					<label>Data de inicio</label>
 					<input type="date" name="data_inicio_evento"/>
 				</fieldset>

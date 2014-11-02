@@ -4,6 +4,7 @@ class Evento {
     private $id;
     private $titulo;
     private $cartaz;
+    private $link;
     private $inicio;
     private $fim;
     private $descricao;
@@ -11,8 +12,8 @@ class Evento {
     private static $tabela = "evento";
     
     public function add() {
-        $sql = "insert into ".self::$tabela." (titulo, cartaz, inicio, fim, descricao, academico_id)
-        		values ('".$this->titulo."', '".$this->cartaz."', '".$this->inicio."',
+        $sql = "insert into ".self::$tabela." (titulo, cartaz, link, inicio, fim, descricao, academico_id)
+        		values ('".$this->titulo."', '".$this->cartaz."', '".$this->link."', '".$this->inicio."',
         		'".$this->fim."', '".$this->descricao."', ".$this->academicoId.")";
         
         return $sql;
@@ -76,5 +77,13 @@ class Evento {
 
     function setAcademicoId($academico_id) {
         $this->academicoId = $academico_id;
+    }
+    
+    function setLink($newLink) {
+    	$this->link = $newLink;
+    }
+    
+    function getLink() {
+    	return $this->link;
     }
 }
