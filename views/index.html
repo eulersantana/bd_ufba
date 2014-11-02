@@ -93,8 +93,8 @@
                         <li class="page-scroll">
                             <a href="#contact">Contato</a>
                         </li>
-                            
-                         <li class="active"><a type="button" class="btn "  data-toggle="modal" data-target="#myModal">Entrar  <span class="caret"></span></a></li>
+
+                        <li class="active"><a type="button" class="btn "  data-toggle="modal" data-target="#myModal">Entrar  <span class="caret"></span></a></li>
 
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -129,7 +129,7 @@
                                                     </div>
                                                 </div><br/>
                                                 <input type="submit"  id="entrar_btn" value="Entrar"/>
-												
+
                                             </form>
                                         </ul>
                                         <!---->
@@ -157,11 +157,11 @@
                         <div class="btn-group-vertical" style="float:left; width:258px;">
                             <button type="button" class="btn btn-default btn-lg"> Busca Especializada</button>
 
-                         <div class="btn-group">
+                            <div class="btn-group">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                <div class="input-append date" id="dpYears" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                    <input id="calendarioInput"class="span2" size="27" type="text"  readonly>
-                                    <span class="add-on"><a class="glyphicon glyphicon-calendar"></a></span>
+                                    <div class="input-append date" id="dpYears" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                        <input id="calendarioInput"class="span2" size="27" type="text"  readonly>
+                                        <span class="add-on"><a class="glyphicon glyphicon-calendar"></a></span>
                                     </div>
                                 </button>
                             </div>
@@ -191,16 +191,16 @@
                         </div>
 
 
-                            <div class="btn-group">
-                                <form class="navbar-form" role="search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Busca Livre" name="buscaLivre">
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                        </div>
+                        <div class="btn-group">
+                            <form class="navbar-form" role="search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Busca Livre" name="buscaLivre">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                                     </div>
-                                </form>
-                            </div> 
+                                </div>
+                            </form>
+                        </div> 
 
                         <!--
                         <div class="btn-group" style="width:258px;">
@@ -371,80 +371,107 @@
                 <hr class="star-primary">
             </div>
         </div>
+        
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                <form name="sentMessage" id="contactForm" novalidate>
 
 
-                    <div class="row control-group">
 
-                        <div class="controls">
-                            <p> Qual sua relação com a UFBA?</p>
-                            <p><input id="userProfessor" type="checkbox"> Professor </input><br/>
-                                <div id="acaoProfessor" >
-                                    <div class="form-group"> Digite seu Siape <br/>
-                                        <input type="number" name="siape" />
+                <div id="form_novo_usuario">
+                    <form method="post" action="?rt=academico/add" >
+
+                        <div class="form-group col-xs-6">
+                                    
+                                     <div class="row control-group">
+                                            <fieldset>
+                                            <label>Tipo do usuário</label>
+                                            <select name="tipo_usuario"
+                                            id="tipo_usuario" onchange="alteraTipoId()">
+                                            <option value="aluno">Aluno</option>
+                                            <option value="professor">Professor</option>
+                                             </select>
+                                         </fieldset>
+                                     </div>
+
+                                    <div class="row control-group">
+                                        <fieldset>
+                                            <label id="id_tipo_usuario">Matricula</label> <input class="form-control" type="text" name="identificador" />
+                                        </fieldset>
                                     </div>
-                                </div>
-                            </p>
 
-                            <p><input id="userAluno" type="checkbox"> Aluno </input><br/>
-                                <div id="acaoAluno" >
-                                    <div class="form-group"> Digite sua Matrícula<br/>
-                                        <input type="number" name="matricula" />
+                                    <div class="row control-group">
+                                        <fieldset>
+                                            <label>Departamento</label>
+                                            <select name="departamento">
+                                                <option value="0">Departamento</option>
+                                                <?php foreach($departamentos as $departamento) { ?>
+                                                <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </fieldset>
                                     </div>
-                                </div>
-                            </p>
-                        </div>
-                    </div>
+                    
+                                    <div class="row control-group">
+                                        <fieldset id="curso_aluno">
+                                            <label>Curso</label>
+                                            <input type="text" class="form-control" placeholder="Digite o nome seu curso" name="curso">
+                                        </fieldset>
+                                    </div>
 
+                                    <div class="row control-group">
 
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label class="control-label" for="nomeUser">Nome Completo</label>
-                            <input type="text" class="form-control" placeholder="Nome Completo" id="name" required data-validation-required-message="Por favor, digite teu nome.">
-                        </div>
-                    </div>
+                                        <fieldset>
+                                            <label>Nome completo</label> <input class="form-control" type="text" placeholder="Digite o nome completo" name="nome_completo" />
+                                        </fieldset>
+                                    </div>
 
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label class="control-label" for="enderecoUser">Endereço</label>
-                            <input type="text" class="form-control" placeholder="Endereço" id="enderecoUser" required data-validation-required-message="Por favor, digite seu endereço.">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
+                                    <div class="row control-group">
+                                        <fieldset>
+                                            <label>Endereço</label> <input class="form-control" type="text" placeholder="Digite o endereço" name="endereco" />
+                                        </fieldset>
+                                    </div>
 
-                    <div class="row control-group">
-                        <div class="form-group col-xs-4 floating-label-form-group controls">
-                            <label>Data de Nascimento</label>
-                            <input type="date" class="form-control" id="dataNascimentoUser" required data-validation-required-message="Por favor, digite sua data de Nascimento.">
-                        </div>
-                    </div>
+                                    <div class="row control-group">
+                                        <fieldset>
+                                            <label>Data de nascimento</label> <input class="form-control" type="date" name="data_nascimento" />
+                                        </fieldset>
+                                    </div>
 
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label class="control-label" for="passUser">Senha</label>
-                            <input type="password" class="form-control" placeholder="Defina sua Senha" id="passUser" required data-validation-required-message="Por favor, digite uma senha.">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
+                                    <div class="row control-group">
+                                        <fieldset>
+                                            <label>Telefone</label> <input class="form-control" type="text" placeholder="Digite o telefone" name="telefone" />
+                                        </fieldset>
+                                    </div>
 
+                                    <div class="row control-group">
+                                        <fieldset>
+                                            <label>Email</label> <input class="form-control" type="text" name="email" placeholder="Digite o email"/>
+                                        </fieldset>
+                                    </div>
 
+                                    <div class="row control-group">
+                                        <fieldset>
+                                            <label>Senha</label> <input class="form-control" type="password" name="senha" />
+                                        </fieldset>
+                                    </div>
 
+                                    <div class="row control-group">
+                                        <fieldset>
+                                            <label>Confirme a senha</label> <input class="form-control" type="password" name="confirmacao_senha" />
+                                        </fieldset>
+                                    </div>
 
-
-                    <br>
-                    <div id="success">
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-success btn-lg">Concluir</button>
-                        </div>
-                    </div>
-
-                </form>
+                                    <p></p>
+                                    <div class="row control-group">
+                                        <fieldset>
+                                            <input  class="btn btn-success btn-lg" type="submit" name="cadastrar_novo_usuario" value="Cadastrar" />
+                                        </fieldset>
+                                    </div>
+                       </div>
+                     </form>
+                </div> <!--fim div id= formulario novo user-->
             </div>
         </div>
     </div>
