@@ -54,14 +54,13 @@ Class academicoController Extends baseController {
 				$aluno->setSenha($_POST['senha']);
 			}
 			
-			$query = $academico->add();
-			
 			try {
+				$query = $academico->add();
 				$instancia = db::getInstance();
 				
 				try {
-					$instancia->exec($query);
-				    $this->registry->template->mensagem = "ULtimo id:".$instancia->lastInsertId();
+					//$instancia->exec($query);
+					$this->registry->template->mensagem = "Ultimo id:".Executable::EXECUTE_QUERY_GET_ID($instancia, $query);
 				} catch( PDOExecption $e ) {
 				    print "Error!: " . $e->getMessage() . "</br>";
 				}

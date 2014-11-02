@@ -10,10 +10,10 @@
 	private $telefone;
 	private $codigoDepartamento;
 	private $email;
-	static private $tabela = "academico";
+	private static $tabela = "academico";
 	
 	public function add() {
-		$sql = "insert into ".self::tabela." (nome, endereco, data_nascimento,
+		$sql = "insert into ".self::$tabela." (nome, endereco, data_nascimento,
 				telefone, departamento_id, email) values ('".$this->nome."','".$this->endereco."',
 				'".$this->dataNascimento."','".$this->telefone."','".$this->codigoDepartamento."',
 				'".$this->email."')";
