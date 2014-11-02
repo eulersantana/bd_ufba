@@ -35,8 +35,6 @@ return self::$instance;
 }
 
 
-
-
 /**
 *
 * Like the constructor, we make __clone private

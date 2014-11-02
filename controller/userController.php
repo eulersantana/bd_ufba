@@ -33,12 +33,14 @@ public function add()
 		    //$dbh = new PDO('mysql:host=localhost;dbname=test', 'username', 'password');
 		    $dbh = db::getInstance();
 
-		    $stmt = $dbh->prepare($query);
+		    // $stmt = $dbh->prepare($query);
 
 		    try {
-		        $dbh->beginTransaction();
-		        $stmt->execute( array($user->getLogin(), md5($user->getSenha())));
-		        $dbh->commit();
+		    	$dbh->exec($query);
+		        // $dbh->beginTransaction();
+		        // $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+		        // $stmt->execute( array($user->getLogin(), md5($user->getSenha())));
+		        // $dbh->commit();
 		        $this->registry->template->mensagem = "ULtimo id:".$dbh->lastInsertId();
 		    } catch(PDOExecption $e) {
 		        $dbh->rollback();

@@ -30,7 +30,7 @@
 		}
 		
 		public function add(){
-			return "INSERT INTO user (login,senha) value (?,?)";
+			return "INSERT INTO user (login,senha) value ('Euler','08098098')";
 		}
 	}
 
