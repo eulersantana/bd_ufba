@@ -3,6 +3,24 @@
 Class academicoController Extends baseController {
 
 	public function index() {
+		$departamento = new Departamento;
+		
+		$query = $departamento->selecionar("id, nome");
+		
+		try {
+			$instancia = db::getInstance();
+			
+			try {
+				$consulta = $instancia->query($query);
+				$this->registry->template->departamentos = $consulta;
+			} catch (PDOException $e) {
+				print "Error! <b>" . $e->getMessage() . "<b/></br>";
+			}
+		} catch (PDOException $e) {
+			print "Error! <b>" . $e->getMessage() . "<b/></br>";
+		}
+		
+		$this->registry->template->titulo = "Registrar novo Academico";
 		$this->registry->template->show('form_novo_usuario');
 	}
 

@@ -5,38 +5,40 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-			function alteraTipoId() {
-				var tipo_usuario = document.getElementById("tipo_usuario");
-				var tipo_id 	 = document.getElementById("id_tipo_usuario");
-				var curso	 	 = document.getElementById("curso_aluno");
-				
-				if(tipo_usuario.value == "professor") {
-					tipo_id.innerHTML = "SIAPE";
-					curso.style.display = "none";
-				} else if (tipo_usuario.value == "aluno") {
-					tipo_id.innerHTML = "Matricula";
-					curso.style.display = "block";
-				}
-			}
-		</script>
+	function alteraTipoId() {
+		var tipo_usuario = document.getElementById("tipo_usuario");
+		var tipo_id 	 = document.getElementById("id_tipo_usuario");
+		var curso	 	 = document.getElementById("curso_aluno");
+		
+		if(tipo_usuario.value == "professor") {
+			tipo_id.innerHTML = "SIAPE";
+			curso.style.display = "none";
+		} else if (tipo_usuario.value == "aluno") {
+			tipo_id.innerHTML = "Matricula";
+			curso.style.display = "block";
+		}
+	}
+</script>
 
 <style type="text/css">
-label {
-	display: block;
-	width: 180px;
-	float: left;
-	font-weight: bold;
-	font-size: 15px;
-}
-
-input,select {
-	width: 150px;
-}
+	label {
+		display: block;
+		width: 180px;
+		float: left;
+		font-weight: bold;
+		font-size: 15px;
+	}
+	
+	input,select {
+		width: 150px;
+	}
 </style>
 </head>
 <body>
 	<h1>
-		<?php echo $titulo; ?>
+		<?php 
+			echo $titulo;
+		?>
 	</h1>
 	<div id="form_novo_usuario">
 		<form method="post" action="?rt=academico/add">
@@ -53,14 +55,19 @@ input,select {
 			</fieldset>
 
 			<fieldset>
-				<label>Departamento</label> <select name="departamento">
-					<option value="2">Departamento 01</option>
+				<label>Departamento</label>
+				<select name="departamento">
+					<option value="0">Departamento</option>
+					<?php foreach($departamentos as $departamento) { ?>
+					<option value="<?php echo $departamento[0]; ?>"><?php echo $departamento[1]; ?></option>
+					<?php } ?>
 				</select>
 			</fieldset>
 
 			<fieldset id="curso_aluno">
-				<label>Curso</label> <select name="curso">
-					<option value="computacao">Computação</option>
+				<label>Curso</label>
+				<select name="curso">
+					<option value="0">Curso</option>
 				</select>
 			</fieldset>
 
