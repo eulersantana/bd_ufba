@@ -14,6 +14,15 @@
 					novas_atividades.innerHTML += form_atividades.innerHTML;
 				}
 			}
+
+			function add_apoiador() {
+				if(confirm("Você irá adicionar um novo apoiador. Continuar?")) {
+					var form_apoiadores  = document.getElementById("form_apoiadores");
+					var novos_apoiadores = document.getElementById("novos_apoiadores");
+
+					novos_apoiadores.innerHTML += form_apoiadores.innerHTML;
+				}
+			}
 		</script>
 		
 		<style type="text/css">
@@ -48,17 +57,22 @@
 				
 				<fieldset>
 					<label>Cartaz</label>
-					<input type="file" name="titulo_evento"/>
+					<input type="file" name="cartaz_evento"/>
+				</fieldset>
+				
+				<fieldset>
+					<label>Link</label>
+					<input type="text" name="link_evento"/>
 				</fieldset>
 				
 				<fieldset>
 					<label>Data de inicio</label>
-					<input type="date" name="data_inicio"/>
+					<input type="date" name="data_inicio_evento"/>
 				</fieldset>
 				
 				<fieldset>
 					<label>Date de termino</label>
-					<input type="date" name="data_fim"/>
+					<input type="date" name="data_fim_evento"/>
 				</fieldset>
 				
 				<fieldset>
@@ -96,7 +110,7 @@
 						
 						<fieldset>
 							<label>Descrição da atividade</label>
-							<textarea name="descricao_atividade"></textarea>
+							<textarea name="descricao_atividade[]"></textarea>
 						</fieldset>
 					
 						<hr/>
@@ -106,6 +120,35 @@
 				</div>
 				
 				<input type="button" value="adicionar atividade" onclick="add_atividade();"/>
+				
+				<!-- 
+				  --
+				  -- FORMULARIO DE APOIADORES
+				  --
+				  -->
+				
+				<h2>Apoiadores</h2>
+				
+				<div id="apoiadores">
+					<div id="form_apoiadores">
+						<hr/>
+						
+						<fieldset>
+							<label>Nome do apoiador</label>
+							<input type="text" name="nome_apoiador[]"/>
+						</fieldset>
+						
+						<fieldset>
+							<label>Imagem do apoiador</label>
+							<input type="file" name="imagem_apoiador[]"/>
+						</fieldset>
+						<hr/>
+					</div>
+					
+					<div id="novos_apoiadores"></div>
+				</div>
+				
+				<input type="button" value="adicionar apoiador" onclick="add_apoiador();"/><br/><br/><hr/><br/>
 				<input type="submit" value="Cadastrar Evento"/>
 			</form>
 		</div>

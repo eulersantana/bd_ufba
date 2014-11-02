@@ -6,22 +6,23 @@ class Atividade {
 	private $codigo;
 	private $titulo;
 	private $horario;
+	private $data;
 	private $descricao;
-	private $codigoCronograma;
+	private $codigoEvento;
 	static private $tabela = "atividade";
 	
 	public function add() {
-		$sql = "insert into ".self::$tabela."(codigo, titulo, horario,descricao,
-					codigoCronograma)
+		$sql = "insert into ".self::$tabela."(id, titulo, horario, descricao,
+					evento_id, data)
 				values ('".$this->codigo."','".$this->titulo."',
 						'".$this->horario."','".$this->descricao."',
-						'".$this->codigoCronograma."')";
+						'".$this->codigoEvento."', '".$this->data."')";
 		
 		return $sql;
 	}
 	
 	public function delete() {
-		$sql = "delete from ".self::$tabela." where codigo = '".$this->codigo."'";
+		$sql = "delete from ".self::$tabela." where id = '".$this->codigo."'";
 		
 		return $sql;
 	}
@@ -65,11 +66,19 @@ class Atividade {
 		return $this->descricao;
 	}
 	
-	public function setCodigoCronograma($newCodigoCronograma) {
-		$this->codigoCronograma = $newCodigoCronograma;
+	public function setCodigoEvento($newCodigoEvento) {
+		$this->codigoEvento = $newCodigoEvento;
 	}
 	
-	public function getCodigoCronograma() {
-		return $this->codigoCronograma;
+	public function getCodigoEvento() {
+		return $this->codigoEvento;
+	}
+	
+	public function setData($newData) {
+		$this->data = $newData;
+	}
+	
+	public function getData() {
+		return $this->data;
 	}
 }
