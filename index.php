@@ -175,30 +175,20 @@
                         <p><input id="buscaAvancada" type="checkbox"> Busca Avançada </input><br/>
                             <div id="acaobuscaAvancada" >
                                 <div class="btn-group span3">
-                                    <ul class="avancada">
+                                    <!--<ul class="avancada">-->
                                         <div class="btn-group " align="center">
                                             <p>Campus</p>
                                                 <select id="campus" class="dropdown" name="busca[campus]">
-                                                    <option value="UF">Ondina</option>
-                                                    <option value="AC">São Lázaro</option>
-                                                    <option value="AL">Federação</option>
+                                                    <option value="Ondina">Ondina</option>
+                                                    <option value="Sao Lazaro">São Lázaro</option>
+                                                    <option value="Federacao">Federação</option>
+                                                    <option value="Piedade">Piedade</option>
+                                                    <option value="Canela">Canela</option>
                                                 </select>
                                             
                                             </div>
                                             
-                                            
-                                            <div class="btn-group" align="center" >
-                                                <p>Instalação</p>
-                                                <select id="instalacao" class="dropdown" name="busca[instalacao]">
-                                                    <option value="Paf I">Paf I</option>
-                                                    <option value="Paf II">Paf II</option>
-                                                    <option value="Paf III">Paf III</option>
-                                                </select>
-                                            
-                                            </div>
-
-                                            
-                                            <div class="btn-group " align="center">
+                                            <div class="btn-group " align="center"  style="margin-right:5px;margin-left:5px;">
                                                 <p>Departamento</p>
                                                 <select style="width:180px;" id="departamento" class="dropdown" name="busca[departamento]">
                                                     <option value="dcc">DCC</option>
@@ -206,14 +196,29 @@
                                                     <option value="dest">DEST</option>
                                                 </select>
                                             </div>
+
+                                            <div class="btn-group" align="center" >
+                                                <p>Instalação</p>
+                                                <select id="instalacao" class="dropdown" name="busca[instalacao]">
+                                                    <option value="Paf I">Paf I</option>
+                                                    <option value="Paf II">Paf II</option>
+                                                    <option value="Paf III">Paf III</option>
+                                                    <option value="Arquitetura">Arquitetura</option>
+                                                </select>
+                                            
+                                            </div>
+
+                                            
+                                            
                                            
-                                    </ul>
+                                    <!--</ul>-->
                                 </div>
 
                             </div>
                         </p>
                     </div>
                 </form>
+            </form>
 
             </div>
 
