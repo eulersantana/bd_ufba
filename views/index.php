@@ -31,7 +31,7 @@
         <!-- ufba home -->
 
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/datepicker.css" rel="stylesheet">
+        <!--<link href="css/datepicker.css" rel="stylesheet">-->
         <link rel="stylesheet" type="text/css" href="css/style.css">
         
         <!-- Tema padrao-->
@@ -44,7 +44,7 @@
         <!-- Tema padrao-->
 <!--        <link rel="stylesheet" href="css/bootstrap-theme.css">-->
         <script src="js/jquery.js"></script>
-        <link rel="stylesheet" href="css/slideShow.css">
+       <!-- <link rel="stylesheet" href="css/slideShow.css">-->
         
         <script src="js/formulario.js"></script>
 
