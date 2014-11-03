@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>UFBA ConVida</title>
+
+	<!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="css/freelancer.css" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- ufba home -->
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/datepicker.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+        <!-- Tema padrao-->
+        <script src="js/jquery.js"></script>
+        <link rel="stylesheet" href="css/slideShow.css">
+        
+        <script src="js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+        <!-- Tema padrao-->
+        <link rel="stylesheet" href="css/bootstrap-theme.css">
+        <script src="js/jquery.js"></script>
+        <link rel="stylesheet" href="css/slideShow.css">
+        
+        <script src="js/formulario.js"></script>
+
+
+    </head>
+
+    <body id="page-top" class="index">
+
+    	<script src="js/bootstrap.min.js"></script>
+    	<script src="js/hideBuscaAvancada.js"></script>
+
+    	<!-- Busca Home -->
+    	<div class="container">
+
+
+    		<form class="form-inline" action="index.php?action=search" method="get">
+    		
+    			<!--Busca Livre-->
+    			<div class="form-group span6">
+    				<input id="nome" name="busca[nome]" class="form-control" type="text" placeholder="Busca Livre">
+    			</div>
+    			<!--Submit busca livre-->
+    			<div class="form-group span1">
+    				<input type="submit" value="Filtrar" class="btn btn_1">
+    			</div>
+
+
+    			<!--Busca Avançada-->
+    			<form name="sentMessage" id="contactForm" novalidate>
+    				<div class="controls">
+    					<p><input id="buscaAvancada" type="checkbox"> Busca Avançada </input><br/>
+    						<div id="acaobuscaAvancada" >
+    							<div class="btn-group span3">
+    								<ul class="avancada">
+    									<div class="btn-group " align="center">
+    										<p>Campus</p>
+    											<select id="campus" class="dropdown" name="busca[campus]">
+    												<option value="UF">Ondina</option>
+    												<option value="AC">São Lázaro</option>
+    												<option value="AL">Federação</option>
+    											</select>
+    										
+    										</div>
+    										
+    										
+    										<div class="btn-group" align="center" >
+    											<p>Instalação</p>
+    											<select id="instalacao" class="dropdown" name="busca[instalacao]">
+    												<option value="Paf I">Paf I</option>
+    												<option value="Paf II">Paf II</option>
+    												<option value="Paf III">Paf III</option>
+    											</select>
+    										
+    										</div>
+
+    										
+    										<div class="btn-group " align="center">
+    											<p>Departamento</p>
+    											<select style="width:180px;" id="departamento" class="dropdown" name="busca[departamento]">
+    												<option value="dcc">DCC</option>
+    												<option value="dmat">DMAT</option>
+    												<option value="dest">DEST</option>
+    											</select>
+    										</div>
+    									   
+    								</ul>
+    							</div>
+
+    						</div>
+    					</p>
+    				</div>
+    			</form>
+
+    		</div>
+
+
+    	</body>
+
+    	</html>
