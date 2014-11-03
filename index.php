@@ -47,13 +47,9 @@
         <link rel="stylesheet" href="css/slideShow.css">
         
         <script src="js/formulario.js"></script>
-<<<<<<< HEAD
+
         <script src="js/cadastroAcademico.js"></script>
         <link rel="stylesheet" type="text/css" href="cadastroAcademico.css">
-
-
-=======
->>>>>>> origin/master
 
 
     </head>
@@ -62,6 +58,7 @@
 
         <script src="js/bootstrap.min.js"></script>
         <script src="js/cadastroUsuario.js"></script>
+        <script src="../js/hideBuscaAvancada.js"></script>
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -155,81 +152,72 @@
         </nav>
 
         <header>
-            <div class="container">
-                        <div class="row">
-
-                    <div class="col-lg-12">
-
-
-                        <div class="btn-group-vertical" style="float:left; width:258px;">
-                            <button type="button" class="btn btn-default btn-lg"> Busca Especializada</button>
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    <div class="input-append date" id="dpYears" data-date="" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                        <input id="calendarioInput"class="span2" size="27" type="text"  readonly>
-                                        <span class="add-on"><a class="glyphicon glyphicon-calendar"></a></span>
-                                    </div>
-                                </button>
-                            </div>
-
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Campus <span class="caret"></span></button>
-                                <ul class="dropdown-menu" role="menu">
-                                  <li><a href="#">Federação <input type="checkbox" id="campus" /></a>
-                                  </li>
-                              </ul>
-                          </div>
-
-                          <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Instalação <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a href="#">PAF-I
-                                <input type="checkbox" id="instalacao" /></a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Departamento <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu">
-                              <li><a href="#">Matemática
-                                <input type="checkbox" id="departamento " /></a></li>
-                            </ul>
-                        </div>
+            
+                <!-- Busca Home -->
+        <div class="container">
 
 
-                        <div class="btn-group">
-                            <form class="navbar-form" role="search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Busca Livre" name="buscaLivre">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div> 
-
-                        <!--
-                        <div class="btn-group" style="width:258px;">
-                           <input type="date" class="form-control" id="dataNascimentoUser"/>
-                       </div>-->
-
-                   </div>
-
-
-
-
-                   <div class="intro-text" align="center" >
-                    <span class="name">UFBA CONVIDA</span>
-                    <hr class="star-light">
-                    <span class="skills">Descubra o que está acontecendo na UFBA <br/>OU<br/> Publique seu Evento</span>
+            <form class="form-inline" action="index.php?action=search" method="get">
+            
+                <!--Busca Livre-->
+                <div class="form-group span6">
+                    <input id="nome" name="busca[nome]" class="form-control" type="text" placeholder="Busca Livre">
+                </div>
+                <!--Submit busca livre-->
+                <div class="form-group span1">
+                    <input type="submit" value="Filtrar" class="btn btn_1">
                 </div>
 
 
+                <!--Busca Avançada-->
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="controls">
+                        <p><input id="buscaAvancada" type="checkbox"> Busca Avançada </input><br/>
+                            <div id="acaobuscaAvancada" >
+                                <div class="btn-group span3">
+                                    <ul class="avancada">
+                                        <div class="btn-group " align="center">
+                                            <p>Campus</p>
+                                                <select id="campus" class="dropdown" name="busca[campus]">
+                                                    <option value="UF">Ondina</option>
+                                                    <option value="AC">São Lázaro</option>
+                                                    <option value="AL">Federação</option>
+                                                </select>
+                                            
+                                            </div>
+                                            
+                                            
+                                            <div class="btn-group" align="center" >
+                                                <p>Instalação</p>
+                                                <select id="instalacao" class="dropdown" name="busca[instalacao]">
+                                                    <option value="Paf I">Paf I</option>
+                                                    <option value="Paf II">Paf II</option>
+                                                    <option value="Paf III">Paf III</option>
+                                                </select>
+                                            
+                                            </div>
+
+                                            
+                                            <div class="btn-group " align="center">
+                                                <p>Departamento</p>
+                                                <select style="width:180px;" id="departamento" class="dropdown" name="busca[departamento]">
+                                                    <option value="dcc">DCC</option>
+                                                    <option value="dmat">DMAT</option>
+                                                    <option value="dest">DEST</option>
+                                                </select>
+                                            </div>
+                                           
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </p>
+                    </div>
+                </form>
+
             </div>
-        </div>
-    </div>
-</header>
+                
+        </header>
 
 <!-- Destaque Section -->
 <section class="destaque" id="destaque">
@@ -384,11 +372,6 @@
                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/master
                 <div id="form_novo_usuario">
                     <form method="post" action="?rt=academico/add" >
 
@@ -407,11 +390,11 @@
 
                                     <div class="row control-group">
                                         <fieldset>
-<<<<<<< HEAD
+
                                             <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
-=======
+
                                             <label id="id_tipo_usuario">Matricula</label> <input class="form-control" type="text" name="identificador" />
->>>>>>> origin/master
+
                                         </fieldset>
                                     </div>
 
@@ -484,7 +467,7 @@
                                         </fieldset>
                                     </div>
                        </div>
-<<<<<<< HEAD
+
 
                        <?php
                        if(isset($mensagem)) {
@@ -492,8 +475,7 @@
                         }
                         ?>
 
-=======
->>>>>>> origin/master
+
                      </form>
                 </div> <!--fim div id= formulario novo user-->
             </div>
