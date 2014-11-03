@@ -94,8 +94,10 @@
                         
                         <?php if (isset($_SESSION)): ?>
                             <li class="page-scroll"><a href="?rt=academico/logout" id="">Sair</a></li>
+
                         <?php else: ?>
                             <li class="active"><a type="button" class="btn "  data-toggle="modal" data-target="#myModal">Entrar  <span class="caret"></span></a></li>
+                        
                         <?php endif; ?>
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -170,47 +172,42 @@
                             <div id="acaobuscaAvancada" >
                               <div class="btn-group span3">
                                     <!--<ul class="avancada">-->
-                                        <div class="btn-group " align="center">
-                                            <p>Campus</p>
-                                                <select id="campus" class="dropdown" name="busca[campus]">
-                                                    <option value="Ondina">Ondina</option>
-                                                    <option value="Sao Lazaro">São Lázaro</option>
-                                                    <option value="Federacao">Federação</option>
-                                                    <option value="Piedade">Piedade</option>
-                                                    <option value="Canela">Canela</option>
+                                        
+                                         <div class="row control-group">
+                                            <fieldset>
+                                                <label>Campus</label>
+                                                <select name="instalacao">
+                                                    <option value="0">Campus</option>
+                                                    <?php foreach($campus as $campi) { ?>
+                                                    <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
+                                                    <?php } ?>
                                                 </select>
-                                            
-                                            </div>
-                                            
-                                            <div class="btn-group " align="center"  style="margin-right:5px;margin-left:5px;">
-                                                <p>Departamento</p>
-                                                <select style="width:180px;" id="departamento" class="dropdown" name="busca[departamento]">
-                                                    <option value="dcc">DCC</option>
-                                                    <option value="dmat">DMAT</option>
-                                                    <option value="dest">DEST</option>
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Instalação</label>
+                                                <select name="instalacao">
+                                                    <option value="0">Instalação</option>
+                                                    <?php foreach($instalacoes as $instalacao) { ?>
+                                                    <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
+                                                    <?php } ?>
                                                 </select>
-                                            </div>
+                                            </fieldset>
+                                        </div>
 
-                                            <div class="btn-group" align="center" style="margin-right:5px;margin-left:5px;" >
-                                                <p>Instalação</p>
-                                                <select id="instalacao" class="dropdown" name="busca[instalacao]">
-                                                    <option value="Paf I">Paf I</option>
-                                                    <option value="Paf II">Paf II</option>
-                                                    <option value="Paf III">Paf III</option>
-                                                    <option value="Arquitetura">Arquitetura</option>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Departamento</label>
+                                                <select name="departamento">
+                                                    <option value="0">Departamento</option>
+                                                    <?php foreach($departamentos as $departamento) { ?>
+                                                    <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
+                                                    <?php } ?>
                                                 </select>
-                                            
-                                            </div>
-
-                                            <div class="btn-group" align="center" >
-                                                  <p>Date</p><br/>
-                                                    <input class="form-control" type="date" name="data_nascimento" />
-
-                                            </div>
-
-                                            
-                                            
-                                           
+                                            </fieldset>
+                                        </div>
                                     <!--</ul>-->
                                 </div>
 
