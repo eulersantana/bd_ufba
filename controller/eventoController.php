@@ -3,7 +3,42 @@
 Class eventoController Extends baseController {
 
 	public function index() { 
-		$this->registry->template->titulo = "Cadastrar novo evento";
+		$departamentos = new Departamento;
+		$campus 	   = new Campus;
+		$instalacao	   = new Instalacao;
+		
+		#########################################################
+		
+		$query  = $departamentos->selecionar("id, nome");
+		$val 	= [] ;
+		
+		foreach (db::getInstance()->query($query) as $row) {
+			array_push($val, $row);
+		}
+		$this->registry->template->departamentos = $val;
+		
+		#########################################################
+		
+		$query  = $instalacao->selecionar("localidade_id, predio");
+		$val 	= [] ;
+		
+		foreach (db::getInstance()->query($query) as $row) {
+			array_push($val, $row);
+		}
+		$this->registry->template->instalacoes = $val;
+		
+		#########################################################
+		
+		$query  = $campus->selecionar("codigo, nome");
+		$val    = [];
+		
+		foreach (db::getInstance()->query($query) as $row) {
+			array_push($val, $row);
+		}
+		$this->registry->template->todos_campus = $val;
+		
+		#########################################################
+		
 		$this->registry->template->show('form_novo_evento');
 	}
 

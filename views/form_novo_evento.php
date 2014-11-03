@@ -112,6 +112,33 @@
 							<label>Descrição da atividade</label>
 							<textarea name="descricao_atividade[]"></textarea>
 						</fieldset>
+						
+						<fieldset>
+							<label>Local</label>
+							<select name="instalacao_evento" size="10">
+								<optgroup label="CAMPUS">
+								<?php
+									foreach($todos_campus as $campi) {
+								?>
+								<option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
+								<?php } ?>
+								</optgroup>
+								<optgroup label="INSTALAÇÃO">
+								<?php
+									foreach($instalacoes as $instalacao) {
+								?>
+								<option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
+								<?php } ?>
+								</optgroup>
+								<optgroup label="DEPARTAMENTO">
+								<?php
+									foreach($departamentos as $departamento) {
+								?>
+								<option value="<?php echo $departamento['codigo']; ?>"><?php echo $departamento['nome']; ?></option>
+								<?php } ?>
+								</optgroup>
+							</select>
+						</fieldset>
 					
 						<hr/>
 					</div>
