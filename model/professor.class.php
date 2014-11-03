@@ -8,7 +8,7 @@ class Professor {
 	private $senha;
 	static private $tabela = "professor";
 	
-	public function add() {
+	public function inserir() {
 		$sql = "insert into ".self::$tabela." (academico_id, siape, senha)
 				values (".$this->academicoId.",".$this->siape.", '".$this->senha."')";
 		
@@ -24,6 +24,10 @@ class Professor {
 	public function atualizar() { }
 	
 	public function selecionar() { }
+
+	public function selecionarProfessor($condicao){
+		return "select * from ".self::$tabela." where ".$condicao;
+	}
 	
 	//*************************************************************************
 	//*************************************************************************

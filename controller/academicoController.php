@@ -41,8 +41,7 @@ Class academicoController Extends baseController {
 			$academico->setEmail($_POST['email']);
 			
 			try {
-				$id = Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),
-													  $academico->add());
+				$id = Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $academico->inserir());
 				
 				$this->registry->template->mensagem = "Ultimo id: ".$id;
 				
@@ -51,8 +50,7 @@ Class academicoController Extends baseController {
 					$professor->setSenha($_POST['senha']);
 					$professor->setAcademicoId($id);
 					
-					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),
-													$professor->add());
+					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $professor->inserir());
 					
 				} else if(isset($aluno)) {
 					$aluno->setMatricula($_POST['identificador']);
@@ -60,8 +58,7 @@ Class academicoController Extends baseController {
 					$aluno->setSenha($_POST['senha']);
 					$aluno->setAcademicoId($id);
 					
-					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(),
-														$aluno->add());
+					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $aluno->inserir());
 				}
 				
 			}catch (PDOException $e) {
@@ -73,6 +70,62 @@ Class academicoController Extends baseController {
 		}
 		
 		$this->registry->template->show('form_novo_academico');
+	}
+
+	public function login(){
+		// verifica se eh um professor ou aluno
+			if (stristr($_POST['tipo_usuario'], "professor"))
+				$professor = new Professor;
+			if (stristr($_POST['tipo_usuario'], "aluno"))
+				$aluno = new Aluno;
+			
+			// Inicio da sessao
+			session_start();
+
+			if(isset($professor)) {
+				$professor.setSiape($_POST['login']);
+				$professor.setSenha($_POST['senha']);
+
+				$condicao = "siape = ".$professor.getSiape()." and senha = ".$professor.getSenha();
+				$query  = $professor->selecionarProfessor($condicao);
+
+				$professor_logado = db::getInstance()->query($query);
+
+				if (isset($professor_logado)) {
+
+					$_SESSION['id']     = $professor_logado['cademico_id'];
+					$_SESSION['siape'] 	= $professor_logado['siape'];
+
+					$this->registry->template->mensagem = "Login feito com sucesso.";
+				}else{
+					$this->registry->template->mensagem = "Usuario não encontrado.";
+				}
+			}
+			elseif (isset($aluno)) {
+				$aluno.setMatricula($_POST['login']);
+				$aluno.setSenha($_POST['senha']);
+
+				$condicao = "matricula = ".$aluno.getMatricula()." and senha = ".$aluno.getSenha();
+				$query  = $aluno->selecionarAluno($condicao);
+
+				$aluno_logado = db::getInstance()->query($query);
+
+				if (isset($aluno_logado)) {
+					$this->registry->template->mensagem = "Login feito com sucesso.";
+				}
+				else
+				{
+					$this->registry->template->mensagem = "Usuario nao encontrado.";
+				}
+			}
+
+			$this->registry->template->show('index');
+	}
+
+	public function logout(){
+		session_destroy();
+		$this->registry->template->show('index');
+
 	}
 }
 

@@ -9,7 +9,7 @@ class Aluno {
 	private $senha;
 	static private $tabela = "aluno";
 	
-	public function add() {
+	public function inserir() {
 		$sql = "insert into ".self::$tabela." (academico_id, matricula, curso, senha)
 		values (".$this->academicoId.", '".$this->matricula."', '".$this->curso."',
 				'".$this->senha."')";
@@ -20,6 +20,9 @@ class Aluno {
 		$sql = "delete from ".self::$tabela." where academico_id = '".$this->academicoId."'";
 	}
 	
+	public function selecionarAluno($condicao){
+		return "select * from ".self::$tabela." where ".$condicao;
+	}
 	//*******************************************************************
 	//*******************************************************************
 	
