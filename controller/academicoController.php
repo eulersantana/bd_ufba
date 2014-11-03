@@ -86,7 +86,7 @@ Class academicoController Extends baseController {
 				$professor.setSiape($_POST['login']);
 				$professor.setSenha($_POST['senha']);
 
-				$condicao = "siape = ".$professor.getSiape()." and senha = ".$professor.getSenha();
+				$condicao = "siape = ".$professor.getSiape()." and senha = ".$professor->getSenha();
 				$query  = $professor->selecionarProfessor($condicao);
 
 				$professor_logado = db::getInstance()->query($query);
@@ -102,10 +102,10 @@ Class academicoController Extends baseController {
 				}
 			}
 			elseif (isset($aluno)) {
-				$aluno.setMatricula($_POST['login']);
-				$aluno.setSenha($_POST['senha']);
+				$aluno->setMatricula($_POST['login']);
+				$aluno->setSenha($_POST['senha']);
 
-				$condicao = "matricula = ".$aluno.getMatricula()." and senha = ".$aluno.getSenha();
+				$condicao = "matricula = ".$aluno->getMatricula()." and senha = ".$aluno->getSenha();
 				$query  = $aluno->selecionarAluno($condicao);
 
 				$aluno_logado = db::getInstance()->query($query);

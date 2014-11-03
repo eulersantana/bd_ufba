@@ -88,9 +88,11 @@
                         <li class="page-scroll">
                             <a href="#portfolio">Acontece Hoje</a>
                         </li>
-                        <li class="page-scroll">
-                            <a href="#cadastroUser">Cadastre-se</a>
-                        </li>
+                        <?php if (!isset($_SESSION)): ?>
+                            <li class="page-scroll">
+                                <a href="#cadastroUser">Cadastre-se</a>
+                            </li>
+                         <?php endif; ?>
                         <li class="page-scroll">
                             <a href="#about">Quem Somos</a>
                         </li>
@@ -153,9 +155,7 @@
             
                 <!-- Busca Home -->
         <div class="container">
-        <?php if (isset($mensagem)):  ?>
-            <h1><?= $mensagem?></h1>
-        <?php endif; ?>
+       
             <form class="form-inline" action="index.php?action=search" method="get">
             
                 <!--Busca Livre-->
@@ -362,130 +362,132 @@
 
 
 <!-- Cadastro de User -->
-<section id="cadastroUser">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Cadastre-se</h2>
-                <hr class="star-primary">
+<<?php if (!isset($_SESSION)): ?>
+    <section id="cadastroUser">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Cadastre-se</h2>
+                    <hr class="star-primary">
+                </div>
             </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+            
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
 
-                <div id="form_novo_usuario">
-                    <form method="post" action="?rt=academico/add" >
+                    <div id="form_novo_usuario">
+                        <form method="post" action="?rt=academico/add" >
 
-                        <div class="form-group col-xs-6">
-                                    
-                                     <div class="row control-group">
+                            <div class="form-group col-xs-6">
+                                        
+                                         <div class="row control-group">
+                                                <fieldset>
+                                                <label>Tipo do usuário</label>
+                                                <select name="tipo_usuario"
+                                                id="tipo_usuario" onchange="alteraTipoId()">
+                                                <option value="aluno">Aluno</option>
+                                                <option value="professor">Professor</option>
+                                                 </select>
+                                             </fieldset>
+                                         </div>
+
+                                        <div class="row control-group">
                                             <fieldset>
-                                            <label>Tipo do usuário</label>
-                                            <select name="tipo_usuario"
-                                            id="tipo_usuario" onchange="alteraTipoId()">
-                                            <option value="aluno">Aluno</option>
-                                            <option value="professor">Professor</option>
-                                             </select>
-                                         </fieldset>
-                                     </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
+                                                <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
 
-                                            <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
+                                                <label id="id_tipo_usuario">Matricula</label> <input class="form-control" type="text" name="identificador" />
 
-                                            <label id="id_tipo_usuario">Matricula</label> <input class="form-control" type="text" name="identificador" />
+                                            </fieldset>
+                                        </div>
 
-                                        </fieldset>
-                                    </div>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Departamento</label>
+                                                <select name="departamento">
+                                                    <option value="0">Departamento</option>
+                                                    <?php foreach($departamentos as $departamento) { ?>
+                                                    <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                        
+                                        <div class="row control-group">
+                                            <fieldset id="curso_aluno">
+                                                <label>Curso</label>
+                                                <input type="text" class="form-control" placeholder="Digite o nome seu curso" name="curso">
+                                            </fieldset>
+                                        </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Departamento</label>
-                                            <select name="departamento">
-                                                <option value="0">Departamento</option>
-                                                <?php foreach($departamentos as $departamento) { ?>
-                                                <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </fieldset>
-                                    </div>
-                    
-                                    <div class="row control-group">
-                                        <fieldset id="curso_aluno">
-                                            <label>Curso</label>
-                                            <input type="text" class="form-control" placeholder="Digite o nome seu curso" name="curso">
-                                        </fieldset>
-                                    </div>
+                                        <div class="row control-group">
 
-                                    <div class="row control-group">
+                                            <fieldset>
+                                                <label>Nome completo</label> <input class="form-control" type="text" placeholder="Digite o nome completo" name="nome_completo" />
+                                            </fieldset>
+                                        </div>
 
-                                        <fieldset>
-                                            <label>Nome completo</label> <input class="form-control" type="text" placeholder="Digite o nome completo" name="nome_completo" />
-                                        </fieldset>
-                                    </div>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Endereço</label> <input class="form-control" type="text" placeholder="Digite o endereço" name="endereco" />
+                                            </fieldset>
+                                        </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Endereço</label> <input class="form-control" type="text" placeholder="Digite o endereço" name="endereco" />
-                                        </fieldset>
-                                    </div>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Data de nascimento</label> <input class="form-control" type="date" name="data_nascimento" />
+                                            </fieldset>
+                                        </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Data de nascimento</label> <input class="form-control" type="date" name="data_nascimento" />
-                                        </fieldset>
-                                    </div>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Telefone</label> <input class="form-control" type="text" placeholder="Digite o telefone" name="telefone" />
+                                            </fieldset>
+                                        </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Telefone</label> <input class="form-control" type="text" placeholder="Digite o telefone" name="telefone" />
-                                        </fieldset>
-                                    </div>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Email</label> <input class="form-control" type="text" name="email" placeholder="Digite o email"/>
+                                            </fieldset>
+                                        </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Email</label> <input class="form-control" type="text" name="email" placeholder="Digite o email"/>
-                                        </fieldset>
-                                    </div>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Senha</label> <input class="form-control" type="password" name="senha" />
+                                            </fieldset>
+                                        </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Senha</label> <input class="form-control" type="password" name="senha" />
-                                        </fieldset>
-                                    </div>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Confirme a senha</label> <input class="form-control" type="password" name="confirmacao_senha" />
+                                            </fieldset>
+                                        </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Confirme a senha</label> <input class="form-control" type="password" name="confirmacao_senha" />
-                                        </fieldset>
-                                    </div>
-
-                                    <p></p>
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <input  class="btn btn-success btn-lg" type="submit" name="cadastrar_novo_usuario" value="Cadastrar" />
-                                        </fieldset>
-                                    </div>
-                       </div>
+                                        <p></p>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <input  class="btn btn-success btn-lg" type="submit" name="cadastrar_novo_usuario" value="Cadastrar" />
+                                            </fieldset>
+                                        </div>
+                           </div>
 
 
-                       <?php
-                       if(isset($mensagem)) {
-                        echo $mensagem;
-                        }
-                        ?>
+                           <?php
+                           if(isset($mensagem)) {
+                            echo $mensagem;
+                            }
+                            ?>
 
 
-                     </form>
-                </div> <!--fim div id= formulario novo user-->
+                         </form>
+                    </div> <!--fim div id= formulario novo user-->
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 
 <!-- About Section -->
