@@ -47,6 +47,7 @@ Class eventoController Extends baseController {
 		$evento 	= new Evento;
 		$atividade  = new Atividade;
 		$apoio 		= new Apoio;
+		$localidadeAtividade = new LocalidadeAtividade;
 		
 		$data_inicio_evento = explode("/", $_POST['data_inicio_evento']);
 		$data_fim_evento    = explode("/", $_POST['data_fim_evento']);
@@ -83,7 +84,6 @@ Class eventoController Extends baseController {
 				$atividade->setCodigoEvento($id_evento);
 				
 				try {
-					// insere as atividades na base
 					$id_atividade = Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $atividade->add());
 				} catch(PDOException $e) {
 					print "Erro ".$e->getMessage()."<br/>";
@@ -102,7 +102,6 @@ Class eventoController Extends baseController {
 				$apoio->setCodigoEvento($id_evento);
 				
 				try {
-					// insere os apoiadores na base
 					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $apoio->add());
 				} catch(PDOException $e) {
 					print "Erro ".$e->getMessage()."<br/>";

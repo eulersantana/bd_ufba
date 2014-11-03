@@ -115,6 +115,7 @@
 						
 						<fieldset>
 							<label>Local</label>
+							
 							<select name="instalacao_evento" size="10">
 								<optgroup label="CAMPUS">
 								<?php

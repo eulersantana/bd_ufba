@@ -2,6 +2,7 @@
 /*
  * 
  */
+
 class LocalidadeAtividade {
 	private $codigoAtividade;
 	private $codigoLocalidade;
@@ -9,16 +10,10 @@ class LocalidadeAtividade {
 	
 	public function add() {
 		$sql = "insert into ".self::$tabela." (atividade_id, localidade_id)
-				values (".$this->codigoAtividade.", ".$this->codigoLocalidade.")";
+				values ('".$this->codigoAtividade."', '".$this->codigoLocalidade."')";
 		
 		return $sql;
 	}
-	
-	public function delete() { }
-	
-	public function atualizar() { }
-	
-	public function selecionar() { }
 	
 	//*************************************************************************
 	//*************************************************************************
