@@ -3,7 +3,42 @@
 Class eventoController Extends baseController {
 
 	public function index() { 
-		$this->registry->template->titulo = "Cadastrar novo evento";
+		$departamentos = new Departamento;
+		$campus 	   = new Campus;
+		$instalacao	   = new Instalacao;
+		
+		#########################################################
+		
+		$query  = $departamentos->selecionar("id, nome");
+		$val 	= [] ;
+		
+		foreach (db::getInstance()->query($query) as $row) {
+			array_push($val, $row);
+		}
+		$this->registry->template->departamentos = $val;
+		
+		#########################################################
+		
+		$query  = $instalacao->selecionar("localidade_id, predio");
+		$val 	= [] ;
+		
+		foreach (db::getInstance()->query($query) as $row) {
+			array_push($val, $row);
+		}
+		$this->registry->template->instalacoes = $val;
+		
+		#########################################################
+		
+		$query  = $campus->selecionar("codigo, nome");
+		$val    = [];
+		
+		foreach (db::getInstance()->query($query) as $row) {
+			array_push($val, $row);
+		}
+		$this->registry->template->todos_campus = $val;
+		
+		#########################################################
+		
 		$this->registry->template->show('form_novo_evento');
 	}
 
@@ -12,6 +47,7 @@ Class eventoController Extends baseController {
 		$evento 	= new Evento;
 		$atividade  = new Atividade;
 		$apoio 		= new Apoio;
+		$localidadeAtividade = new LocalidadeAtividade;
 		
 		$data_inicio_evento = explode("/", $_POST['data_inicio_evento']);
 		$data_fim_evento    = explode("/", $_POST['data_fim_evento']);
@@ -38,6 +74,8 @@ Class eventoController Extends baseController {
 			move_uploaded_file($_FILES['cartaz_evento']['tmp_name'],
 					  $nome_diretorio.'/'.$_FILES['cartaz_evento']['name']);
 			
+			################################################################################################
+			
 			for($i = 0; $i < sizeof($_POST['titulo_atividade']); $i++) {
 				$atividade->setTitulo($_POST['titulo_atividade'][$i]);
 				$atividade->setData($_POST['data_data'][$i]);
@@ -46,12 +84,13 @@ Class eventoController Extends baseController {
 				$atividade->setCodigoEvento($id_evento);
 				
 				try {
-				// insere as atividades na base
-				Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $atividade->add());
+					$id_atividade = Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $atividade->add());
 				} catch(PDOException $e) {
 					print "Erro ".$e->getMessage()."<br/>";
 				}
 			}
+			
+			################################################################################################
 			
 			for($i = 0; $i < sizeof($_POST['nome_apoiador']); $i++) {
 				$url_img_apoiador = $nome_diretorio.'/'.$_FILES['imagem_apoiador']['name'][$i];
@@ -63,7 +102,6 @@ Class eventoController Extends baseController {
 				$apoio->setCodigoEvento($id_evento);
 				
 				try {
-					// insere os apoiadores na base
 					Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $apoio->add());
 				} catch(PDOException $e) {
 					print "Erro ".$e->getMessage()."<br/>";
@@ -74,6 +112,11 @@ Class eventoController Extends baseController {
 			print "Erro ".$e->getMessage()."<br/>";
 		}
 		$this->registry->template->show('form_novo_evento');
+	}
+	
+	public function busca() {
+		$this->registry->template->titulo = "Busca eventos";
+		$this->registry->template->show('form_busca_eventos');		
 	}
 }
 
