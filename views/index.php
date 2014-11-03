@@ -42,9 +42,9 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
         <!-- Tema padrao-->
-<!--        <link rel="stylesheet" href="css/bootstrap-theme.css">-->
+        <!--        <link rel="stylesheet" href="css/bootstrap-theme.css">-->
         <script src="js/jquery.js"></script>
-       <!-- <link rel="stylesheet" href="css/slideShow.css">-->
+        <!-- <link rel="stylesheet" href="css/slideShow.css">-->
         
         <script src="js/formulario.js"></script>
 
@@ -93,208 +93,218 @@
                         </li>
                         
                         <?php if (isset($_SESSION)): ?>
-                            <li class="page-scroll"><a href="?rt=academico/logout" id="">Sair</a></li>
+                        <li class="page-scroll"><a href="?rt=academico/logout" id="">Sair</a></li>
 
-                        <?php else: ?>
-                            <li class="active"><a type="button" class="btn "  data-toggle="modal" data-target="#myModal">Entrar  <span class="caret"></span></a></li>
-                        
-                        <?php endif; ?>
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Logon</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <!--Entrar-->
-                                        <ul>
-                                            <form action="?rt=academico/login" method="post" class="form-vertical">
-                                                <div class="control-group">
-                                                    <label class="control-label" for="inputEmail">Login</label>
-                                                    <div class="controls">
-                                                        <input id="login" name="login" type="text" placeholder="Digite o seu e-mail..." autofocus />
-                                                    </div>
-                                                </div>
-                                                <div class="control-group">
-                                                    <label class="control-label" for="inputPassword">Senha</label>
-                                                    <div class="controls">
-                                                        <input id="senha" name="senha" type="password" placeholder="Digite a sua senha..." />
-                                                    </div>
-                                                </div>
-                                                <div >
-                                                    <label  for='buttonConta'>Conta</label>
-                                                    <div class='controls'>
-                                                        <select name="tipo_usuario">
-                                                            <option value='aluno'>Aluno</option>
-                                                            <option value='professor'>Professor</option>
-                                                        </select>
-                                                    </div>
-                                                </div><br/>
-                                                <input type="submit" value="Entrar"/>
-                                            </form>
-                                        </ul>
-                                        <!---->
-                                    </div>
-                                </div>
+                    <?php else: ?>
+                    <li class="active"><a type="button" class="btn "  data-toggle="modal" data-target="#myModal">Entrar  <span class="caret"></span></a></li>
+
+                <?php endif; ?>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Logon</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!--Entrar-->
+                                <ul>
+                                    <form action="?rt=academico/login" method="post" class="form-vertical">
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputEmail">Login</label>
+                                            <div class="controls">
+                                                <input id="login" name="login" type="text" placeholder="Digite o seu e-mail..." autofocus />
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputPassword">Senha</label>
+                                            <div class="controls">
+                                                <input id="senha" name="senha" type="password" placeholder="Digite a sua senha..." />
+                                            </div>
+                                        </div>
+                                        <div >
+                                            <label  for='buttonConta'>Conta</label>
+                                            <div class='controls'>
+                                                <select name="tipo_usuario">
+                                                    <option value='aluno'>Aluno</option>
+                                                    <option value='professor'>Professor</option>
+                                                </select>
+                                            </div>
+                                        </div><br/>
+                                        <input type="submit" value="Entrar"/>
+                                    </form>
+                                </ul>
+                                <!---->
                             </div>
                         </div>
-
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
-      
-
-        <header>
-            
-                <!-- Busca Home -->
-        <div class="container">
-
-            <form class="form-inline" action="index.php?action=search" method="get">
-            
-                <!--Busca Livre-->
-                <div class="form-group span6">
-                    <input id="nome" name="busca[nome]" class="form-control" type="text" placeholder="Busca Livre">
-                </div>
-                <!--Submit busca livre-->
-                <div class="form-group span1">
-                    <input type="submit" value="Filtrar" class="btn btn_1">
-                </div>
-
-
-                <!--Busca Avançada-->
-                <form name="sentMessage" id="contactForm" novalidate>
-                    <div class="controls">
-                        <p><input id="buscaAvancada" type="checkbox"> Busca Avançada </input><br/>
-                            <div id="acaobuscaAvancada" >
-                              <div class="btn-group span3">
-                                    <!--<ul class="avancada">-->
-                                        
-                                         <div class="row control-group">
-                                            <fieldset>
-                                                <label>Campus</label>
-                                                <select name="instalacao">
-                                                    <option value="0">Campus</option>
-                                                    <?php foreach($campus as $campi) { ?>
-                                                    <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-
-                                        <div class="row control-group">
-                                            <fieldset>
-                                                <label>Instalação</label>
-                                                <select name="instalacao">
-                                                    <option value="0">Instalação</option>
-                                                    <?php foreach($instalacoes as $instalacao) { ?>
-                                                    <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-
-                                        <div class="row control-group">
-                                            <fieldset>
-                                                <label>Departamento</label>
-                                                <select name="departamento">
-                                                    <option value="0">Departamento</option>
-                                                    <?php foreach($departamentos as $departamento) { ?>
-                                                    <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-                                    <!--</ul>-->
-                                </div>
-
-                            </div>
-                        </p>
                     </div>
-                </form>
-            </form>
+                </div>
 
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+<header>
+
+    <!-- Busca Home -->
+    <div class="container">
+
+        <form class="form-inline" action="index.php?action=search" method="get">
+
+            <!--Busca Livre-->
+            <div class="form-group span6">
+                <input id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
             </div>
 
-        </header>
 
 
- <!-- Portfolio Grid Section -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
+            <!--Busca Avançada-->
+            <!--<form name="sentMessage" id="contactForm" novalidate>-->
+            <div class="controls">
+                <p><input id="buscaAvancada" type="checkbox"> Busca Avançada </input><br/>
+                    <div id="acaobuscaAvancada" >
+                      <div class="btn-group span3">
+                        <!--<ul class="avancada">-->
+
+                        <div class="row control-group">
+                            <fieldset>
+                                <p>Campus</p>
+                                <select name="campus">
+                                    <option value="0">Campus</option>
+                                    <?php foreach($campus as $campi) { ?>
+                                    <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </fieldset>
                         </div>
-                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
+
+                        <div class="row control-group">
+                            <fieldset>
+                                <p>Instalação</p>
+                                <select name="instalacao">
+                                    <option value="0">Instalação</option>
+                                    <?php foreach($instalacoes as $instalacao) { ?>
+                                    <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </fieldset>
                         </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
+
+                        <div class="row control-group">
+                            <fieldset>
+                                <p>Departamento</p>
+                                <select name="departamento">
+                                    <option value="0">Departamento</option>
+                                    <?php foreach($departamentos as $departamento) { ?>
+                                    <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
+                                    <?php } ?>
+                                </select>
+                            </fieldset>
                         </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
+
+                        <div class="row control-group">
+                            <fieldset>
+                                <p>Data de inicio</p>
+                                <input type="date" name="data_inicio_evento"/>
+                            </fieldset>
+
                         </div>
-                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
-                    </a>
+
+                        <!--</ul>-->
+                    </div>
+
                 </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
-                </div>
+            </p>
+        </div>
+        <!--Submit busca livre-->
+        <div class="form-group span1">
+            <input type="submit" value="Filtrar" class="btn btn_1">
+        </div>
+        <!--</form>-->
+    </form>
+
+</div>
+
+</header>
+
+
+<!-- Portfolio Grid Section -->
+<section id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Portfolio</h2>
+                <hr class="star-primary">
             </div>
         </div>
-    </section>
+        <div class="row">
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/cake.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/circus.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/game.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/safe.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <!-- Cadastro de User -->
@@ -315,108 +325,108 @@
                 <div id="form_novo_usuario">
                     <form method="post" action="?rt=index/add" >
                         <div class="form-group col-xs-6">
-                                    
-                                     <div class="row control-group">
-                                            <fieldset>
-                                            <label>Tipo do usuário</label>
-                                            <select name="tipo_usuario"
-                                            id="tipo_usuario" onchange="alteraTipoId()">
-                                            <option value="aluno">Aluno</option>
-                                            <option value="professor">Professor</option>
-                                             </select>
-                                         </fieldset>
-                                     </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
+                           <div class="row control-group">
+                            <fieldset>
+                                <label>Tipo do usuário</label>
+                                <select name="tipo_usuario"
+                                id="tipo_usuario" onchange="alteraTipoId()">
+                                <option value="aluno">Aluno</option>
+                                <option value="professor">Professor</option>
+                            </select>
+                        </fieldset>
+                    </div>
 
-                                            <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
-                                        </fieldset>
-                                    </div>
+                    <div class="row control-group">
+                        <fieldset>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Departamento</label>
-                                            <select name="departamento">
-                                                <option value="0">Departamento</option>
-                                                <?php foreach($departamentos as $departamento) { ?>
-                                                <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </fieldset>
-                                    </div>
+                            <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
+                        </fieldset>
+                    </div>
+
+                    <div class="row control-group">
+                        <fieldset>
+                            <label>Departamento</label>
+                            <select name="departamento">
+                                <option value="0">Departamento</option>
+                                <?php foreach($departamentos as $departamento) { ?>
+                                <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
+                                <?php } ?>
+                            </select>
+                        </fieldset>
+                    </div>
                     
-                                    <div class="row control-group">
-                                        <fieldset id="curso_aluno">
-                                            <label>Curso</label>
-                                            <input type="text" class="form-control" placeholder="Digite o nome seu curso" name="curso">
-                                        </fieldset>
-                                    </div>
+                    <div class="row control-group">
+                        <fieldset id="curso_aluno">
+                            <label>Curso</label>
+                            <input type="text" class="form-control" placeholder="Digite o nome seu curso" name="curso">
+                        </fieldset>
+                    </div>
 
-                                    <div class="row control-group">
+                    <div class="row control-group">
 
-                                        <fieldset>
-                                            <label>Nome completo</label> <input class="form-control" type="text" placeholder="Digite o nome completo" name="nome_completo" />
-                                        </fieldset>
-                                    </div>
+                        <fieldset>
+                            <label>Nome completo</label> <input class="form-control" type="text" placeholder="Digite o nome completo" name="nome_completo" />
+                        </fieldset>
+                    </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Endereço</label> <input class="form-control" type="text" placeholder="Digite o endereço" name="endereco" />
-                                        </fieldset>
-                                    </div>
+                    <div class="row control-group">
+                        <fieldset>
+                            <label>Endereço</label> <input class="form-control" type="text" placeholder="Digite o endereço" name="endereco" />
+                        </fieldset>
+                    </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Data de nascimento</label> <input class="form-control" type="date" name="data_nascimento" />
-                                        </fieldset>
-                                    </div>
+                    <div class="row control-group">
+                        <fieldset>
+                            <label>Data de nascimento</label> <input class="form-control" type="date" name="data_nascimento" />
+                        </fieldset>
+                    </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Telefone</label> <input class="form-control" type="text" placeholder="Digite o telefone" name="telefone" />
-                                        </fieldset>
-                                    </div>
+                    <div class="row control-group">
+                        <fieldset>
+                            <label>Telefone</label> <input class="form-control" type="text" placeholder="Digite o telefone" name="telefone" />
+                        </fieldset>
+                    </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Email</label> <input class="form-control" type="text" name="email" placeholder="Digite o email"/>
-                                        </fieldset>
-                                    </div>
+                    <div class="row control-group">
+                        <fieldset>
+                            <label>Email</label> <input class="form-control" type="text" name="email" placeholder="Digite o email"/>
+                        </fieldset>
+                    </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Senha</label> <input class="form-control" type="password" name="senha" />
-                                        </fieldset>
-                                    </div>
+                    <div class="row control-group">
+                        <fieldset>
+                            <label>Senha</label> <input class="form-control" type="password" name="senha" />
+                        </fieldset>
+                    </div>
 
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <label>Confirme a senha</label> <input class="form-control" type="password" name="confirmacao_senha" />
-                                        </fieldset>
-                                    </div>
+                    <div class="row control-group">
+                        <fieldset>
+                            <label>Confirme a senha</label> <input class="form-control" type="password" name="confirmacao_senha" />
+                        </fieldset>
+                    </div>
 
-                                    <p></p>
-                                    <div class="row control-group">
-                                        <fieldset>
-                                            <input  class="btn btn-success btn-lg" type="submit" name="cadastrar_novo_usuario" value="Cadastrar" />
-                                        </fieldset>
-                                    </div>
-                       </div>
-
-
-                       <?php
-                       if(isset($mensagem)) {
-                        echo $mensagem;
-                        }
-                        ?>
+                    <p></p>
+                    <div class="row control-group">
+                        <fieldset>
+                            <input  class="btn btn-success btn-lg" type="submit" name="cadastrar_novo_usuario" value="Cadastrar" />
+                        </fieldset>
+                    </div>
+                </div>
 
 
-                     </form>
-                </div> <!--fim div id= formulario novo user-->
-            </div>
-        </div>
+                <?php
+                if(isset($mensagem)) {
+                    echo $mensagem;
+                }
+                ?>
+
+
+            </form>
+        </div> <!--fim div id= formulario novo user-->
     </div>
+</div>
+</div>
 </section>
 
 
