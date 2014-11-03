@@ -47,7 +47,7 @@
 		</style>
 	</head>
 	<body>
-		<h1> <?php echo $titulo; ?> </h1>
+		<h1> <?php //echo $titulo; ?> </h1>
 		<div id="form_novo_evento">
 			<form method="post" enctype="multipart/form-data" action="?rt=evento/add">
 				<fieldset>
