@@ -11,7 +11,7 @@ Class localidadeController Extends baseController {
 		 		array_push($val, $row);
 		 }
 		 $this->registry->template->campus = $val;
-	    $this->registry->template->show('instalacao');
+	    $this->registry->template->show('campus');
 	}
 
 	public function instalacao()

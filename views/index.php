@@ -42,14 +42,14 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
         <!-- Tema padrao-->
-        <link rel="stylesheet" href="css/bootstrap-theme.css">
+<!--        <link rel="stylesheet" href="css/bootstrap-theme.css">-->
         <script src="js/jquery.js"></script>
         <link rel="stylesheet" href="css/slideShow.css">
         
         <script src="js/formulario.js"></script>
 
         <script src="js/cadastroAcademico.js"></script>
-        <link rel="stylesheet" type="text/css" href="cadastroAcademico.css">
+        <!--<link rel="stylesheet" type="text/css" href="cadastroAcademico.css">-->
 
 
     </head>
@@ -83,9 +83,6 @@
                         </li>
 
                         <li class="page-scroll">
-                            <a href="#destaque">Em Destaque</a>
-                        </li>
-                        <li class="page-scroll">
                             <a href="#portfolio">Acontece Hoje</a>
                         </li>
                         <li class="page-scroll">
@@ -94,9 +91,7 @@
                         <li class="page-scroll">
                             <a href="#about">Quem Somos</a>
                         </li>
-                        <li class="page-scroll">
-                            <a href="#contact">Contato</a>
-                        </li>
+                        
                         <?php if (isset($_SESSION)): ?>
                             <li class="page-scroll"><a href="?rt=academico/logout" id="">Sair</a></li>
                         <?php else: ?>
@@ -148,14 +143,13 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
+      
 
         <header>
             
                 <!-- Busca Home -->
         <div class="container">
-        <?php if (isset($mensagem)):  ?>
-            <h1><?= $mensagem?></h1>
-        <?php endif; ?>
+
             <form class="form-inline" action="index.php?action=search" method="get">
             
                 <!--Busca Livre-->
@@ -173,7 +167,7 @@
                     <div class="controls">
                         <p><input id="buscaAvancada" type="checkbox"> Busca Avançada </input><br/>
                             <div id="acaobuscaAvancada" >
-                                <div class="btn-group span3">
+                              <div class="btn-group span3">
                                     <!--<ul class="avancada">-->
                                         <div class="btn-group " align="center">
                                             <p>Campus</p>
@@ -196,7 +190,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="btn-group" align="center" >
+                                            <div class="btn-group" align="center" style="margin-right:5px;margin-left:5px;" >
                                                 <p>Instalação</p>
                                                 <select id="instalacao" class="dropdown" name="busca[instalacao]">
                                                     <option value="Paf I">Paf I</option>
@@ -205,6 +199,12 @@
                                                     <option value="Arquitetura">Arquitetura</option>
                                                 </select>
                                             
+                                            </div>
+
+                                            <div class="btn-group" align="center" >
+                                                  <p>Date</p><br/>
+                                                    <input class="form-control" type="date" name="data_nascimento" />
+
                                             </div>
 
                                             
@@ -223,142 +223,80 @@
 
         </header>
 
-<!-- Destaque Section -->
-<section class="destaque" id="destaque">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Eventos em Destaque</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-        <div class="row">
-            <!--Slide SHOW -->
-            <div class="btn-group btn-group-horizontal" style="width:100%" align="center">
-                <div class="container" align="center">
-                    <div class="starter-template" align="center">
-                        <div class="bs-example" align="center">
-                            <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
-                                <!-- Carousel indicators -->
-                                <ol class="carousel-indicators">
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                                </ol>   
-                                <!-- Carousel items -->
-                                <div class="carousel-inner">
-                                    <div class="active item">
-                                        <h2>Slide 1</h2>
-                                        <div class="carousel-caption">
-                                            <h3>First slide label</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <h2>Slide 2</h2>
-                                        <div class="carousel-caption">
-                                            <h3>Second slide label</h3>
-                                            <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <h2>Slide 3</h2>
-                                        <div class="carousel-caption">
-                                            <h3>Third slide label</h3>
-                                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Carousel nav -->
-                                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                </a>
-                                <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
+ <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Portfolio</h2>
+                    <hr class="star-primary">
                 </div>
             </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Portfolio Grid Section -->
-<section id="portfolio">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>  Acontece Hoje</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
+                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <img src="img/portfolio/cake.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
+                        <img src="img/portfolio/cake.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <img src="img/portfolio/circus.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
+                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <img src="img/portfolio/game.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
+                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
+                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
                         </div>
-                    </div>
-                    <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                </a>
+                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 <!-- Cadastro de User -->
@@ -563,8 +501,8 @@
 <!-- jQuery -->
 
 <script src="js/jquery.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/datepicker-source.js"></script>
+<!--<script src="js/bootstrap-datepicker.js"></script>-->
+<!--<script src="js/datepicker-source.js"></script>-->
 
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.min.js"></script>
@@ -580,6 +518,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="js/freelancer.js"></script>
+
 
 
 </body>
