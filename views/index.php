@@ -336,8 +336,6 @@
 
                                             <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
 
-                                            <label id="id_tipo_usuario">Matricula</label> <input class="form-control" type="text" name="identificador" />
-
                                         </fieldset>
                                     </div>
 
