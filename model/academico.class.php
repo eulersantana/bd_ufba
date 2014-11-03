@@ -12,7 +12,7 @@
 	private $email;
 	private static $tabela = "academico";
 	
-	public function add() {
+	public function inserir() {
 		$sql = "insert into ".self::$tabela." (nome, endereco, data_nascimento,
 				telefone, departamento_id, email) values ('".$this->nome."','".$this->endereco."',
 				'".$this->dataNascimento."','".$this->telefone."','".$this->codigoDepartamento."',

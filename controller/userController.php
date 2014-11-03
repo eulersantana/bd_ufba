@@ -27,7 +27,7 @@ public function add()
 		$user->setLogin($_POST['login']);
 		$user->setSenha($_POST['senha']);
 
-		$query  = $user->add();
+		$query  = $user->inserir();
 		
 		try {
 		    //$dbh = new PDO('mysql:host=localhost;dbname=test', 'username', 'password');
@@ -49,9 +49,31 @@ public function add()
 		$this->registry->template->show('user');
 
 	}
-	
-
 }
 
+public function login()
+{
+	$user = new User;
+
+	if (isset($_POST['login']))
+	{
+		$user->setLogin($_POST['login']);
+		$user->setSenha($_POST['senha']);
+
+		$condicao = "login = ".$user.getLogin()." and  senha = ".md5($user->getSenha());
+		$query = $user->selecionar($condicao);
+
+		$user_id = Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $query);
+
+		if (isset($user_id))
+		{
+			
+		}
+		else
+		{
+			$this->registry->template->mensagemLogin = "Usuario não encontrado";
+		}
+	}
+}
 }
 ?>
