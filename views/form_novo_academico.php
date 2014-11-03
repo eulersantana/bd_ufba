@@ -103,6 +103,7 @@
 				<input type="submit" name="cadastrar_novo_usuario" value="Cadastrar" />
 			</fieldset>
 		</form>
+		
 		<?php
 		if(isset($mensagem)) {
 			echo $mensagem;

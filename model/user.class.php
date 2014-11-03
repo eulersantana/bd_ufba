@@ -7,7 +7,7 @@
 		public $id;
 		public $login;
 		public $senha;
-		static private $tabela = "academico";
+		static private $tabela = "user";
 
 		public function setLogin($login)
 		{
@@ -16,7 +16,7 @@
 
 		public function setSenha($senha)
 		{
-			$this->senha = $senha;
+			$this->senha = md5($senha);
 		}
 
 		public function setId($id)
@@ -44,7 +44,7 @@
 					values ('".$this->login."','".$this->senha."')";
 		}
 
-		public function selecionar($ampos)
+		public function selecionar($campos)
 		{
 			return "select ".$campos." from ".self::$tabela;
 		}

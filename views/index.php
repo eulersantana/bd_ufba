@@ -316,8 +316,7 @@
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
 
                 <div id="form_novo_usuario">
-                    <form method="post" action="?rt=academico/add" >
-
+                    <form method="post" action="?rt=index/add" >
                         <div class="form-group col-xs-6">
                                     
                                      <div class="row control-group">
@@ -335,7 +334,6 @@
                                         <fieldset>
 
                                             <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
-
                                         </fieldset>
                                     </div>
 

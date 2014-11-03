@@ -83,17 +83,17 @@ Class academicoController Extends baseController {
 			session_start();
 
 			if(isset($professor)) {
-				$professor.setSiape($_POST['login']);
-				$professor.setSenha($_POST['senha']);
+				$professor->setSiape($_POST['login']);
+				$professor->setSenha($_POST['senha']);
 
-				$condicao = "siape = ".$professor.getSiape()." and senha = ".$professor->getSenha();
+				$condicao = "siape = '".$professor->getSiape()."' and senha = '".$professor->getSenha()."'";
 				$query  = $professor->selecionarProfessor($condicao);
 
 				$professor_logado = db::getInstance()->query($query);
 
 				if (isset($professor_logado)) {
 
-					$_SESSION['id']     = $professor_logado['cademico_id'];
+					$_SESSION['id']     = $professor_logado['academico_id'];
 					$_SESSION['siape'] 	= $professor_logado['siape'];
 
 					$this->registry->template->mensagem = "Login feito com sucesso.";

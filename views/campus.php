@@ -6,7 +6,7 @@
 	<input type="text" name="nome" id="nome"/></br>
 	<label>Codigo</label></br>
 	<input type="text" name="codigo" id="codigo"/></br>
-	<input type="submit" value="Cadastra"/>
+	<input type="submit" value="Cadastrar"/>
 </form>
 <?php if (isset($mensagem)) {
 	echo $mensagem;
