@@ -6,6 +6,7 @@ Class indexController Extends baseController {
 		$departamentos = new Departamento;
 		$campus 	   = new Campus;
 		$instalacao	   = new Instalacao;
+		$eventos 	   = new Evento;
 		
 		#########################################################
 		
@@ -37,6 +38,15 @@ Class indexController Extends baseController {
 		}
 		$this->registry->template->todos_campus = $val;
 		
+		#########################################################
+		$list = [];
+		$query = $eventos->selecionaTodos();
+
+		foreach (db::getInstance()->query($query) as $raw) {
+			array_push($list, $raw);
+		}
+
+		$this->registry->template->listaEventos = $list;
 		#########################################################
 		
 		$this->registry->template->show('index');

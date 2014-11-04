@@ -53,7 +53,7 @@
         <script src="js/cadastroAcademico.js"></script>
         <!--<link rel="stylesheet" type="text/css" href="cadastroAcademico.css">-->
 
-<<<<<<< HEAD
+
         <script type="text/javascript">
             function add_atividade() {
                 if(confirm("Você irá adicionar uma nova atividade. Continuar?")) {
@@ -83,27 +83,7 @@
             }
         </script>
 
-=======
-		<script type="text/javascript">
-			function add_atividade() {
-				if(confirm("Você irá adicionar uma nova atividade. Continuar?")) {
-					var form_atividades  = document.getElementById("form_atividades");
-					var novas_atividades = document.getElementById("novas_atividades");
-	
-					novas_atividades.innerHTML += form_atividades.innerHTML;
-				}
-			}
 
-			function add_apoiador() {
-				if(confirm("Você irá adicionar um novo apoiador. Continuar?")) {
-					var form_apoiadores  = document.getElementById("form_apoiadores");
-					var novos_apoiadores = document.getElementById("novos_apoiadores");
-
-					novos_apoiadores.innerHTML += form_apoiadores.innerHTML;
-				}
-			}
-		</script>
->>>>>>> 1d7346cc1cd2c5f586abd5b0470f2dea36e6a348
     </head>
 
     <body id="page-top" class="index">
@@ -219,13 +199,9 @@
 
             <!--Busca Livre-->
             <div class="form-group span6">
-<<<<<<< HEAD
                 <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
              </div>
-=======
-				<input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
-            </div>
->>>>>>> 1d7346cc1cd2c5f586abd5b0470f2dea36e6a348
+
 
             <!--Busca Avançada-->
             <!--<form name="sentMessage" id="contactForm" novalidate>-->
