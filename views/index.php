@@ -169,7 +169,15 @@
 
             <!--Busca Livre-->
             <div class="form-group span6">
+
+
                 <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
+
+                <input id="buscaLivre" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
+
+
+                <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
+
             </div>
 
 
@@ -210,13 +218,7 @@
 
                        <div class="row control-group" align="center" style="float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
-                                <p>Departamento</p>
-                                    <select name="departamento">
-                                        <option value="0">Departamento</option>
-                                        <?php foreach($departamentos as $departamento) { ?>
-                                        <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
-                                        <?php } ?>
-                                    </select>
+
                                 <span class="label-busca-avancada"><span>Departamento</span></span>
                                 <select name="departamento" class="busca-avancada-input">
                                     <option value="0">Departamento</option>
@@ -230,9 +232,7 @@
 
                         <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
-                                <p>Data de inicio</p>
-                                <!--<input class="form-control" type="date" name="data_inicio_evento"/>-->
-                                <input type="date" style="width:130px; height:20px;" name="data_inicio_evento"/>
+
                                 <span class="label-busca-avancada"><span>Data de início</span></span>
                                 <input type="date" name="data_inicio_evento" class="busca-avancada-input" style="margin: 0; padding: 0; height: 25px !important;"/>
 
@@ -290,6 +290,7 @@
     </div>  
             
 </section>  
+
 <?php foreach ($listaEventos as $evento){ ?>
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
