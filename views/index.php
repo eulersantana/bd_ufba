@@ -173,11 +173,6 @@
 
                 <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
 
-                <input id="buscaLivre" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
-
-
-                <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
-
             </div>
 
 
@@ -195,7 +190,7 @@
                         <div class="row control-group"  align="center" style="width:100px; float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
                                 <span class="label-busca-avancada"><span>Campus</span></span>
-                                <select name="campus" class="busca-avancada-input">
+                                <select name="campus" class="busca-avancada-input control-group">
                                     <option value="0">Campus</option>
                                     <?php foreach($campus as $campi) { ?>
                                     <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
