@@ -34,6 +34,17 @@ Class indexController Extends baseController {
 
 		$this->registry->template->instalacoes = $val;
 		//----------------------------------------------------//
+		// ---------------------------------------------------//
+		$eventos = new Evento;
+		$list = [];
+
+		$query  = $eventos->selecionaTodos();
+		foreach (db::getInstance()->query($query) as $val) {
+			 	array_push($list, $val);
+		}
+
+		$this->registry->template->listaEventos = $list;
+		// ---------------------------------------------------//
 
 		$this->registry->template->show('index');
 	}
