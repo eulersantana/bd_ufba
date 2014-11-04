@@ -53,6 +53,34 @@
         <script src="js/cadastroAcademico.js"></script>
         <!--<link rel="stylesheet" type="text/css" href="cadastroAcademico.css">-->
 
+        <script type="text/javascript">
+            function add_atividade() {
+                if(confirm("Você irá adicionar uma nova atividade. Continuar?")) {
+                    var form_atividades  = document.getElementById("form_atividades");
+                    var novas_atividades = document.getElementById("novas_atividades");
+    
+                    novas_atividades.innerHTML += form_atividades.innerHTML;
+                }
+            }
+
+            function add_apoiador() {
+                if(confirm("Você irá adicionar um novo apoiador. Continuar?")) {
+                    var form_apoiadores  = document.getElementById("form_apoiadores");
+                    var novos_apoiadores = document.getElementById("novos_apoiadores");
+
+                    novos_apoiadores.innerHTML += form_apoiadores.innerHTML;
+                }
+            }
+
+            function mudaNome(valor) {
+                if (valor.value == "professor") {
+                    document.getElementById("legLabel").innerHTML = "SEAPE"
+                } else{
+                    document.getElementById("legLabel").innerHTML = "Matricula"
+
+                };
+            }
+        </script>
 
     </head>
 
@@ -116,14 +144,14 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Logon</h4>
+                                <h4 class="modal-title" id="myModalLabel">Login</h4>
                             </div>
                             <div class="modal-body">
                                 <!--Entrar-->
                                 <ul>
                                     <form action="?rt=academico/login" method="post" class="form-vertical">
                                         <div class="control-group">
-                                            <label class="control-label" for="inputEmail">Login</label>
+                                            <label class="control-label" id="legLabel" for="inputEmail">Matricula</label>
                                             <div class="controls">
                                                 <input id="login" name="login" type="text" placeholder="Digite o seu e-mail..." autofocus />
                                             </div>
@@ -137,7 +165,7 @@
                                         <div >
                                             <label  for='buttonConta'>Conta</label>
                                             <div class='controls'>
-                                                <select name="tipo_usuario">
+                                                <select id="escola" name="tipo_usuario" onchange="mudaNome(this)">
                                                     <option value='aluno'>Aluno</option>
                                                     <option value='professor'>Professor</option>
                                                 </select>
@@ -169,15 +197,8 @@
 
             <!--Busca Livre-->
             <div class="form-group span6">
-<<<<<<< HEAD
-
-
                 <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
-
-=======
-				<input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
->>>>>>> 94014369ade7af971c819f1f7c0c6b281b50337f
-            </div>
+             </div>
 
 
             <!--Busca Avançada-->
