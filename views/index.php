@@ -169,10 +169,14 @@
 
             <!--Busca Livre-->
             <div class="form-group span6">
+<<<<<<< HEAD
 
 
                 <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
 
+=======
+				<input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
+>>>>>>> 94014369ade7af971c819f1f7c0c6b281b50337f
             </div>
 
 
