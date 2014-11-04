@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +52,7 @@
 
         <script src="js/cadastroAcademico.js"></script>
         <!--<link rel="stylesheet" type="text/css" href="cadastroAcademico.css">-->
-
+         <script src="js/cadastroEvento.js"></script>
 
     </head>
 
@@ -59,7 +61,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/cadastroUsuario.js"></script>
         <script src="js/hideBuscaAvancada.js"></script>
-
+        
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -88,6 +90,13 @@
                         <li class="page-scroll">
                             <a href="#cadastroUser">Cadastre-se</a>
                         </li>
+
+                        <!--Denis ficou de mexer nisso.. para quando o user estiver logado, ao invés de Cadastre-se,
+                         botar o Publique Seu Evento-->
+                        <li class="page-scroll">
+                            <a href="#cadastroEvento">Publique seu Evento</a>
+                        </li>
+
                         <li class="page-scroll">
                             <a href="#about">Quem Somos</a>
                         </li>
@@ -409,6 +418,166 @@
     </div>
 </section>
 
+<!--Denis ficou de mexer nisso.. para quando o user estiver logado, ao invés de Cadastre-se,
+                         botar o Publique Seu Evento-->
+<!-- Cadastro Evento -->
+<section id="cadastroEvento">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Publique seu Evento</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+
+        <div class="row" >
+
+            <div class="col-lg-8 col-lg-offset-2">
+            
+                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                
+            <div id="form_novo_evento">
+            <form method="post" enctype="multipart/form-data" action="?rt=evento/add">
+                <fieldset>
+                    <label>Nome do evento</label>
+                    <input type="text" name="titulo_evento"/>
+                </fieldset>
+                
+                <fieldset>
+                    <label>Cartaz</label>
+                    <input type="file" name="cartaz_evento"/>
+                </fieldset>
+                
+                <fieldset>
+                    <label>Link</label>
+                    <input type="text" name="link_evento"/>
+                </fieldset>
+                
+                <fieldset>
+                    <label>Data de inicio</label>
+                    <input type="date" name="data_inicio_evento"/>
+                </fieldset>
+                
+                <fieldset>
+                    <label>Date de termino</label>
+                    <input type="date" name="data_fim_evento"/>
+                </fieldset>
+                
+                <fieldset>
+                    <label>Descrição</label>
+                    <textarea name="descricao_evento"></textarea>
+                </fieldset>
+                
+                
+                <!-- 
+                  --
+                  -- FORMULARIO DE ATIVIDADES
+                  --
+                  -->
+                
+                <h2>Atividades</h2>
+                
+                <div id="data_atividade">
+                    <div id="form_atividades">
+                        <hr/>
+                        
+                        <fieldset>
+                            <label>Data da atividade</label>
+                            <input type="date" name="data_atividade[]"/>
+                        </fieldset>
+                        
+                        <fieldset>
+                            <label>Titulo da atividade</label>
+                            <input type="text" name="titulo_atividade[]"/>
+                        </fieldset>
+                        
+                        <fieldset>
+                            <label>Titulo da atividade</label>
+                            <input type="time" name="horario_atividade[]"/>
+                        </fieldset>
+                        
+                        <fieldset>
+                            <label>Descrição da atividade</label>
+                            <textarea name="descricao_atividade[]"></textarea>
+                        </fieldset>
+                        
+                        <fieldset>
+                            <label>Local</label>
+                            
+                            <select name="instalacao_evento" size="10">
+                                <optgroup label="CAMPUS">
+                                <?php
+                                    foreach($todos_campus as $campi) {
+                                ?>
+                                <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
+                                <?php } ?>
+                                </optgroup>
+                                
+                                <optgroup label="INSTALAÇÃO">
+                                <?php
+                                    foreach($instalacoes as $instalacao) {
+                                ?>
+                                <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
+                                <?php } ?>
+                                </optgroup>
+                                
+                                <optgroup label="DEPARTAMENTO">
+                                <?php
+                                    foreach($departamentos as $departamento) {
+                                ?>
+                                <option value="<?php echo $departamento['codigo']; ?>"><?php echo $departamento['nome']; ?></option>
+                                <?php } ?>
+                                </optgroup>
+                            </select>
+                        </fieldset>
+                    
+                        <hr/>
+                    </div>
+                    
+                    <div id="novas_atividades"></div>
+                </div>
+                
+                <input type="button" value="adicionar atividade" onclick="add_atividade();"/>
+                
+                <!-- 
+                  --
+                  -- FORMULARIO DE APOIADORES
+                  --
+                  -->
+                
+                <h2>Apoiadores</h2>
+                
+                <div id="apoiadores">
+                    <div id="form_apoiadores">
+                        <hr/>
+                        
+                        <fieldset>
+                            <label>Nome do apoiador</label>
+                            <input type="text" name="nome_apoiador[]"/>
+                        </fieldset>
+                        
+                        <fieldset>
+                            <label>Imagem do apoiador</label>
+                            <input type="file" name="imagem_apoiador[]"/>
+                        </fieldset>
+                        <hr/>
+                    </div>
+                    
+                    <div id="novos_apoiadores"></div>
+                </div>
+                
+                <input type="button" value="adicionar apoiador" onclick="add_apoiador();"/><br/><br/><hr/><br/>
+                <input type="submit" value="Cadastrar Evento"/>
+            </form>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 <!-- About Section -->
 <section class="success" id="about">
@@ -431,7 +600,7 @@
     </div>
 </section>
 
-<!-- Contact Section -->
+
 
 <!-- Footer -->
 <footer class="text-center">
