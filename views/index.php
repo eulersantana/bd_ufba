@@ -187,14 +187,7 @@
 
             <!--Busca Livre-->
             <div class="form-group span6">
-<<<<<<< HEAD
-
-
-                <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
-
-=======
 				<input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
->>>>>>> 94014369ade7af971c819f1f7c0c6b281b50337f
             </div>
 
 
@@ -476,7 +469,7 @@
 <!--Denis ficou de mexer nisso.. para quando o user estiver logado, ao invés de Cadastre-se,
                          botar o Publique Seu Evento-->
 <!-- Cadastro Evento -->
-<?php if (isset($_SESSION['id'])):?>
+<?php  ?>
     <section id="cadastroEvento">
         <div class="container">
             <div class="row">
@@ -494,7 +487,7 @@
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                     
                 <div id="form_novo_evento">
-                <form method="post" enctype="multipart/form-data" action="?rt=evento/add">
+                <form method="post" enctype="multipart/form-data" action="?rt=index/addEvento">
                     <fieldset>
                         <label>Nome do evento</label>
                         <input type="text" name="titulo_evento"/>
@@ -631,7 +624,7 @@
         </div>
     </section>
 
-<?php endif; ?>
+<?php  ?>
 
 <!-- About Section -->
 <section class="success" id="about">
