@@ -169,7 +169,7 @@
 
             <!--Busca Livre-->
             <div class="form-group span6">
-                <input id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
+                <input id="buscaLivre" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
             </div>
 
 
@@ -184,8 +184,8 @@
 
                         <div class="row control-group">
                             <fieldset>
-                                <p>Campus</p>
-                                <select name="campus">
+                                <span class="label-busca-avancada"><span>Campus</span></span>
+                                <select name="campus" class="busca-avancada-input">
                                     <option value="0">Campus</option>
                                     <?php foreach($campus as $campi) { ?>
                                     <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
@@ -196,8 +196,8 @@
 
                         <div class="row control-group">
                             <fieldset>
-                                <p>Instalação</p>
-                                <select name="instalacao">
+                                <span class="label-busca-avancada"><span>Instalação</span></span>
+                                <select name="instalacao" class="busca-avancada-input">
                                     <option value="0">Instalação</option>
                                     <?php foreach($instalacoes as $instalacao) { ?>
                                     <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
@@ -208,8 +208,8 @@
 
                         <div class="row control-group">
                             <fieldset>
-                                <p>Departamento</p>
-                                <select name="departamento">
+                                <span class="label-busca-avancada"><span>Departamento</span></span>
+                                <select name="departamento" class="busca-avancada-input">
                                     <option value="0">Departamento</option>
                                     <?php foreach($departamentos as $departamento) { ?>
                                     <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
@@ -220,8 +220,8 @@
 
                         <div class="row control-group">
                             <fieldset>
-                                <p>Data de inicio</p>
-                                <input type="date" name="data_inicio_evento"/>
+                                <span class="label-busca-avancada"><span>Data de início</span></span>
+                                <input type="date" name="data_inicio_evento" class="busca-avancada-input" style="margin: 0; padding: 0; height: 25px !important;"/>
                             </fieldset>
 
                         </div>
