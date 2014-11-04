@@ -24,6 +24,8 @@ private $vars = array();
  *
  */
 function __construct($registry) {
+	// Inicio da sessao
+	
 	$this->registry = $registry;
 
 }

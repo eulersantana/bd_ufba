@@ -87,7 +87,7 @@
                         <li class="page-scroll">
                             <a href="#portfolio">Acontece Hoje</a>
                         </li>
-                        <?php if (!isset($_SESSION)): ?>
+                        <?php if (!isset($_SESSION['id'])): ?>
                             <li class="page-scroll">
                                 <a href="#cadastroUser">Cadastre-se</a>
                             </li>
@@ -95,7 +95,7 @@
 
                         <!--Denis ficou de mexer nisso.. para quando o user estiver logado, ao invés de Cadastre-se,
                          botar o Publique Seu Evento-->
-                        <?php if (isset($_SESSION)): ?>
+                        <?php if (isset($_SESSION['id'])): ?>
                             <li class="page-scroll">
                                 <a href="#cadastroEvento">Publique seu Evento</a>
                             </li>
@@ -104,7 +104,7 @@
                             <a href="#about">Quem Somos</a>
                         </li>
                         
-                        <?php if (isset($_SESSION)): ?>
+                        <?php if (isset($_SESSION['id'])): ?>
                         <li class="page-scroll"><a href="?rt=academico/logout" id="">Sair</a></li>
 
                     <?php else: ?>
@@ -210,7 +210,6 @@
 
                        <div class="row control-group" align="center" style="float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
-<<<<<<< HEAD
                                 <p>Departamento</p>
                                     <select name="departamento">
                                         <option value="0">Departamento</option>
@@ -218,7 +217,6 @@
                                         <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
                                         <?php } ?>
                                     </select>
-=======
                                 <span class="label-busca-avancada"><span>Departamento</span></span>
                                 <select name="departamento" class="busca-avancada-input">
                                     <option value="0">Departamento</option>
@@ -226,21 +224,18 @@
                                     <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
                                     <?php } ?>
                                 </select>
->>>>>>> c1739c910fa744ed394f9f6a165391c3e27ec14a
                             </fieldset>
                         </div>
                  
 
                         <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
-<<<<<<< HEAD
                                 <p>Data de inicio</p>
                                 <!--<input class="form-control" type="date" name="data_inicio_evento"/>-->
                                 <input type="date" style="width:130px; height:20px;" name="data_inicio_evento"/>
-=======
                                 <span class="label-busca-avancada"><span>Data de início</span></span>
                                 <input type="date" name="data_inicio_evento" class="busca-avancada-input" style="margin: 0; padding: 0; height: 25px !important;"/>
->>>>>>> c1739c910fa744ed394f9f6a165391c3e27ec14a
+
                             </fieldset>
 
                         </div>
@@ -336,7 +331,7 @@
 
 <?php } ?>
 
-<?php if (!isset($_SESSION)): ?>    
+<?php if (!isset($_SESSION['id'])): ?>    
     <!-- Cadastro de User -->
     <section id="cadastroUser">
         <div class="container">
@@ -463,7 +458,7 @@
 <!--Denis ficou de mexer nisso.. para quando o user estiver logado, ao invés de Cadastre-se,
                          botar o Publique Seu Evento-->
 <!-- Cadastro Evento -->
-<?php if (isset($_SESSION)):?>
+<?php if (isset($_SESSION['id'])):?>
     <section id="cadastroEvento">
         <div class="container">
             <div class="row">

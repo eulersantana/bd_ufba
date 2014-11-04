@@ -78,10 +78,9 @@ Class academicoController Extends baseController {
 				$professor = new Professor;
 			if (stristr($_POST['tipo_usuario'], "aluno"))
 				$aluno = new Aluno;
-			
-			// Inicio da sessao
-			session_start();
 
+			
+		
 			if(isset($professor)) {
 				$professor->setSiape($_POST['login']);
 				$professor->setSenha($_POST['senha']);
@@ -102,14 +101,20 @@ Class academicoController Extends baseController {
 				}
 			}
 			elseif (isset($aluno)) {
+
 				$aluno->setMatricula($_POST['login']);
 				$aluno->setSenha($_POST['senha']);
 
 				$condicao = "matricula = ".$aluno->getMatricula()." and senha = ".$aluno->getSenha();
 				$query  = $aluno->selecionarAluno($condicao);
 
-				$aluno_logado = db::getInstance()->query($query);
+				foreach (db::getInstance()->query($query) as $row){
+					$aluno_logado = $row;
+				}
 
+				$_SESSION['id']     = $aluno_logado['academico_id'];
+				$_SESSION['matricula'] 	= $aluno_logado['matricula'];
+				
 				if (isset($aluno_logado)) {
 					$this->registry->template->mensagem = "Login feito com sucesso.";
 				}
@@ -145,7 +150,7 @@ Class academicoController Extends baseController {
 
 		$this->registry->template->listaEventos = $list;
 		// ---------------------------------------------------//
-		session_destroy();
+		unset($_SESSION['id']);
 		$this->registry->template->show('index');
 
 	}

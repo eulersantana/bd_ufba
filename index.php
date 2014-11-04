@@ -3,6 +3,8 @@
  /*** error reporting on ***/
  error_reporting(E_ALL);
 
+ session_start();
+
  /*** define the site path ***/
  $site_path = realpath(dirname(__FILE__));
  define ('__SITE_PATH', $site_path);

@@ -21,6 +21,7 @@ class router {
 
 
  function __construct($registry) {
+ 		
         $this->registry = $registry;
  }
 
