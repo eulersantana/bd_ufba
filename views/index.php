@@ -87,16 +87,19 @@
                         <li class="page-scroll">
                             <a href="#portfolio">Acontece Hoje</a>
                         </li>
-                        <li class="page-scroll">
-                            <a href="#cadastroUser">Cadastre-se</a>
-                        </li>
+                        <?php if (!isset($_SESSION)): ?>
+                            <li class="page-scroll">
+                                <a href="#cadastroUser">Cadastre-se</a>
+                            </li>
+                        <?php endif; ?>
 
                         <!--Denis ficou de mexer nisso.. para quando o user estiver logado, ao invés de Cadastre-se,
                          botar o Publique Seu Evento-->
-                        <li class="page-scroll">
-                            <a href="#cadastroEvento">Publique seu Evento</a>
-                        </li>
-
+                        <?php if (isset($_SESSION)): ?>
+                            <li class="page-scroll">
+                                <a href="#cadastroEvento">Publique seu Evento</a>
+                            </li>
+                        <?php endif; ?>
                         <li class="page-scroll">
                             <a href="#about">Quem Somos</a>
                         </li>
@@ -166,7 +169,11 @@
 
             <!--Busca Livre-->
             <div class="form-group span6">
+<<<<<<< HEAD
                 <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
+=======
+                <input id="buscaLivre" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
+>>>>>>> c1739c910fa744ed394f9f6a165391c3e27ec14a
             </div>
 
 
@@ -183,8 +190,8 @@
 
                         <div class="row control-group"  align="center" style="width:100px; float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
-                                <p>Campus</p>
-                                <select name="campus">
+                                <span class="label-busca-avancada"><span>Campus</span></span>
+                                <select name="campus" class="busca-avancada-input">
                                     <option value="0">Campus</option>
                                     <?php foreach($campus as $campi) { ?>
                                     <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
@@ -195,8 +202,8 @@
 
                         <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
-                                <p>Instalação</p>
-                                <select name="instalacao">
+                                <span class="label-busca-avancada"><span>Instalação</span></span>
+                                <select name="instalacao" class="busca-avancada-input">
                                     <option value="0">Instalação</option>
                                     <?php foreach($instalacoes as $instalacao) { ?>
                                     <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
@@ -207,6 +214,7 @@
 
                        <div class="row control-group" align="center" style="float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
+<<<<<<< HEAD
                                 <p>Departamento</p>
                                     <select name="departamento">
                                         <option value="0">Departamento</option>
@@ -214,15 +222,29 @@
                                         <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
                                         <?php } ?>
                                     </select>
+=======
+                                <span class="label-busca-avancada"><span>Departamento</span></span>
+                                <select name="departamento" class="busca-avancada-input">
+                                    <option value="0">Departamento</option>
+                                    <?php foreach($departamentos as $departamento) { ?>
+                                    <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
+                                    <?php } ?>
+                                </select>
+>>>>>>> c1739c910fa744ed394f9f6a165391c3e27ec14a
                             </fieldset>
                         </div>
                  
 
                         <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
+<<<<<<< HEAD
                                 <p>Data de inicio</p>
                                 <!--<input class="form-control" type="date" name="data_inicio_evento"/>-->
                                 <input type="date" style="width:130px; height:20px;" name="data_inicio_evento"/>
+=======
+                                <span class="label-busca-avancada"><span>Data de início</span></span>
+                                <input type="date" name="data_inicio_evento" class="busca-avancada-input" style="margin: 0; padding: 0; height: 25px !important;"/>
+>>>>>>> c1739c910fa744ed394f9f6a165391c3e27ec14a
                             </fieldset>
 
                         </div>
@@ -240,10 +262,15 @@
 
             <input type="submit" value="Filtrar" class="btn btn-lg">
         </div>
-        <!--</form>-->
-    </form>
+           </form>
 
 </div>
+
+
+    </section>
+
+        <!--</form>-->
+ 
 
 </header>
 
@@ -268,343 +295,334 @@
                     <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/cake.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/circus.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/game.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                </a>
-            </div>
-            <div class="col-sm-4 portfolio-item">
-                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-search-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                </a>
-            </div>
         </div>
-    </div>
-</section>
-
-
-<!-- Cadastro de User -->
-<section id="cadastroUser">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Cadastre-se</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-
-                <div id="form_novo_usuario">
-                    <form method="post" action="?rt=index/add" >
-                        <div class="form-group col-xs-6">
-
-                           <div class="row control-group">
-                            <fieldset>
-                                <label>Tipo do usuário</label>
-                                <select name="tipo_usuario"
-                                id="tipo_usuario" onchange="alteraTipoId()">
-                                <option value="aluno">Aluno</option>
-                                <option value="professor">Professor</option>
-                            </select>
-                        </fieldset>
-                    </div>
-
-                    <div class="row control-group">
-                        <fieldset>
-
-                            <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
-                        </fieldset>
-                    </div>
-
-                    <div class="row control-group">
-                        <fieldset>
-                            <label>Departamento</label>
-                            <select name="departamento">
-                                <option value="0">Departamento</option>
-                                <?php foreach($departamentos as $departamento) { ?>
-                                <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
-                                <?php } ?>
-                            </select>
-                        </fieldset>
-                    </div>
-                    
-                    <div class="row control-group">
-                        <fieldset id="curso_aluno">
-                            <label>Curso</label>
-                            <input type="text" class="form-control" placeholder="Digite o nome seu curso" name="curso">
-                        </fieldset>
-                    </div>
-
-                    <div class="row control-group">
-
-                        <fieldset>
-                            <label>Nome completo</label> <input class="form-control" type="text" placeholder="Digite o nome completo" name="nome_completo" />
-                        </fieldset>
-                    </div>
-
-                    <div class="row control-group">
-                        <fieldset>
-                            <label>Endereço</label> <input class="form-control" type="text" placeholder="Digite o endereço" name="endereco" />
-                        </fieldset>
-                    </div>
-
-                    <div class="row control-group">
-                        <fieldset>
-                            <label>Data de nascimento</label> <input class="form-control" type="date" name="data_nascimento" />
-                        </fieldset>
-                    </div>
-
-                    <div class="row control-group">
-                        <fieldset>
-                            <label>Telefone</label> <input class="form-control" type="text" placeholder="Digite o telefone" name="telefone" />
-                        </fieldset>
-                    </div>
-
-                    <div class="row control-group">
-                        <fieldset>
-                            <label>Email</label> <input class="form-control" type="text" name="email" placeholder="Digite o email"/>
-                        </fieldset>
-                    </div>
-
-                    <div class="row control-group">
-                        <fieldset>
-                            <label>Senha</label> <input class="form-control" type="password" name="senha" />
-                        </fieldset>
-                    </div>
-
-                    <div class="row control-group">
-                        <fieldset>
-                            <label>Confirme a senha</label> <input class="form-control" type="password" name="confirmacao_senha" />
-                        </fieldset>
-                    </div>
-
-                    <p></p>
-                    <div class="row control-group">
-                        <fieldset>
-                            <input  class="btn btn-success btn-lg" type="submit" name="cadastrar_novo_usuario" value="Cadastrar" />
-                        </fieldset>
+    </div>  
+            
+</section>  
+<?php foreach ($listaEventos as $evento){ ?>
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
                     </div>
                 </div>
-
-
-                <?php
-                if(isset($mensagem)) {
-                    echo $mensagem;
-                }
-                ?>
-
-
-            </form>
-        </div> <!--fim div id= formulario novo user-->
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2><?= $evento['titulo']; ?></h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
+                            <p><?= $evento['descricao']; ?></p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-</div>
+
+<?php } ?>
+
+<?php if (!isset($_SESSION)): ?>    
+    <!-- Cadastro de User -->
+    <section id="cadastroUser">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Cadastre-se</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+
+                    <div id="form_novo_usuario">
+                        <form method="post" action="?rt=index/add" >
+                            <div class="form-group col-xs-6">
+                                        
+                                         <div class="row control-group">
+                                                <fieldset>
+                                                <label>Tipo do usuário</label>
+                                                <select name="tipo_usuario"
+                                                id="tipo_usuario" onchange="alteraTipoId()">
+                                                <option value="aluno">Aluno</option>
+                                                <option value="professor">Professor</option>
+                                                 </select>
+                                             </fieldset>
+                                         </div>
+
+                                        <div class="row control-group">
+                                            <fieldset>
+
+                                                <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Departamento</label>
+                                                <select name="departamento">
+                                                    <option value="0">Departamento</option>
+                                                    <?php foreach($departamentos as $departamento) { ?>
+                                                    <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                        
+                                        <div class="row control-group">
+                                            <fieldset id="curso_aluno">
+                                                <label>Curso</label>
+                                                <input type="text" class="form-control" placeholder="Digite o nome seu curso" name="curso">
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="row control-group">
+
+                                            <fieldset>
+                                                <label>Nome completo</label> <input class="form-control" type="text" placeholder="Digite o nome completo" name="nome_completo" />
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Endereço</label> <input class="form-control" type="text" placeholder="Digite o endereço" name="endereco" />
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Data de nascimento</label> <input class="form-control" type="date" name="data_nascimento" />
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Telefone</label> <input class="form-control" type="text" placeholder="Digite o telefone" name="telefone" />
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Email</label> <input class="form-control" type="text" name="email" placeholder="Digite o email"/>
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Senha</label> <input class="form-control" type="password" name="senha" />
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <label>Confirme a senha</label> <input class="form-control" type="password" name="confirmacao_senha" />
+                                            </fieldset>
+                                        </div>
+
+                                        <p></p>
+                                        <div class="row control-group">
+                                            <fieldset>
+                                                <input  class="btn btn-success btn-lg" type="submit" name="cadastrar_novo_usuario" value="Cadastrar" />
+                                            </fieldset>
+                                        </div>
+                           </div>
+
+
+                           <?php
+                           if(isset($mensagem)) {
+                            echo $mensagem;
+                            }
+                            ?>
+
+                <?php endif; ?>
+                     </form>
+                </div> <!--fim div id= formulario novo user-->
+
 </section>
+
+
+
 
 <!--Denis ficou de mexer nisso.. para quando o user estiver logado, ao invés de Cadastre-se,
                          botar o Publique Seu Evento-->
 <!-- Cadastro Evento -->
-<section id="cadastroEvento">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Publique seu Evento</h2>
-                <hr class="star-primary">
+<?php if (isset($_SESSION)):?>
+    <section id="cadastroEvento">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Publique seu Evento</h2>
+                    <hr class="star-primary">
+                </div>
             </div>
-        </div>
 
-        <div class="row" >
+            <div class="row" >
 
-            <div class="col-lg-8 col-lg-offset-2">
-            
-                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                <div class="col-lg-8 col-lg-offset-2">
                 
-            <div id="form_novo_evento">
-            <form method="post" enctype="multipart/form-data" action="?rt=evento/add">
-                <fieldset>
-                    <label>Nome do evento</label>
-                    <input type="text" name="titulo_evento"/>
-                </fieldset>
-                
-                <fieldset>
-                    <label>Cartaz</label>
-                    <input type="file" name="cartaz_evento"/>
-                </fieldset>
-                
-                <fieldset>
-                    <label>Link</label>
-                    <input type="text" name="link_evento"/>
-                </fieldset>
-                
-                <fieldset>
-                    <label>Data de inicio</label>
-                    <input type="date" name="data_inicio_evento"/>
-                </fieldset>
-                
-                <fieldset>
-                    <label>Date de termino</label>
-                    <input type="date" name="data_fim_evento"/>
-                </fieldset>
-                
-                <fieldset>
-                    <label>Descrição</label>
-                    <textarea name="descricao_evento"></textarea>
-                </fieldset>
-                
-                
-                <!-- 
-                  --
-                  -- FORMULARIO DE ATIVIDADES
-                  --
-                  -->
-                
-                <h2>Atividades</h2>
-                
-                <div id="data_atividade">
-                    <div id="form_atividades">
-                        <hr/>
-                        
-                        <fieldset>
-                            <label>Data da atividade</label>
-                            <input type="date" name="data_atividade[]"/>
-                        </fieldset>
-                        
-                        <fieldset>
-                            <label>Titulo da atividade</label>
-                            <input type="text" name="titulo_atividade[]"/>
-                        </fieldset>
-                        
-                        <fieldset>
-                            <label>Titulo da atividade</label>
-                            <input type="time" name="horario_atividade[]"/>
-                        </fieldset>
-                        
-                        <fieldset>
-                            <label>Descrição da atividade</label>
-                            <textarea name="descricao_atividade[]"></textarea>
-                        </fieldset>
-                        
-                        <fieldset>
-                            <label>Local</label>
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    
+                <div id="form_novo_evento">
+                <form method="post" enctype="multipart/form-data" action="?rt=evento/add">
+                    <fieldset>
+                        <label>Nome do evento</label>
+                        <input type="text" name="titulo_evento"/>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Cartaz</label>
+                        <input type="file" name="cartaz_evento"/>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Link</label>
+                        <input type="text" name="link_evento"/>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Data de inicio</label>
+                        <input type="date" name="data_inicio_evento"/>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Date de termino</label>
+                        <input type="date" name="data_fim_evento"/>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <label>Descrição</label>
+                        <textarea name="descricao_evento"></textarea>
+                    </fieldset>
+                    
+                    
+                    <!-- 
+                      --
+                      -- FORMULARIO DE ATIVIDADES
+                      --
+                      -->
+                    
+                    <h2>Atividades</h2>
+                    
+                    <div id="data_atividade">
+                        <div id="form_atividades">
+                            <hr/>
                             
-                            <select name="instalacao_evento" size="10">
-                                <optgroup label="CAMPUS">
-                                <?php
-                                    foreach($todos_campus as $campi) {
-                                ?>
-                                <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
-                                <?php } ?>
-                                </optgroup>
+                            <fieldset>
+                                <label>Data da atividade</label>
+                                <input type="date" name="data_atividade[]"/>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <label>Titulo da atividade</label>
+                                <input type="text" name="titulo_atividade[]"/>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <label>Titulo da atividade</label>
+                                <input type="time" name="horario_atividade[]"/>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <label>Descrição da atividade</label>
+                                <textarea name="descricao_atividade[]"></textarea>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <label>Local</label>
                                 
-                                <optgroup label="INSTALAÇÃO">
-                                <?php
-                                    foreach($instalacoes as $instalacao) {
-                                ?>
-                                <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
-                                <?php } ?>
-                                </optgroup>
-                                
-                                <optgroup label="DEPARTAMENTO">
-                                <?php
-                                    foreach($departamentos as $departamento) {
-                                ?>
-                                <option value="<?php echo $departamento['codigo']; ?>"><?php echo $departamento['nome']; ?></option>
-                                <?php } ?>
-                                </optgroup>
-                            </select>
-                        </fieldset>
-                    
-                        <hr/>
+                                <select name="instalacao_evento" size="10">
+                                    <optgroup label="CAMPUS">
+                                    <?php
+                                        foreach($todos_campus as $campi) {
+                                    ?>
+                                    <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
+                                    <?php } ?>
+                                    </optgroup>
+                                    
+                                    <optgroup label="INSTALAÇÃO">
+                                    <?php
+                                        foreach($instalacoes as $instalacao) {
+                                    ?>
+                                    <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
+                                    <?php } ?>
+                                    </optgroup>
+                                    
+                                    <optgroup label="DEPARTAMENTO">
+                                    <?php
+                                        foreach($departamentos as $departamento) {
+                                    ?>
+                                    <option value="<?php echo $departamento['codigo']; ?>"><?php echo $departamento['nome']; ?></option>
+                                    <?php } ?>
+                                    </optgroup>
+                                </select>
+                            </fieldset>
+                        
+                            <hr/>
+                        </div>
+                        
+                        <div id="novas_atividades"></div>
                     </div>
                     
-                    <div id="novas_atividades"></div>
-                </div>
-                
-                <input type="button" value="adicionar atividade" onclick="add_atividade();"/>
-                
-                <!-- 
-                  --
-                  -- FORMULARIO DE APOIADORES
-                  --
-                  -->
-                
-                <h2>Apoiadores</h2>
-                
-                <div id="apoiadores">
-                    <div id="form_apoiadores">
-                        <hr/>
+                    <input type="button" value="adicionar atividade" onclick="add_atividade();"/>
+                    
+                    <!-- 
+                      --
+                      -- FORMULARIO DE APOIADORES
+                      --
+                      -->
+                    
+                    <h2>Apoiadores</h2>
+                    
+                    <div id="apoiadores">
+                        <div id="form_apoiadores">
+                            <hr/>
+                            
+                            <fieldset>
+                                <label>Nome do apoiador</label>
+                                <input type="text" name="nome_apoiador[]"/>
+                            </fieldset>
+                            
+                            <fieldset>
+                                <label>Imagem do apoiador</label>
+                                <input type="file" name="imagem_apoiador[]"/>
+                            </fieldset>
+                            <hr/>
+                        </div>
                         
-                        <fieldset>
-                            <label>Nome do apoiador</label>
-                            <input type="text" name="nome_apoiador[]"/>
-                        </fieldset>
-                        
-                        <fieldset>
-                            <label>Imagem do apoiador</label>
-                            <input type="file" name="imagem_apoiador[]"/>
-                        </fieldset>
-                        <hr/>
+                        <div id="novos_apoiadores"></div>
                     </div>
                     
-                    <div id="novos_apoiadores"></div>
+                    <input type="button" value="adicionar apoiador" onclick="add_apoiador();"/><br/><br/><hr/><br/>
+                    <input type="submit" value="Cadastrar Evento"/>
+                </form>
                 </div>
-                
-                <input type="button" value="adicionar apoiador" onclick="add_apoiador();"/><br/><br/><hr/><br/>
-                <input type="submit" value="Cadastrar Evento"/>
-            </form>
-
-
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
+<?php endif; ?>
 
 <!-- About Section -->
 <section class="success" id="about">

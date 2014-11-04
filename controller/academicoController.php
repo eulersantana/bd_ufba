@@ -119,10 +119,32 @@ Class academicoController Extends baseController {
 				}
 			}
 
+			// ---------------------------------------------------//
+			$eventos = new Evento;
+			$list = [];
+
+			$query  = $eventos->selecionaTodos();
+			foreach (db::getInstance()->query($query) as $val) {
+				 	array_push($list, $val);
+			}
+
+			$this->registry->template->listaEventos = $list;
+
 			$this->registry->template->show('index');
 	}
 
 	public function logout(){
+		// ---------------------------------------------------//
+		$eventos = new Evento;
+		$list = [];
+
+		$query  = $eventos->selecionaTodos();
+		foreach (db::getInstance()->query($query) as $val) {
+			 	array_push($list, $val);
+		}
+
+		$this->registry->template->listaEventos = $list;
+		// ---------------------------------------------------//
 		session_destroy();
 		$this->registry->template->show('index');
 

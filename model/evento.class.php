@@ -23,6 +23,10 @@ class Evento {
     	$sql = "delete from ".self::$tabela." where id = ".$this->id;
     }
     
+    public function selecionaTodos(){
+        return "select * from ".self::$tabela;
+    }
+
     function getId() {
         return $this->id;
     }
