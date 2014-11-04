@@ -169,15 +169,7 @@
 
             <!--Busca Livre-->
             <div class="form-group span6">
-
-
-                <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
-
-                <input id="buscaLivre" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
-
-
-                <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
-
+				<input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
             </div>
 
 
