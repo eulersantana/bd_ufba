@@ -166,20 +166,22 @@
 
             <!--Busca Livre-->
             <div class="form-group span6">
-                <input id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
+                <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
             </div>
-
 
 
             <!--Busca Avançada-->
             <!--<form name="sentMessage" id="contactForm" novalidate>-->
             <div class="controls">
-                <p><input id="buscaAvancada" type="checkbox"> Busca Avançada </input><br/>
+
+            <br/>
+                
+                <p><input  id="buscaAvancada" type="checkbox"> Busca Avançada </input><br/>
                     <div id="acaobuscaAvancada" >
                       <div class="btn-group span3">
                         <!--<ul class="avancada">-->
 
-                        <div class="row control-group">
+                        <div class="row control-group"  align="center" style="width:100px; float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
                                 <p>Campus</p>
                                 <select name="campus">
@@ -191,7 +193,7 @@
                             </fieldset>
                         </div>
 
-                        <div class="row control-group">
+                        <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
                                 <p>Instalação</p>
                                 <select name="instalacao">
@@ -203,22 +205,24 @@
                             </fieldset>
                         </div>
 
-                        <div class="row control-group">
+                       <div class="row control-group" align="center" style="float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
                                 <p>Departamento</p>
-                                <select name="departamento">
-                                    <option value="0">Departamento</option>
-                                    <?php foreach($departamentos as $departamento) { ?>
-                                    <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
-                                    <?php } ?>
-                                </select>
+                                    <select name="departamento">
+                                        <option value="0">Departamento</option>
+                                        <?php foreach($departamentos as $departamento) { ?>
+                                        <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
+                                        <?php } ?>
+                                    </select>
                             </fieldset>
                         </div>
+                 
 
-                        <div class="row control-group">
+                        <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
                                 <p>Data de inicio</p>
-                                <input type="date" name="data_inicio_evento"/>
+                                <!--<input class="form-control" type="date" name="data_inicio_evento"/>-->
+                                <input type="date" style="width:130px; height:20px;" name="data_inicio_evento"/>
                             </fieldset>
 
                         </div>
@@ -229,9 +233,12 @@
                 </div>
             </p>
         </div>
-        <!--Submit busca livre-->
+
+            <br/>
+        <!--Submit busca home-->
         <div class="form-group span1">
-            <input type="submit" value="Filtrar" class="btn btn_1">
+
+            <input type="submit" value="Filtrar" class="btn btn-lg">
         </div>
         <!--</form>-->
     </form>
