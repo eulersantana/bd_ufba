@@ -14,6 +14,27 @@ Class indexController Extends baseController {
 			print "Error! <b>" . $e->getMessage() . "<b/></br>";
 		}
 
+		$campus = new Campus;
+		//----------------------------------------------------//
+		$query  = $campus->selecionar("codigo,nome");
+		$val 	= [] ;
+		 foreach (db::getInstance()->query($query) as $row) {
+		 		array_push($val, $row);
+		 }
+		 $this->registry->template->campus = $val;
+		//----------------------------------------------------//
+		 $campus = new Departamento;
+		$instalacao = new Instalacao;
+
+		$query  = $instalacao->selecionar("localidade_id,predio");
+		$val 	= [] ;
+		 foreach (db::getInstance()->query($query) as $row) {
+		 		array_push($val, $row);
+		 }
+
+		$this->registry->template->instalacoes = $val;
+		//----------------------------------------------------//
+
 		$this->registry->template->show('index');
 	}
 
