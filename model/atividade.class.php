@@ -12,11 +12,10 @@ class Atividade {
 	static private $tabela = "atividade";
 	
 	public function add() {
-		$sql = "insert into ".self::$tabela."(id, titulo, horario, descricao,
-					evento_id, data)
-				values ('".$this->codigo."','".$this->titulo."',
+		$sql = "insert into ".self::$tabela." (titulo, horario, descricao, evento_id, data)
+				values ('".$this->titulo."',
 						'".$this->horario."','".$this->descricao."',
-						'".$this->codigoEvento."', '".$this->data."')";
+						".$this->codigoEvento.", '".$this->data."')";
 		
 		return $sql;
 	}
@@ -51,7 +50,7 @@ class Atividade {
 	}
 	
 	public function setHorario($newHorario) {
-		$this->horario = $horario;
+		$this->horario = $newHorario;
 	}
 	
 	public function getHorario() {
