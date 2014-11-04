@@ -214,9 +214,9 @@
                       <div class="btn-group span3">
                         <!--<ul class="avancada">-->
 
-                        <div class="row control-group"  align="center" style="width:100px; float:left; margin-right:5px;margin-left:5px;">
+                        <div class="row control-group"  align="center" style="float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
-                                <span class="label-busca-avancada"><span>Campus</span></span>
+                                <p>Campus</p>
                                 <select name="campus" class="busca-avancada-input control-group">
                                     <option value="0">Campus</option>
                                     <?php foreach($campus as $campi) { ?>
@@ -228,7 +228,7 @@
 
                         <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
-                                <span class="label-busca-avancada"><span>Instalação</span></span>
+                                <p>Instalação</p>
                                 <select name="instalacao" class="busca-avancada-input">
                                     <option value="0">Instalação</option>
                                     <?php foreach($instalacoes as $instalacao) { ?>
@@ -241,7 +241,7 @@
                        <div class="row control-group" align="center" style="float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
 
-                                <span class="label-busca-avancada"><span>Departamento</span></span>
+                                <p>Departamento</p>
                                 <select name="departamento" class="busca-avancada-input">
                                     <option value="0">Departamento</option>
                                     <?php foreach($departamentos as $departamento) { ?>
@@ -255,7 +255,7 @@
                         <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
                             <fieldset>
 
-                                <span class="label-busca-avancada"><span>Data de início</span></span>
+                                <p>Data de início</p>
                                 <input type="date" name="data_inicio_evento" class="busca-avancada-input" style="margin: 0; padding: 0; height: 25px !important;"/>
 
                             </fieldset>
@@ -293,7 +293,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Portfolio</h2>
+                <h2>Acontece Hoje</h2>
                 <hr class="star-primary">
             </div>
         </div>
@@ -330,6 +330,7 @@
                             <hr class="star-primary">
                             <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
                             <p><?= $evento['descricao']; ?></p>
+                            <!--
                             <ul class="list-inline item-details">
                                 <li>Client:
                                     <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
@@ -344,6 +345,7 @@
                                     </strong>
                                 </li>
                             </ul>
+                        -->
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
@@ -385,13 +387,15 @@
                                              </fieldset>
                                          </div>
 
+                                        <br/>
                                         <div class="row control-group">
                                             <fieldset>
 
                                                 <label id="id_tipo_usuario">Matrícula</label> <input class="form-control" type="text" name="identificador" />
                                             </fieldset>
                                         </div>
-
+                                        
+                                        <br/>
                                         <div class="row control-group">
                                             <fieldset>
                                                 <label>Departamento</label>
@@ -403,7 +407,9 @@
                                                 </select>
                                             </fieldset>
                                         </div>
-                        
+                                        
+                                        <br/>
+
                                         <div class="row control-group">
                                             <fieldset id="curso_aluno">
                                                 <label>Curso</label>
@@ -484,6 +490,7 @@
 <?php  ?>
     <section id="cadastroEvento">
         <div class="container">
+
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Publique seu Evento</h2>
@@ -500,36 +507,58 @@
                     
                 <div id="form_novo_evento">
                 <form method="post" enctype="multipart/form-data" action="?rt=index/addEvento">
+
+
+                <div class="row control-group" style="width:250px">
                     <fieldset>
                         <label>Nome do evento</label>
-                        <input type="text" name="titulo_evento"/>
+                        <input class="form-control" type="text" name="titulo_evento"/>
                     </fieldset>
+                </div>
+                <br>
                     
+                <div class="row control-group" style="width:350px">
                     <fieldset>
                         <label>Cartaz</label>
-                        <input type="file" name="cartaz_evento"/>
+                        <input class="form-control" type="file" name="cartaz_evento"/>
                     </fieldset>
-                    
+                </div>
+
+                <br>
+
+                <div class="row control-group" style="width:250px">    
                     <fieldset>
                         <label>Link</label>
-                        <input type="text" name="link_evento"/>
+                        <input class="form-control" type="text" name="link_evento"/>
                     </fieldset>
+                </div>
+
+                <br>
                     
+                <div class="row control-group" style="width:250px">
                     <fieldset>
                         <label>Data de inicio</label>
-                        <input type="date" name="data_inicio_evento"/>
+                        <input class="form-control" type="date" name="data_inicio_evento"/>
                     </fieldset>
-                    
+                </div>
+
+                <br>
+
+                <div class="row control-group" style="width:250px">
                     <fieldset>
-                        <label>Date de termino</label>
-                        <input type="date" name="data_fim_evento"/>
+                        <label>Data de termino</label>
+                        <input class="form-control" type="date" name="data_fim_evento"/>
                     </fieldset>
-                    
+                </div>
+
+                <br>
+
+                <div class="row control-group" style="width:250px;">
                     <fieldset>
                         <label>Descrição</label>
-                        <textarea name="descricao_evento"></textarea>
+                        <textarea class="form-control" name="descricao_evento"></textarea>
                     </fieldset>
-                    
+                </div>
                     
                     <!-- 
                       --
@@ -543,29 +572,46 @@
                         <div id="form_atividades">
                             <hr/>
                             
+                        <div class="row control-group" style="width:250px">
                             <fieldset>
                                 <label>Data da atividade</label>
-                                <input type="date" name="data_atividade[]"/>
+                                <input class="form-control" type="date" name="data_atividade[]"/>
                             </fieldset>
+                        </div>
                             
+                        <br>
+
+                        <div class="row control-group" style="width:250px">
                             <fieldset>
                                 <label>Titulo da atividade</label>
-                                <input type="text" name="titulo_atividade[]"/>
+                                <input class="form-control" type="text" name="titulo_atividade[]"/>
                             </fieldset>
+                        </div>
                             
+                        <br>
+                            
+                        <div class="row control-group" style="width:250px">
                             <fieldset>
-                                <label>Titulo da atividade</label>
-                                <input type="time" name="horario_atividade[]"/>
+                                <label>Horário da atividade</label>
+                                <input class="form-control" type="time" name="horario_atividade[]"/>
                             </fieldset>
-                            
+                        </div>
+
+                        <br>
+
+                        <div class="row control-group" style="width:250px">
                             <fieldset>
                                 <label>Descrição da atividade</label>
-                                <textarea name="descricao_atividade[]"></textarea>
+                                <textarea class="form-control" name="descricao_atividade[]"></textarea>
                             </fieldset>
-                            
-                            <fieldset>
-                                <label>Local</label>
+                        </div>
+
+                        <br>
+
+                        <div class="row control-group" style="width:250px">
+                            <label>Local</label>
                                 
+                            <fieldset>
                                 <select name="instalacao_evento" size="10">
                                     <optgroup label="CAMPUS">
                                     <?php
@@ -592,14 +638,14 @@
                                     </optgroup>
                                 </select>
                             </fieldset>
-                        
+                        </div>
                             <hr/>
                         </div>
                         
                         <div id="novas_atividades"></div>
                     </div>
                     
-                    <input type="button" value="adicionar atividade" onclick="add_atividade();"/>
+                    <input class="btn " type="button" value="Adicionar Atividade" onclick="add_atividade();"/>
                     
                     <!-- 
                       --
@@ -607,29 +653,35 @@
                       --
                       -->
                     
+                    <br/>
+
                     <h2>Apoiadores</h2>
-                    
                     <div id="apoiadores">
                         <div id="form_apoiadores">
                             <hr/>
-                            
+                        
+                        <div class="row control-group" style="width:250px">
                             <fieldset>
                                 <label>Nome do apoiador</label>
-                                <input type="text" name="nome_apoiador[]"/>
+                                <input class="form-control" type="text" name="nome_apoiador[]"/>
                             </fieldset>
-                            
+                        </div>
+                        <br>
+                        <div class="row control-group" style="width:350px">
                             <fieldset>
                                 <label>Imagem do apoiador</label>
-                                <input type="file" name="imagem_apoiador[]"/>
+                                <input class="form-control" type="file" name="imagem_apoiador[]"/>
                             </fieldset>
+                        </div>
                             <hr/>
                         </div>
                         
                         <div id="novos_apoiadores"></div>
                     </div>
-                    
-                    <input type="button" value="adicionar apoiador" onclick="add_apoiador();"/><br/><br/><hr/><br/>
-                    <input type="submit" value="Cadastrar Evento"/>
+                    <div class="row control-group">
+                        <input  class="btn " type="button" value="Adicionar Apoiador" onclick="add_apoiador();"/><br/><hr/>
+                        <input class="btn btn-success btn-lg" type="submit" value="Cadastrar Evento"/>
+                    </div>
                 </form>
                 </div>
             </div>
@@ -649,10 +701,10 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-lg-offset-2">
-                <p>Objetivo de Centralizar as informações sobre eventos que ocorrem na UFBA - Salvador.</p>
+                <p>Nosso Objetivo:<br> Centralizar as informações sobre eventos que ocorrem na UFBA - Salvador.</p>
             </div>
             <div class="col-lg-4">
-                <p>Amanda, Ive, Denis, Euler e Glauber.</p>
+                <p>Autores do trabalho: Amanda Sotero, Ive Andresson, Dennis Lessa, Euler Santana e Glauber Félix.</p>
             </div>
             
         </div>
@@ -668,10 +720,9 @@
             <div class="row">
                 <div class="footer-col col-md-4">
                     <h3>UFBA CONVIDA</h3>
-                    <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                    <p>Desenvolvido para o trabalho da disciplina de Bancos de Dados - 2014.2</p>
                 </div>
                 <div class="footer-col col-md-4">
-                    <h3>Around the Web</h3>
                     <ul class="list-inline">
                         <li>
                             <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
@@ -691,8 +742,7 @@
                     </ul>
                 </div>
                 <div class="footer-col col-md-4">
-                    <h3>About Freelancer</h3>
-                    <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    <p>Sistema de Divulgação de Eventos<br>Universidade Federal da Bahia <br>Salvador - 2014.</p>
                 </div>
             </div>
         </div>
@@ -701,7 +751,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    Copyright &copy; Your Website 2014
+                    Copyright &copy; UFBA Convida 2014
                 </div>
             </div>
         </div>

@@ -121,9 +121,9 @@ Class indexController Extends baseController {
 		$data_fim_evento    = explode("/", $_POST['data_fim_evento']);
 	
 		##################################
-	
+		$nome_diretorio = getcwd().'/public/'.md5($id_evento);
 		$evento->setTitulo($_POST['titulo_evento']);
-		$evento->setCartaz($_FILES['cartaz_evento']['name']);
+		$evento->setCartaz($nome_diretorio."/".$_FILES['cartaz_evento']['name']);
 		$evento->setLink($_POST['link_evento']);
 		$evento->setInicio($data_inicio_evento[0]);
 		$evento->setFim($data_fim_evento[0]);
@@ -136,7 +136,6 @@ Class indexController Extends baseController {
 			# insere os eventos na base
 			$id_evento = Executable::EXECUTE_QUERY_GET_ID(db::getInstance(), $evento->add());
 			
-			$nome_diretorio = getcwd().'/public/'.md5($id_evento);
 			mkdir($nome_diretorio, 0777, true);
 			
 			move_uploaded_file($_FILES['cartaz_evento']['tmp_name'],
@@ -172,7 +171,7 @@ Class indexController Extends baseController {
 			for($i = 0; $i < sizeof($_POST['nome_apoiador']); $i++) {
 				$url_img_apoiador = $nome_diretorio.'/'.$_FILES['imagem_apoiador']['name'][$i];
 		
-				move_uploaded_file($_FILES['imagem_apoiador']['tmp_name'], $url_img_apoiador);
+				move_uploaded_file($_FILES['imagem_apoiador']['tmp_name'][$i], $url_img_apoiador);
 		
 				$apoio->setNome($_POST['nome_apoiador'][$i]);
 				$apoio->setUrlImg($url_img_apoiador);

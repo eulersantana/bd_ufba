@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>UFBA ConVida</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,34 @@
         <script src="js/formulario.js"></script>
         <script src="js/cadastroAcademico.js"></script>
 
+        <script type="text/javascript">
+            function add_atividade() {
+                if(confirm("Você irá adicionar uma nova atividade. Continuar?")) {
+                    var form_atividades  = document.getElementById("form_atividades");
+                    var novas_atividades = document.getElementById("novas_atividades");
+    
+                    novas_atividades.innerHTML += form_atividades.innerHTML;
+                }
+            }
 
+            function add_apoiador() {
+                if(confirm("Você irá adicionar um novo apoiador. Continuar?")) {
+                    var form_apoiadores  = document.getElementById("form_apoiadores");
+                    var novos_apoiadores = document.getElementById("novos_apoiadores");
+
+                    novos_apoiadores.innerHTML += form_apoiadores.innerHTML;
+                }
+            }
+
+            function mudaNome(valor) {
+                if (valor.value == "professor") {
+                    document.getElementById("legLabel").innerHTML = "SEAPE"
+                } else{
+                    document.getElementById("legLabel").innerHTML = "Matricula"
+
+                };
+            }
+        </script>
 
     </head>
 
@@ -85,6 +112,9 @@
                         <li class="page-scroll">
                             <a href="#user">Usuário</a>
                         </li>
+                        <li class="page-scroll">
+                            <a href="#cadastroEvento">Evento</a>
+                        </li>
 
 
                     </ul>
@@ -94,12 +124,103 @@
             <!-- /.container-fluid -->
         </nav>
 
-        <!-- Header -->
-        <header>
-            <div class="container">
+<header>
 
-            </div>
-        </header>
+    <!-- Busca Home -->
+    <div class="container">
+
+        <form class="form-inline" action="index.php?action=search" method="get">
+
+            <!--Busca Livre-->
+            <div class="form-group span6">
+                <input size="50" id="nome" name="buscaLivre" class="form-control" type="text" placeholder="Busca Livre">
+             </div>
+
+
+            <!--Busca Avançada-->
+            <!--<form name="sentMessage" id="contactForm" novalidate>-->
+            <div class="controls">
+
+            <br/>
+                
+                <p><input  id="buscaAvancada" type="checkbox"> Busca Avançada </input><br/>
+                    <div id="acaobuscaAvancada" >
+                      <div class="btn-group span3">
+                        <!--<ul class="avancada">-->
+
+                        <div class="row control-group"  align="center" style="float:left; margin-right:5px;margin-left:5px;">
+                            <fieldset>
+                                <p>Campus</p>
+                                <select name="campus" class="busca-avancada-input control-group">
+                                    <option value="0">Campus</option>
+                                    <?php foreach($campus as $campi) { ?>
+                                    <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
+                            <fieldset>
+                                <p>Instalação</p>
+                                <select name="instalacao" class="busca-avancada-input">
+                                    <option value="0">Instalação</option>
+                                    <?php foreach($instalacoes as $instalacao) { ?>
+                                    <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                   
+                       <div class="row control-group" align="center" style="float:left; margin-right:5px;margin-left:5px;">
+                            <fieldset>
+
+                                <p>Departamento</p>
+                                <select name="departamento" class="busca-avancada-input">
+                                    <option value="0">Departamento</option>
+                                    <?php foreach($departamentos as $departamento) { ?>
+                                    <option value="<?php echo $departamento[0]; ?>"><?php echo utf8_encode($departamento[1]); ?></option>
+                                    <?php } ?>
+                                </select>
+                            </fieldset>
+                        </div>
+                 
+
+                        <div class="row control-group" align="center" style=" float:left; margin-right:5px;margin-left:5px;">
+                            <fieldset>
+
+                                <p>Data de início</p>
+                                <input type="date" name="data_inicio_evento" class="busca-avancada-input" style="margin: 0; padding: 0; height: 25px !important;"/>
+
+                            </fieldset>
+
+                        </div>
+
+                        <!--</ul>-->
+                    </div>
+
+                </div>
+            </p>
+        </div>
+
+            <br/>
+        <!--Submit busca home-->
+        <div class="form-group span1">
+
+            <input type="submit" value="Filtrar" class="btn btn-lg">
+        </div>
+           </form>
+
+</div>
+
+
+    </section>
+
+        <!--</form>-->
+ 
+
+</header>
 
         <!-- Portfolio Grid Section -->
         <section id="campus">
@@ -110,16 +231,16 @@
                         <hr class="star-primary">
                     </div>
                 </div>
-                <div class="row">
+                <div style="width:250px" class="row">
 
                     <form action="?rt=root/campus" method="post">
-                        <label>Endreco: </label></br>
-                        <input type="text" name="endereco" id="endereco"/></br>
+                        <label>Endreço: </label></br>
+                        <input class="form-control" type="text" name="endereco" id="endereco"/></br>
                         <label>Nome</label></br>
-                        <input type="text" name="nome" id="nome"/></br>
-                        <label>Codigo</label></br>
-                        <input type="text" name="codigo" id="codigo"/></br>
-                        <input type="submit" value="Cadastrar"/>
+                        <input class="form-control" type="text" name="nome" id="nome"/></br>
+                        <label>Código</label></br>
+                        <input class="form-control" type="text" name="codigo" id="codigo"/></br>
+                        <input class="btn btn-success btn-lg" type="submit" value="Cadastrar"/>
                     </form>
 
                 </div>
@@ -137,13 +258,13 @@
                         <hr class="star-primary">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="width:250px">
 
                     <form action="?rt=root/instalacao" method="post">
                         <label>Endreco: </label></br>
-                        <input type="text" name="endereco" id="endereco"/></br>
+                        <input class="form-control" type="text" name="endereco" id="endereco"/></br>
                         <label>Instalacao</label></br>
-                        <input type="text" name="instalacao" id="instalacao"/></br>
+                        <input class="form-control" type="text" name="instalacao" id="instalacao"/></br>
                         <label>Campus</label></br>
 
                         <select name="campus">
@@ -154,7 +275,8 @@
                             ?>
                         </select>
                     </br>
-                    <input type="submit" value="Cadastra"/>
+                    <br>
+                    <input class="btn btn-success btn-lg" type="submit" value="Cadastra"/>
                 </form>
 
             </div>
@@ -171,7 +293,7 @@
                     <hr class="star-primary">
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="width:250px">
 
                 <form action="?rt=root/addDepartamento" method="post">
                 <label>Instalacao </label></br>
@@ -184,9 +306,9 @@
                     ?>
                 </select></br>
                 <label>Nome</label></br>
-                <input type="text" name="nome" id="nome"/></br>
+                <input class="form-control" type="text" name="nome" id="nome"/></br>
 
-                <input type="submit" value="Cadastra"/>
+                <input class="btn btn-success btn-lg" type="submit" value="Cadastra"/>
             </form>
         </div>
     </div>
@@ -201,14 +323,15 @@
                 <hr class="star-primary">
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="width:250px">
 
             <form action="?rt=root/addUser" name="user" method="post">
                 <label>Login:</label>
-                <input type="text" name="login" />
+                <input class="form-control" type="text" name="login" />
                 <label>Senha:</label>
-                <input type="password" name="senha" />
-                <input type="submit" value="Cadastra"/>
+                <input class="form-control" type="password" name="senha" />
+                <br>
+                <input class="btn btn-success btn-lg" type="submit" value="Cadastra"/>
             </form>
 
 
@@ -216,17 +339,222 @@
     </div>
 </section>
 
+
+<!-- Cadastro Evento -->
+<?php  ?>
+    <section id="cadastroEvento">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Publique seu Evento</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+
+            <div class="row" >
+
+                <div class="col-lg-8 col-lg-offset-2">
+                
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    
+                <div id="form_novo_evento">
+                <form method="post" enctype="multipart/form-data" action="?rt=index/addEvento">
+
+
+                <div class="row control-group" style="width:250px">
+                    <fieldset>
+                        <label>Nome do evento</label>
+                        <input class="form-control" type="text" name="titulo_evento"/>
+                    </fieldset>
+                </div>
+                <br>
+                    
+                <div class="row control-group" style="width:350px">
+                    <fieldset>
+                        <label>Cartaz</label>
+                        <input class="form-control" type="file" name="cartaz_evento"/>
+                    </fieldset>
+                </div>
+
+                <br>
+
+                <div class="row control-group" style="width:250px">    
+                    <fieldset>
+                        <label>Link</label>
+                        <input class="form-control" type="text" name="link_evento"/>
+                    </fieldset>
+                </div>
+
+                <br>
+                    
+                <div class="row control-group" style="width:250px">
+                    <fieldset>
+                        <label>Data de inicio</label>
+                        <input class="form-control" type="date" name="data_inicio_evento"/>
+                    </fieldset>
+                </div>
+
+                <br>
+
+                <div class="row control-group" style="width:250px">
+                    <fieldset>
+                        <label>Data de termino</label>
+                        <input class="form-control" type="date" name="data_fim_evento"/>
+                    </fieldset>
+                </div>
+
+                <br>
+
+                <div class="row control-group" style="width:250px;">
+                    <fieldset>
+                        <label>Descrição</label>
+                        <textarea class="form-control" name="descricao_evento"></textarea>
+                    </fieldset>
+                </div>
+                    
+                    <!-- 
+                      --
+                      -- FORMULARIO DE ATIVIDADES
+                      --
+                      -->
+                    
+                    <h2>Atividades</h2>
+                    
+                    <div id="data_atividade">
+                        <div id="form_atividades">
+                            <hr/>
+                            
+                        <div class="row control-group" style="width:250px">
+                            <fieldset>
+                                <label>Data da atividade</label>
+                                <input class="form-control" type="date" name="data_atividade[]"/>
+                            </fieldset>
+                        </div>
+                            
+                        <br>
+
+                        <div class="row control-group" style="width:250px">
+                            <fieldset>
+                                <label>Titulo da atividade</label>
+                                <input class="form-control" type="text" name="titulo_atividade[]"/>
+                            </fieldset>
+                        </div>
+                            
+                        <br>
+                            
+                        <div class="row control-group" style="width:250px">
+                            <fieldset>
+                                <label>Horário da atividade</label>
+                                <input class="form-control" type="time" name="horario_atividade[]"/>
+                            </fieldset>
+                        </div>
+
+                        <br>
+
+                        <div class="row control-group" style="width:250px">
+                            <fieldset>
+                                <label>Descrição da atividade</label>
+                                <textarea class="form-control" name="descricao_atividade[]"></textarea>
+                            </fieldset>
+                        </div>
+
+                        <br>
+
+                        <div class="row control-group" style="width:250px">
+                            <label>Local</label>
+                                
+                            <fieldset>
+                                <select name="instalacao_evento" size="10">
+                                    <optgroup label="CAMPUS">
+                                    <?php
+                                        foreach($todos_campus as $campi) {
+                                    ?>
+                                    <option value="<?php echo $campi['codigo']; ?>"><?php echo $campi['nome']; ?></option>
+                                    <?php } ?>
+                                    </optgroup>
+                                    
+                                    <optgroup label="INSTALAÇÃO">
+                                    <?php
+                                        foreach($instalacoes as $instalacao) {
+                                    ?>
+                                    <option value="<?php echo $instalacao['localidade_id']; ?>"><?php echo $instalacao['predio']; ?></option>
+                                    <?php } ?>
+                                    </optgroup>
+                                    
+                                    <optgroup label="DEPARTAMENTO">
+                                    <?php
+                                        foreach($departamentos as $departamento) {
+                                    ?>
+                                    <option value="<?php echo $departamento['codigo']; ?>"><?php echo $departamento['nome']; ?></option>
+                                    <?php } ?>
+                                    </optgroup>
+                                </select>
+                            </fieldset>
+                        </div>
+                            <hr/>
+                        </div>
+                        
+                        <div id="novas_atividades"></div>
+                    </div>
+                    
+                    <input class="btn " type="button" value="Adicionar Atividade" onclick="add_atividade();"/>
+                    
+                    <!-- 
+                      --
+                      -- FORMULARIO DE APOIADORES
+                      --
+                      -->
+                    
+                    <br/>
+
+                    <h2>Apoiadores</h2>
+                    <div id="apoiadores">
+                        <div id="form_apoiadores">
+                            <hr/>
+                        
+                        <div class="row control-group" style="width:250px">
+                            <fieldset>
+                                <label>Nome do apoiador</label>
+                                <input class="form-control" type="text" name="nome_apoiador[]"/>
+                            </fieldset>
+                        </div>
+                        <br>
+                        <div class="row control-group" style="width:350px">
+                            <fieldset>
+                                <label>Imagem do apoiador</label>
+                                <input class="form-control" type="file" name="imagem_apoiador[]"/>
+                            </fieldset>
+                        </div>
+                            <hr/>
+                        </div>
+                        
+                        <div id="novos_apoiadores"></div>
+                    </div>
+                    <div class="row control-group">
+                        <input  class="btn " type="button" value="Adicionar Apoiador" onclick="add_apoiador();"/><br/><hr/>
+                        <input class="btn btn-success btn-lg" type="submit" value="Cadastrar Evento"/>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<?php  ?>
+
+
 <!-- Footer -->
 <footer class="text-center">
     <div class="footer-above">
         <div class="container">
             <div class="row">
                 <div class="footer-col col-md-4">
-                    <h3>Location</h3>
-                    <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                    <h3>UFBA CONVIDA</h3>
+                    <p>Desenvolvido para o trabalho da disciplina de Bancos de Dados - 2014.2</p>
                 </div>
                 <div class="footer-col col-md-4">
-                    <h3>Around the Web</h3>
                     <ul class="list-inline">
                         <li>
                             <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
@@ -246,8 +574,7 @@
                     </ul>
                 </div>
                 <div class="footer-col col-md-4">
-                    <h3>About Freelancer</h3>
-                    <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    <p>Sistema de Divulgação de Eventos<br>Universidade Federal da Bahia <br>Salvador - 2014.</p>
                 </div>
             </div>
         </div>
@@ -256,243 +583,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    Copyright &copy; Your Website 2014
+                    Copyright &copy; UFBA Convida 2014
                 </div>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-<div class="scroll-top page-scroll visible-xs visble-sm">
-    <a class="btn btn-primary" href="#page-top">
-        <i class="fa fa-chevron-up"></i>
-    </a>
-</div>
 
-<!-- Portfolio Modals -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Project Title</h2>
-                        <hr class="star-primary">
-                        <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                        <ul class="list-inline item-details">
-                            <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                </strong>
-                            </li>
-                            <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
-                                </strong>
-                            </li>
-                            <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
-                                </strong>
-                            </li>
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Project Title</h2>
-                        <hr class="star-primary">
-                        <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                        <ul class="list-inline item-details">
-                            <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                </strong>
-                            </li>
-                            <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
-                                </strong>
-                            </li>
-                            <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
-                                </strong>
-                            </li>
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Project Title</h2>
-                        <hr class="star-primary">
-                        <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                        <ul class="list-inline item-details">
-                            <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                </strong>
-                            </li>
-                            <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
-                                </strong>
-                            </li>
-                            <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
-                                </strong>
-                            </li>
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Project Title</h2>
-                        <hr class="star-primary">
-                        <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                        <ul class="list-inline item-details">
-                            <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                </strong>
-                            </li>
-                            <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
-                                </strong>
-                            </li>
-                            <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
-                                </strong>
-                            </li>
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Project Title</h2>
-                        <hr class="star-primary">
-                        <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                        <ul class="list-inline item-details">
-                            <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                </strong>
-                            </li>
-                            <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
-                                </strong>
-                            </li>
-                            <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
-                                </strong>
-                            </li>
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Project Title</h2>
-                        <hr class="star-primary">
-                        <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-                        <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                        <ul class="list-inline item-details">
-                            <li>Client:
-                                <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                </strong>
-                            </li>
-                            <li>Date:
-                                <strong><a href="http://startbootstrap.com">April 2014</a>
-                                </strong>
-                            </li>
-                            <li>Service:
-                                <strong><a href="http://startbootstrap.com">Web Development</a>
-                                </strong>
-                            </li>
-                        </ul>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>

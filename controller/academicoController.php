@@ -90,10 +90,16 @@ Class academicoController Extends baseController {
 
 				$professor_logado = db::getInstance()->query($query);
 
+				
+					foreach (db::getInstance()->query($query) as $row){
+						$professor_logado = $row;
+					}
+				
 				if (isset($professor_logado)) {
 
 					$_SESSION['id']     = $professor_logado['academico_id'];
 					$_SESSION['siape'] 	= $professor_logado['siape'];
+
 
 					$this->registry->template->mensagem = "Login feito com sucesso.";
 				}else{
@@ -108,15 +114,22 @@ Class academicoController Extends baseController {
 				$condicao = "matricula = ".$aluno->getMatricula()." and senha = ".$aluno->getSenha();
 				$query  = $aluno->selecionarAluno($condicao);
 
+				$aluno_logado = null;
+
 				foreach (db::getInstance()->query($query) as $row){
 					$aluno_logado = $row;
 				}
 
-				$_SESSION['id']     = $aluno_logado['academico_id'];
-				$_SESSION['matricula'] 	= $aluno_logado['matricula'];
 				
+				
+				
+
+
 				if (isset($aluno_logado)) {
+					$_SESSION['id']     = $aluno_logado['academico_id'];
+					$_SESSION['matricula'] 	= $aluno_logado['matricula'];
 					$this->registry->template->mensagem = "Login feito com sucesso.";
+
 				}
 				else
 				{
