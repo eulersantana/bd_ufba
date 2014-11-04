@@ -104,7 +104,7 @@
 						</fieldset>
 						
 						<fieldset>
-							<label>Titulo da atividade</label>
+							<label>Horário da atividade</label>
 							<input type="time" name="horario_atividade[]"/>
 						</fieldset>
 						
